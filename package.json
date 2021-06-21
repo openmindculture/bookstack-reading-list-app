@@ -1,0 +1,21 @@
+{
+  "name": "tailwind-jit-mern",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "tailwind jit mern app starter client",
+  "private": true,
+  "name": "example-monorepo",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "yarn workspace client start",
+    "server": "yarn workspace server start",
+    "database": "yarn workspace server start-db",
+    "start": "concurrently --kill-others-on-fail \"yarn database\"  \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}

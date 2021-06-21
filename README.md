@@ -17,7 +17,7 @@ to be deployed on the cloud. TypeScript is currently only used in the front-end.
 ```
 ./install.sh
 ./start.sh        # starts client
-cd server/src
+cd server
 docker-compose up # starts local mongo db
 yarn watch        # starts local node server
 ```

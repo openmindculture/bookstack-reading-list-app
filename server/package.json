@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/api-service/index.js",
+    "start-db": "docker-compose up",
     "watch": "nodemon src/api-service/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
