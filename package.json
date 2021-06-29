@@ -1,10 +1,9 @@
 {
-  "name": "tailwind-jit-mern",
+  "name": "bookstack-reaing-list",
   "version": "0.1.0",
   "license": "MIT",
   "description": "tailwind jit mern app starter client",
   "private": true,
-  "name": "example-monorepo",
   "workspaces": [
     "client",
     "server"
