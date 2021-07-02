@@ -19,4 +19,4 @@ COPY . /usr/src/app
 #container exposed network port number
 EXPOSE 9000
 #command to run within the container, MUST be double quotes
-CMD ["npm", "start"]
+CMD ["npm", "run", "start-node-server"]
