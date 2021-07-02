@@ -11,8 +11,11 @@
   "scripts": {
     "client": "yarn workspace client start",
     "server": "yarn workspace server start",
-    "database": "yarn workspace server start-db",
-    "start": "concurrently --kill-others-on-fail \"yarn database\"  \"yarn server\" \"yarn client\""
+    "// database": "yarn workspace server start-db",
+    "//": "server includes database, both communicate via docker network",
+    "// ": "don't  --kill-others-on-fail we want to have a resilient decoupled cloud setup",
+    "start": "concurrently \"yarn server\" \"yarn client\"",
+    "deploy": "echo 'deploying apps to the cloud...'"
   },
   "dependencies": {
     "concurrently": "^6.2.0"

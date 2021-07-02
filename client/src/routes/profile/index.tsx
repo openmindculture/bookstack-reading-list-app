@@ -1,6 +1,7 @@
 /** @jsx h */
 import { h, FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
+import fetchRetry from '../../util/fetchRetry.js';
 
 const API_ORIGIN = 'http://localhost:9000';
 const asJson = r => r.json();
@@ -14,9 +15,12 @@ const Profile: FunctionComponent<{ user?: string }> = ({ user }) => {
   const [count, setCount] = useState(10);
 
   const loadItems = () => {
-    fetch(`${API_ORIGIN}/v0/`)
-      .then(asJson)
-      .then(items => setItems(items));
+    fetchRetry(`${API_ORIGIN}/v0/`)
+      .then(asJson) // Cannot read property 'json' of undefined
+      .then(items => setItems(items))
+      .catch((err) => {
+        console.log(`failed to fetch (catching fetchRetry.catch) err: ${err}`);
+      });
   }
 
   return (
