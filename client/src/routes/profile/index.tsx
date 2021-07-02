@@ -4,7 +4,6 @@ import { useState } from 'preact/hooks';
 import fetchRetry from '../../util/fetchRetry.js';
 
 const API_ORIGIN = 'http://localhost:9000';
-const asJson = r => r.json();
 
 // Note: `user` comes from the URL, courtesy of our router
 // so it is actually only a string containing a name, not a user object,
@@ -16,7 +15,6 @@ const Profile: FunctionComponent<{ user?: string }> = ({ user }) => {
 
   const loadItems = () => {
     fetchRetry(`${API_ORIGIN}/v0/`)
-      .then(asJson) // Cannot read property 'json' of undefined
       .then(items => setItems(items))
       .catch((err) => {
         console.log(`failed to fetch (catching fetchRetry.catch) err: ${err}`);
