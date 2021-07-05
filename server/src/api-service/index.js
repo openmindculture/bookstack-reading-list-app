@@ -24,7 +24,7 @@ app.use('/api', apiRouter)
 
 app.get('/v0/', (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.send('{"1": "Hallo"}');
+  res.send('[{"Title": "Hallo"}]');
 });
 
 app.post('/v0/hello/:name', (req, res) => {

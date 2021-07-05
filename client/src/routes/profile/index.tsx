@@ -17,9 +17,13 @@ const Profile: FunctionComponent<{ user?: string }> = ({ user }) => {
     fetchRetry(`${API_ORIGIN}/v0/`)
       .then(items => setItems(items))
       .catch((err) => {
-        console.log(`failed to fetch (catching fetchRetry.catch) err: ${err}`);
+        console.error(`failed to fetch (catching fetchRetry.catch) err: ${err}`);
       });
   }
+
+  type ExampleItem = {
+    Title: string
+  };
 
   return (
     <div>
@@ -36,9 +40,13 @@ const Profile: FunctionComponent<{ user?: string }> = ({ user }) => {
       </p>
 
       <h2>Items</h2>
-      <p>
-        {items}
-      </p>
+      <ul class="list-disc">
+        {items.map((item: ExampleItem) => (
+          <li>
+            {item.Title}
+          </li>)
+        )}
+      </ul>
 
       <p>
         <button onClick={() => setCount((count) => count + 1)}>Click Me</button>{' '}
