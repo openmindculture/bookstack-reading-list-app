@@ -5,7 +5,7 @@
 A Reading List web app built using Preact, TypeScript and Tailwind CSS with typography, forms, tailwind JIT compilation, and a simple back-end based on Node, Express, and MongoDB.
 
 This is the first project based on my [Tailwind-JIT-MERN-Starter](https://github.com/openmindculture/tailwind-jit-mern),
-which was forked from forked from [Retinafunk's Tailwind-JIT-Starter](https://github.com/retinafunk/tailwind-jit).
+which was forked from [Retinafunk's Tailwind-JIT-Starter](https://github.com/retinafunk/tailwind-jit).
 
 The app should be deployed "in the cloud" (e.g. on Amazon Web Services).
 TypeScript is currently only used in the front-end.
