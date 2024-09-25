@@ -35,3 +35,25 @@ yarn start        # starts complete app in local development mode
 starts a live preview server on
 
 (http://localhost:8080)
+
+## roadmap
+
+- [x] start initial proof of concept
+- [x] document ideas and roadmap
+- [ ] register domain
+- [ ] release placeholder text with backlinks
+- [ ] update requirements and prioritization
+  - "serverless" backend and focus on the front-end
+  - Tailwind without optional extras
+  - Pract vs. React (again, keep it simple and stick to the mainstream)
+  - Astro
+  - Cypress
+- [ ] release a minimal viable product (MVP)
+- [ ] run audits and document results (Lighthouse, WAVE, WebPageTest, WebsiteCarbon, Green Web Check, Domain Authority)
+- [ ] list and link the web app to increase incoming backlinks
+- [ ] increase test coverage
+  - unit tests
+  - end-to-end tests
+  - frontend tests, including Screenshots and accessibility audits
+- [ ] localize app (German and English)
+- [ ] add more content
