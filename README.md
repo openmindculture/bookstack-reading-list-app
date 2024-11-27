@@ -2,12 +2,9 @@
 
 **This is a work in progress, not meant to be used in production (at least not yet).**
 
-A Reading List web app built using Preact, TypeScript and Tailwind CSS with typography, forms, tailwind JIT compilation, and a simple back-end based on Node, Express, and MongoDB.
+A Reading List web app built using Astro, React, TypeScript and Tailwind CSS with typography, and web forms.
 
-This is the first project based on my [Tailwind-JIT-MERN-Starter](https://github.com/openmindculture/tailwind-jit-mern),
-which was forked from [Retinafunk's Tailwind-JIT-Starter](https://github.com/retinafunk/tailwind-jit).
-
-The app should be deployed "in the cloud" (e.g. on Amazon Web Services).
+The app should be deployed "in the cloud" (e.g. on Netlify Web Services).
 TypeScript is currently only used in the front-end.
 
 ## live demo
@@ -18,18 +15,23 @@ TODO
 
 The article [Building a Reading List web app with Node, Preact, and Tailwind CSS](https://dev.to/ingosteinke/building-a-reading-list-web-app-with-node-preact-and-tailwind-css-44pa) elaborates on my motivation and project history.
 
+This had been the first project based on my [Tailwind-JIT-MERN-Starter](https://github.com/openmindculture/tailwind-jit-mern),
+which was forked from [Retinafunk's Tailwind-JIT-Starter](https://github.com/retinafunk/tailwind-jit).
+
+[I](https://www.ingo-steinke.com/) migrated it to a simpler proof of concept demo using Astro in 2024.
+
 ## requirements
 
 - git
-- node + yarn (or npm)
-- docker + docker-compose
+- node + npm
+- docker
 - shell (bash / WSL)
 - browser + curl (or postman) for manual testing
 
 ## getting started
 
 ```
-yarn start        # starts complete app in local development mode
+npm start        # starts complete app in local development mode
 ```
 
 starts a live preview server on
@@ -40,12 +42,12 @@ starts a live preview server on
 
 - [x] start initial proof of concept
 - [x] document ideas and roadmap
-- [ ] register domain
+- [x] register domain
 - [ ] release placeholder text with backlinks
 - [ ] update requirements and prioritization
   - "serverless" backend and focus on the front-end
   - Tailwind without optional extras
-  - Pract vs. React (again, keep it simple and stick to the mainstream)
+  - Preact vs. React (again, keep it simple and stick to the mainstream)
   - Astro
   - Cypress
 - [ ] release a minimal viable product (MVP)

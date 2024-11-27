@@ -1,8 +1,8 @@
 {
   "name": "client",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
-  "description": "tailwind jit mern app starter client",
+  "description": "astro tailwind mern app client",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",

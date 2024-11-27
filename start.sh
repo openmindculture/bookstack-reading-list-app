@@ -1,1 +1,1 @@
-cd client && yarn start
+cd client && npm start
