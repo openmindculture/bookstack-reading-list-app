@@ -2,15 +2,89 @@
 
 ---
 
-<html lang="en">
+<html lang="de">
 	<head>
-		<meta charset="utf-8" />
+    <title>Dev-UX-Lesezeichen</title>
+    <meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+    <style>
+      body {
+        background-color: #3b82f680;
+      }
+
+      main {
+        background-color: #e3f3ff;
+        color: #161f2d;
+        padding: 1rem;
+        font-family: Georgia, serif;
+        line-height: 1.5;
+        border-radius: 5px;
+      }
+    </style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+    <main>
+      <h1>Dev-UX-Lesezeichen</h1>
+      <p>Bald an dieser Stelle: eine einfache Web-App zur digitalisierung deines Stapels ungelesener Fachbücher.
+        Entdecke interessante Vorschläge aus den Bereichen Webdesign, Webentwicklung, DevUX-Kollaboration/Co-Creation,
+        UX/UI, Barrierefreiheit, nachhaltiges Webdesign und nachhaltige Webentwicklung.
+        Lesezeichen können ohne Anmeldung gesetzt, angesehen und ausgedruckt werden.
+        Deine Lesezeichen werden dann nur auf deinem eigenen Computer bzw. Smartphone gespeichert.
+        Angemeldete Leserinnen und Leser können selbst Bücher hinzufügen und bestehende Einträge bearbeiten.
+        Das Einlesen von Titeln durch Scannen von Barcodes ist geplant, aber zurzeit noch nicht möglich.
+      </p>
+      <h2>Lesezeichen, Bookmarks, Bücher?</h2>
+      <p>Auf dieser Seite geht es um Merklisten und Empfehlungen für Bücher, also alles was mit oder ohne eigene ISBN auf dem
+        Buchmarkt erschienen ist. Dazu gehören grundsätzlich auch E-Books im Self Publishing, aber keine Webseiten.
+        Wenn du an derartigen Bookmarks interessiert bist, findest du bereits viele Angebote.
+      </p>
+
+      <h2>Themen, Tags und Kategorien</h2>
+      <p>
+        Unsere Bücherlisten werden zunächst recht minimalistisch beschrieben: Autor, Titel, ISBN und Tags sollten genügen,
+        weitere objektive Informationen lassen sich größtenteils dynamisch anhand der ISBN ermitteln. Auch Autor und Titel
+        sind bereits redundant. Herausgeber, Verlag, Verkäufer, Preis und Bezugsquellen für Gebrauchtwaren, was besonders
+        bei vergriffenen Titeln interessant sein dürfte. Eine Kategorisierung ist immer schwierig, eine Verschlagwortung
+        mithilfe von (Hash-) Tags einfacher und erweiterbarer.
+      </p>
+
+      <h2>Sprachen</h2>
+      <p>
+        Grundsätzlich können Fachbücher in allen Sprachen in die Liste aufgenommen werden, zumal viele Fachbücher im IT- und
+        Design-Bereich ohnehin nicht auf Deutsch, sondern hauptsächlich auf Englisch erschienen sind. Wenn ein Buch auf
+        Deutsch herausgegeben wurde, sollte bevorzugt die deuschsprachige Ausgabe aufgenommen werden.
+      </p>
+
+      <h2>Schlagworte (Tags)</h2>
+      <p>
+        Die Liste der Schlagworte ist grundsätzlich beliebig erweiterbar. Neueinträge sollten sich an bestehenden Schlagworten
+        orientieren und vermeiden, unnötig viele neue Tags anzulegen. Mit folgenden Tags könnten die ersten Einträge versehen
+        werden: webdesign, webentwicklung, ux, ui, devux, devops, kollaboration, cocreation, management, wirtschaft, ökologie,
+        nachhaltigkeit, barrierefreiheit, internationalisierung, usability, grafikdesign, print, theorie, grundlagen, politik,
+        geschichte, biografie, anleitung, programmierung, prüfungsfragen, bildband, inspiration, methodik, katalog, seo.
+      </p>
+
+      <h2>Ergänzungen und Korrekturen</h2>
+      <p>
+        Falls du Fehler finden solltest, sende uns gerne eine formlose Nachricht. Alternativ kannst du einen Zugang zum
+        Bearbeiten beantragen, um selbst fehlende Informationen und Einträge zu ergänzen und bestehende Lesezeichen zu
+        erweitern und zu korrigieren. Grundsätzlich bleibt es den Betreibern vorbehalten, Werke nicht aufzunehmen oder
+        bestehende Einträge ohne Angaben von Gründen zu löschen.
+      </p>
+
+      <h2>Haftungsausschluss (Disclaimer)</h2><p>
+      Diese Web-App wird ohne Gewähr gratis bereitgestellt und kann sich jederzeit ändern oder abgeschaltet werden.
+      Es handelt sich um öffentliche Beta-Software, die hauptsächlich als Beispiel für die Programmierung mit
+      Astro, React und TypeScript dient. Wenn du selbst eine ähnliche App gebrauchen kannst,
+      fordere gerne ein unverbindliches Angebot an!</p>
+      <h2>Impressum</h2>
+      <p>
+        Verantwortlich für dieses Angebot ist
+        <a href="https://www.ingo-steinke.de" target="_blank" rel="noopener">Ingo Steinke, Webentwickler</a>,
+        Donaustr. 83, 12043 Berlin.
+      </p>
+    </main>
 	</body>
 </html>
