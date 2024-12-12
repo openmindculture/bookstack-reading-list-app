@@ -1,23 +1,14 @@
 {
   "name": "bookstack-reaing-list",
-  "version": "0.1.0",
-  "license": "MIT",
-  "description": "tailwind jit mern app starter client",
-  "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ],
+  "version": "0.2.0",
+  "type": "module",
   "scripts": {
-    "client": "yarn workspace client start",
-    "server": "yarn workspace server start",
-    "// database": "yarn workspace server start-db",
-    "//": "server includes database, both communicate via docker network",
-    "// ": "don't  --kill-others-on-fail we want to have a resilient decoupled cloud setup",
-    "start": "concurrently \"yarn server\" \"yarn client\"",
-    "deploy": "echo 'deploying apps to the cloud...'"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "concurrently": "^6.2.0"
+    "astro": "^5.0.5"
   }
 }

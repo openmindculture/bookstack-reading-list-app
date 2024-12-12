@@ -1,1 +1,0 @@
-cd client && npm start
