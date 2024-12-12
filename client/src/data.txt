@@ -1,0 +1,56 @@
+TODO: convert to structured front matter
+
+The Front End Developer/Engineer Handbook 2024
+Written by Cody Lindley for Frontend Masters
+https://frontendmasters.com/guides/front-end-handbook/2024/
+
+https://dev.to/ingosteinke/wcag-and-web-accessibility-beyond-naive-misconceptions-766
+
+https://www.tempertemper.net/blog/wcag-but-in-language-i-can-understand
+
+https://web.dev/learn/accessibility
+
+https://css-tricks.com/accessible-web-animation-the-wcag-on-animation-explained/
+
+https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/
+
+https://www.tpgi.com/new-success-criteria-in-wcag22/
+
+https://makeitfable.com/article/wcag-2-2/
+
+https://dev.to/ingosteinke/stackoverflow-alternatives-for-web-developers-30o2#reading-recommendations
+
+web-ux-lesezeichen.de
+
+Gut und schön mit Flip Cards: http://www.uxbookmarks.com/
+aber die ist auf englisch und bookmarkt Websites, meine Liste soll sich auf potenziell gedruckte Bücher beziehen, also veröffentlichte Werke.
+
+https://www.open-mind-culture.org/973/lesetipps-open-mind-web-tech/
+
+Einige Inspiration als Nebenprodukt der Keywordrecherche:
+
+https://www.blinkist.com/de/content/collections/user-experience-is-everything
+https://www.lesezeichen-kempten.de/shop/item/9783836299039/praxisbuch-usability-und-ux-von-jens-meyer-jacobsen-gebundenes-buch
+https://stephaniewalter.design/blog/bibliography-selected-books-about-design-user-experience/
+https://sustainablewebdesign.org/
+https://www.routledge.com/Designing-for-Usability-Inclusion-and-Sustainability-in-Human-Computer-Interaction/Stephanidis-Salvendy/p/book/9781032370019?srsltid=AfmBOorRQD1DDZXRP5YWvTChnluWfoW12ccYGzeYPCSQRdrOE8bUodv7
+https://abookapart.com/products/sustainable-web-design.html
+https://quinnkeast.medium.com/accessibility-designing-sustainability-2ebcf9ad4ad9
+Design for Real Life
+Intersectional Environmentalist
+und noch mehrere selbst gelesene Klassiker auch zu UX und WebPerf
+
+Debugging CSS
+Ahmad Shadeed
+
+sowie vom a11y Meetup Januar Berlin
+Caroline Criado: Invisible Women - Data Bias in a World designed for Men
+
+Thoughtworks: A practitioner's accessibility handbook
+
+https://www.smashingmagazine.com/2023/10/roundup-wcag-explainers/
+
+Sara Soueidan:
+"The sustainable dev is a series of developer resources, blog posts and long-form case studies that help to inform the developer community and encourage action to make the web greener and more sustainable." By
+@Nickylewlew
+https://the-sustainable.dev 💚
