@@ -9,7 +9,11 @@ TypeScript is currently only used in the front-end.
 
 ## live demo
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1b0c9e7c-03c3-4c70-b6bf-cb8d0da569e8/deploy-status)](https://app.netlify.com/sites/uxdevlesezeichen/deploys)
+
 https://uxdevlesezeichen.netlify.app/
+
+https://dev-ux-lesezeichen.de/
 
 ## background: motivation and history
 
