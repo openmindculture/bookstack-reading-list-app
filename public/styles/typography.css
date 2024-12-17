@@ -31,9 +31,9 @@
 }
 
 @font-face {
-  font-family: 'LK Struktrio';
-  src: url('/fonts/LK_Struktio.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Dx Lactos';
+  src: url('/fonts/DxLactos-Regular-free.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -46,6 +46,6 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'LK Struktrio', Helvetica, Verdana, sans-serif;
+  font-family: 'Dx Lactos', Helvetica, Verdana, sans-serif;
   font-weight: 700;
 }
