@@ -1,0 +1,14 @@
+@import url("styles/typography.css");
+
+body {
+  background-color: #3b82f680;
+}
+
+main {
+  background-color: #e3f3ff;
+  color: #161f2d;
+  padding: 1rem;
+  font-family: Georgia, serif;
+  line-height: 1.5;
+  border-radius: 5px;
+}
