@@ -12,3 +12,20 @@ main {
   border-radius: 5px;
   font-size: 1.25rem;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  word-wrap: break-word;
+  margin: 1rem 0 0 0;
+  color: #401f6b;
+}
+
+h1 {
+  font-size: 5rem;
+  font-size: clamp(5rem, 10ch, 24rem);
+}
+
+h2 {
+  font-size: 4rem;
+  font-size: clamp(4rem, 7ch, 5rem);
+}
