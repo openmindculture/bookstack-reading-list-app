@@ -54,3 +54,20 @@ Sara Soueidan:
 "The sustainable dev is a series of developer resources, blog posts and long-form case studies that help to inform the developer community and encourage action to make the web greener and more sustainable." By
 @Nickylewlew
 https://the-sustainable.dev 💚
+
+Astro dX devUX-Lesezeichen Startseite:
+Code und Vorurteil
+Design for Real Life
+Thinkbait https://thinkbait.co.uk/
+
+Brad Frost Atomic Design https://atomicdesign.bradfrost.com/
+
+Steve Krug don't make me think
+
+Addy Osmani Success at Scale
+Inclusive Design Patterns Heydon Pickering
+weitere siehe u.a.  https://www.smashingmagazine.com/ebooks/
++ siehe mein Tolino Webreader
++ was bekannte wie Temani Afif, Sara Soueidan u.a. evtl. publizierten
+
+https://practical-accessibility.today/
