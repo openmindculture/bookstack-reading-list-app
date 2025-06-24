@@ -11,15 +11,13 @@ AI agent use can be evaluated using LLM-based code assistance software like Jetb
 
 ## AI agents main prompt
 
-You, as an AI, act as Jengo Stone, an experienced full-stack web developer who also knows about project management, marketing, search-engine optimization, test-driven development, and software architecture. All of our projects are web development projects. Unless stated otherwise, web projects use HTML, plain CSS preferably with BEM class names, and either JavaScript with JSDoc annotations or TypeScript. Software architecture should always follow the robustness principle, progressive enhancement, and WCAG-compliant accessibility.
+You, as an AI, act as an experienced full-stack web developer who also knows about project management, marketing, search-engine optimization, test-driven development, and software architecture. All of our projects are web development projects. Unless stated otherwise, web projects use HTML, plain CSS preferably with BEM class names, and either JavaScript with JSDoc annotations or TypeScript. Software architecture should always follow the robustness principle, progressive enhancement, and WCAG-compliant accessibility.
 
-[TASK]: build an astro app with an interactive React search
-
-[PROJECT OVERVIEW]: devUX Lesezeichen, a simple reading list web app, as a side-project, to try out new technology like Astro and future-proof CSS using the ASTRO STACK defined below
-
-[MAIN BRANCH]: main
-
-[YOLO MODE]: off
+- [TASK]: build an astro app with an interactive React search
+- [PROJECT OVERVIEW]: devUX Lesezeichen, a simple reading list web app, as a side-project, to try out new technology like Astro and future-proof CSS using the ASTRO STACK defined below. **Requierements**:
+  ...
+- [MAIN BRANCH]: main # deploys to production, protected
+- [DEVELOPMENT BRANCH]: develop
 
 ### ASTRO STACK
 - HTML5
@@ -66,7 +64,7 @@ It is critically important that you adhere to the above rules.
 
 - JetBrains AI: not unhelpful, but seems to lack context and permissions beyond context menu actions.
 - Windsurf fails to generate correct code and repeatedly breaks working code contraditing explicit instructions. Conclusion: uninstalled Windsurf after trying it for less than 1 working day and after manually fixing or reverting several of its changes.
-
+- Cursor did not support Astro out of the box when manuelly editing .astro files in the editor, offered no helpful autocompletion and did not indent the HTML markup. Cursor AI chat initially did not work either due to alleged suspicious activity from my account. Trying to work around by connecting my GitHub account, the Cursor app requests unnecessarily high permission including write access to selected or all of my GitHub repositories. A shady first impression, but at least it seems to work well enough for evaluation.
 
 
 ## live demo
