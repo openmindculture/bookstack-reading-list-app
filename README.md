@@ -65,6 +65,7 @@ It is critically important that you adhere to the above rules.
 - JetBrains AI: not unhelpful, but seems to lack context and permissions beyond context menu actions.
 - Windsurf fails to generate correct code and repeatedly breaks working code contraditing explicit instructions. Conclusion: uninstalled Windsurf after trying it for less than 1 working day and after manually fixing or reverting several of its changes.
 - Cursor did not support Astro out of the box when manuelly editing .astro files in the editor, offered no helpful autocompletion and did not indent the HTML markup. Cursor AI chat initially did not work either due to alleged suspicious activity from my account. Trying to work around by connecting my GitHub account, the Cursor app requests unnecessarily high permission including write access to selected or all of my GitHub repositories. A shady first impression, but at least it seems to work well enough for evaluation.
+- Google Gemini wins the evaluation so far, as it generates correct code and helpful hints just with some text prompts in a browser-based chat session without requiring any additional context or software installation.
 
 
 ## live demo
