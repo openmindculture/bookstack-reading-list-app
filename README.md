@@ -54,7 +54,8 @@ Prefer solutions that work across all UNIX-like environments like Linux, macOS, 
 6. In Astro, prefer native HTML elements like <head> over overengineered custom elements like <Head> unless they are necessary.
 7. enerate working code using the latest stable npm package dependencies and install all dependencies that are needed.
 8. Don't generate faulty code that you are able to fix, generate error-free code in the first place!
-9. In TypeScript:
+9. Don't change code based on assumptions, especially if the code is currently correct, don't try to fix it. For example, don't downgrade ESLint based on the false claim that the version 9.29.0 does not exist, if it does.
+10. In TypeScript:
 - Do not use the 'any' type.
 - Do not use the non-null assertion operator (`!`).
 - Do not cast to unknown (e.g. `as unknown as T`).
