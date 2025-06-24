@@ -1,27 +1,25 @@
 ---
 import { Head } from 'astro';
-import type { AstroComponentFactory } from 'astro';
 
 interface LayoutProps {
   title: string;
-  children: AstroComponentFactory;
 }
 
-const { title, children } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <Head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    <meta name="description" content="A modern reading list application" />
+    <meta name="description" content="Eine moderne Lesezeichen-App für Webdesign, UX und Webentwicklung" />
     <link rel="icon" type="image/svg+xml" href="/Astro.svg" />
   </Head>
   <body class="bg-gray-100 min-h-screen">
     <main class="container mx-auto px-4 py-8">
-      {children}
+      {Astro.props.children}
     </main>
   </body>
 </html>
