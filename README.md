@@ -62,6 +62,12 @@ Prefer solutions that work across all UNIX-like environments like Linux, macOS, 
 
 It is critically important that you adhere to the above rules.
 
+### AI assistants evaluation
+
+- JetBrains AI: not unhelpful, but seems to lack context and permissions beyond context menu actions.
+- Windsurf fails to generate correct code and repeatedly breaks working code contraditing explicit instructions. Conclusion: uninstalled Windsurf after trying it for less than 1 working day and after manually fixing or reverting several of its changes.
+
+
 
 ## live demo
 
