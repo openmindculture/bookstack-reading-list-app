@@ -1,30 +1,48 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import { Search } from '../components/Search';
 
+const books = [
+  {
+    id: '1',
+    title: 'Designing with the Mind in Mind',
+    author: 'Jeff Johnson',
+    description: 'A practical guide to understanding human perception and cognition in UI design',
+    coverUrl: '/books/designing-mind.jpg'
+  },
+  {
+    id: '2',
+    title: 'Don't Make Me Think',
+    author: 'Steve Krug',
+    description: 'A common sense approach to web usability',
+    coverUrl: '/books/dont-make-me-think.jpg'
+  },
+  {
+    id: '3',
+    title: 'The Inmates Are Running the Asylum',
+    author: 'Alan Cooper',
+    description: 'Why high tech products drive us crazy and how to restore the sanity',
+    coverUrl: '/books/inmates.jpg'
+  }
+];
 ---
 
-<html lang="de">
-	<head>
-    <title>Dev-UX-Lesezeichen</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="styles.css" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-	</head>
-	<body>
-    <main>
-      <h1>Dev-UX-Lesezeichen</h1>
-      <p>Bald an dieser Stelle: eine einfache Web-App zur digitalisierung deines Stapels ungelesener Fachbücher.
-        Entdecke interessante Vorschläge aus den Bereichen Webdesign, Webentwicklung, DevUX-Kollaboration/Co-Creation,
-        UX/UI, Barrierefreiheit, nachhaltiges Webdesign und nachhaltige Webentwicklung.
-        Lesezeichen können ohne Anmeldung gesetzt, angesehen und ausgedruckt werden.
-        Deine Lesezeichen werden dann nur auf deinem eigenen Computer bzw. Smartphone gespeichert.
-        Angemeldete Leserinnen und Leser können selbst Bücher hinzufügen und bestehende Einträge bearbeiten.
-        Das Einlesen von Titeln durch Scannen von Barcodes ist geplant, aber zurzeit noch nicht möglich.
-      </p>
-      <h2>Links und Literaturliste</h2>
-      <p>Vorab erscheint zwischenzeitlich eine Liste mit Links und Leseempfehlungen zu Dev-UX, UX/UI-Design, Usability und barrierefreier Webentwicklung.</p>
-      <h2>Lesezeichen, Bookmarks, Bücher?</h2>
+<Layout title="Dev-UX-Lesezeichen">
+  <h1 class="text-3xl font-bold mb-8">Dev-UX-Lesezeichen</h1>
+  <p class="text-gray-600 mb-8">
+    Entdecke interessante Vorschläge aus den Bereichen Webdesign, Webentwicklung, DevUX-Kollaboration/Co-Creation,
+    UX/UI, Barrierefreiheit, nachhaltiges Webdesign und nachhaltige Webentwicklung.
+  </p>
+  
+  <Search books={books} />
+  
+  <h2>Links und Literaturliste</h2>
+  <p>Vorab erscheint zwischenzeitlich eine Liste mit Links und Leseempfehlungen zu Dev-UX, UX/UI-Design, Usability und barrierefreier Webentwicklung.</p>
+  <h2>Lesezeichen, Bookmarks, Bücher?</h2>
+  <p>Auf dieser Seite geht es um Merklisten und Empfehlungen für Bücher, also alles was mit oder ohne eigene ISBN auf dem
+    Buchmarkt erschienen ist. Dazu gehören grundsätzlich auch E-Books im Self Publishing, aber keine Webseiten.
+    Wenn du an derartigen Bookmarks interessiert bist, findest du bereits viele Angebote.
+  </p>
       <p>Auf dieser Seite geht es um Merklisten und Empfehlungen für Bücher, also alles was mit oder ohne eigene ISBN auf dem
         Buchmarkt erschienen ist. Dazu gehören grundsätzlich auch E-Books im Self Publishing, aber keine Webseiten.
         Wenn du an derartigen Bookmarks interessiert bist, findest du bereits viele Angebote.
