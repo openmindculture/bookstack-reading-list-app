@@ -13,6 +13,7 @@
     "eslint": "eslint src"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
     "@astrojs/ts-plugin": "^1.10.4",
     "@tailwindcss/vite": "^4.1.10",
     "astro": "^5.10.1",
@@ -21,7 +22,6 @@
     "tailwindcss": "^4.1.10"
   },
   "devDependencies": {
-    "@astrojs/react": "^4.3.0",
     "@chromatic-com/storybook": "^4.0.1",
     "@storybook/addon-a11y": "^9.0.12",
     "@storybook/addon-docs": "^9.0.12",
