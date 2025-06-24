@@ -2,7 +2,7 @@
 
 **This is a work in progress, not meant to be used in production (at least not yet).**
 
-A Reading List web app built using Astro, React, TypeScript and Tailwind CSS with typography, and web forms, tested using Storybook and Playwright.
+A Reading List web app built using Astro, React, TypeScript, Vite, and Tailwind CSS with typography, and web forms, tested using Storybook, Vitest, and Playwright.
 
 The app should be deployed "in the cloud" (e.g. on Netlify Web Services).
 TypeScript is currently only used in the front-end.

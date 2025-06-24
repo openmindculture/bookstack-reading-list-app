@@ -4,3 +4,6 @@ node_modules/
 .idea/
 .cache
 yarn-error.log
+
+*storybook.log
+storybook-static
