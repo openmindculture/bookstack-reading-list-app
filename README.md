@@ -7,7 +7,9 @@ A Reading List web app built using Astro, React, TypeScript, Vite, and Tailwind 
 The app should be deployed "in the cloud" (e.g. on Netlify Web Services).
 TypeScript is currently only used in the front-end.
 
-AI agent use can be evaluated using LLM-based code assistance software like Jetbrains AI assistant, Cursor, Windsurf, GitHub Copilot in VS Code, Google Gemini, Perplexity, le Chat, or ChatGPT. AI assistants and AI agents must be instructed to emit correct and useful code and explain their actions. Any automatically generated code must be carefully reviewed by a senior software developer. 
+### AI-Assisted Astro and React Revival
+
+AI tools acting as agents or assistants can be evaluated using LLM-based code assistance software like Jetbrains AI assistant, Cursor, Windsurf, GitHub Copilot in VS Code, Google Gemini, Perplexity, le Chat, or ChatGPT. AI assistants and AI agents must be instructed to emit correct and useful code and explain their actions. Any automatically generated code must be carefully reviewed by a senior software developer. 
 
 ## AI agents main prompt
 
