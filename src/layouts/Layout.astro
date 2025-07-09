@@ -1,9 +1,9 @@
 ---
-interface LayoutProps {
+export interface LayoutProps {
   title: string;
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props as LayoutProps;
 ---
 
 <!DOCTYPE html>
