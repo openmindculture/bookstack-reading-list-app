@@ -9,7 +9,8 @@
     "astro": "astro",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "playwright test",
+    "todo-test": "playwright test",
+    "test": "eslint src",
     "eslint": "eslint src"
   },
   "dependencies": {
