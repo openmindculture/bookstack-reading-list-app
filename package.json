@@ -15,6 +15,7 @@
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@astrojs/ts-plugin": "^1.10.4",
+    "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.1",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
@@ -33,6 +34,9 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-storybook": "^9.0.12",
     "playwright": "^1.53.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.13",
     "storybook": "^9.0.12",
     "typescript": "^5.3.3",
     "vitest": "^3.2.4"
