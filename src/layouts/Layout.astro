@@ -1,6 +1,8 @@
 ---
 export interface LayoutProps {
   title: string;
+	// children: JSX.Element | JSX.Element[]; 
+	// children: ReactNode // more flexible for mixed content
 }
 
 const { title } = Astro.props as LayoutProps;
