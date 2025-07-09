@@ -16,12 +16,37 @@ https://uxdevlesezeichen.netlify.app/
 
 https://dev-ux-lesezeichen.de/
 
-## getting started
+## Development and Deployment
 
-- use preview dev server at http://localhost:4321
-- push to Git to deploy to Netlify
+### dev server
+  - `npm run dev`
+  - http://localhost:4321
+
+### build and preview
+  - `npm run build`
+  - `npm run preview`
+
+### deploy to production
+  - `git commit`
+  - test in `develop` branch
+  - merge into main branch triggers production deploy to Netlify
 
 ## Requirements, Description, Acceptance Criteria
+
+Non-Functional Requirements:
+  - Write clean code.
+  - Follow coding standards and recommendations.
+    - Use Storybook.
+    - Use Astro.
+    - Use React.
+    - Use TypeScript.
+  - All tests must pass.
+    - Use ESLint.
+    - Use Storybook.
+    - Use Vitest.
+    - Use Playwright.
+    - Increase test coverage.
+  - All tests must pass.
 
 Bookstack, also known as Dev-UX-Bookmarks or Dev-UX-Lesezeichen in German, is meant to be or become an interactive website for browsing and searching literature about UX, DevUX, web development and related topics. The website's header shows a site title and, optionally, a site search and a navigation menu. The main content between header and footer consists of the web app, that starts with a static initial view in a fixed order rendered by astro that requires no JavaScript or TypeScript. An optional interactive search uses React to replace the initial view by dynamic content showing a search result using the same visual representation as the initial view. The data about books consists of entities with title, author, ISBN, a short description, and an optional link to an authoritative source like the author's or publisher's website or a reputable online book shop. Data is presented in a modular architecture consisting of cards that take the visual shape of hexagons in a responsive layout that behaves similar, but not necessarily identical, to a flexible masonry grid card layout on Pinterest.
 
@@ -110,6 +135,35 @@ Developers and AI assistants should refer to the requirements stated in this doc
 Generate full code, include clear inline comments or JSDoc headers describing each step of code when necessary, implement error checking and type validation. Implement strict TypeScript notation, defining new types as necessary. Adhere to best practices and coding standards. In Astro, prefer native HTML elements like <head> over overengineered custom elements like <Head> unless they are necessary. Generate working code using the latest stable npm package dependencies and install all dependencies that are needed. Don't generate faulty code that you are able to fix, generate error-free code in the first place! Don't change code based on assumptions, especially if the code is currently correct, don't try to fix it. For example, don't downgrade ESLint based on the false claim that the version 9.29.0 does not exist, if it does.
 
 In TypeScript, do not use the 'any' type. Do not use the non-null assertion operator (`!`). Do not cast to unknown (e.g. `as unknown as T`).  It is critically important that you adhere to the above rules.
+
+## Testing and Development Tech Stack Choices
+
+### Integrating Storybook, React, and Astro
+
+Storybook is framework-agnostic. Stories can be used by React and Astro (which can render React components), The core logic and styling of the component should ideally be independent of any specific framework's internal mechanisms. he component should rely on props for its data and behavior. This makes it easy to pass information from Astro (when using the React integration) or from other React components.
+
+Storybook's official "Intro to Storybook for React" tutorial uses a `Task` component as a core example:
+
+- https://storybook.js.org/tutorials/intro-to-storybook/react/en/simple-component/
+
+### How to implement frontend testing with Vitest, Storybook, and Playwright?
+
+This project, the Bookstack Reading List App showcased at Dev-UX-Lesezeichen.de, aims to combine a handful of modern frontend web development tools, notably Astro, Tailwind, React, Storybook, Vite, Vitest, and Playwright, preferably coding in TypeScript, applying descriptive declarations, and using test-driven development when possible.
+
+- Static Analysis (ESLint)
+- Unit tests (Vitest)
+- Component tests (Storybook)
+- End-to-end tests (Playwright)
+
+We don't need Storyshots for regression testing, especially for visual regression, as it's deprecated. Storybook has often been powered Playwright, which excels at visual regression testing and can take screenshots. Storybook's `play` functions combined with Vitest (running in browser mode with Playwright) or the Storybook test runner are excellent.
+
+### Why do we recommend Vitest Browser Mode?
+
+Why doesn't anyone write unit tests? One of the core issues is that tests typically run in CI in a node.js environment, rather than the code’s actual target environment, the browser. Vitest's browser mode, although currently under development, and APIs may change in the future, runs your tests in a real browser (Chromium, via **Playwright**, in the default configuration). The alternative is a simulated browser environment, like JSDom or HappyDom, which can have differences in behavior compared to a real browser. This allows to run your tests in the browser natively, providing access to browser globals like window and document, and use Playwright for cross-browser testing.
+
+Sources:
+-  https://storybook.js.org/docs/writing-tests/integrations/vitest-addon#why-do-we-recommend-browser-mode
+- https://www.defined.net/blog/modern-frontend-testing/
 
 ## Background: Motivation and History
 
