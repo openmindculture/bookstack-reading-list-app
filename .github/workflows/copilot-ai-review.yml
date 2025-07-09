@@ -1,0 +1,15 @@
+name: "AI Review Bot"
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+jobs:
+  ai_review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Example: Use a free AI review action (replace with actual free action if available)
+      - name: Run AI Code Review
+        uses: github/ai-code-review-action@v1
+        # You may need to configure parameters/secrets as required by the action
