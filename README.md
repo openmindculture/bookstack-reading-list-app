@@ -4,8 +4,6 @@
 
 ![CI status](https://github.com/openmindculture/bookstack-reading-list-app/workflows/ci/badge.svg)
 
-![Code QL Analysis status](https://github.com/openmindculture/bookstack-reading-list-app/workflows/codeql-analysis/badge.svg)
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1b0c9e7c-03c3-4c70-b6bf-cb8d0da569e8/deploy-status)](https://app.netlify.com/sites/uxdevlesezeichen/deploys)
 
 https://uxdevlesezeichen.netlify.app/
