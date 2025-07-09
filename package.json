@@ -10,8 +10,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "todo-test": "playwright test",
-    "test": "eslint src",
-    "eslint": "eslint src"
+    "test": "npm run eslint && npm run lint:css",
+    "eslint": "eslint src",
+    "lint:css": "stylelint \"src/**/*.css\""
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
@@ -37,10 +38,15 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-storybook": "^9.0.12",
     "playwright": "^1.53.1",
+    "postcss-scss": "^4.0.9",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.13",
     "storybook": "^9.0.12",
+    "stylelint": "^16.21.1",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-tailwindcss": "^1.0.0",
+    "stylelint-use-nesting": "^6.0.0",
     "typescript": "^5.3.3",
     "typescript-eslint": "^8.36.0",
     "vitest": "^3.2.4"
