@@ -4,7 +4,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 const config: Config = {
 	content: [
 		'./src/**/*.{astro,html,js,jsx,ts,tsx}',
-		'./src/styles/**/*.css',
+		'./src/**/*.css',
 		'./public/**/*.html'
 	],
 	theme: {
