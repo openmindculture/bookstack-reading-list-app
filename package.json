@@ -44,6 +44,9 @@
     "typescript-eslint": "^8.36.0",
     "vitest": "^3.2.4"
   },
+  "overrides": {
+    "vite": "^7.0.0"
+  },
   "eslintConfig": {
     "extends": [
       "plugin:astro/recommended",
