@@ -1,8 +1,8 @@
 # Bookstack Reading List App Dev-UX-Lesezeicheen, an AI-Assisted Astro and React Revival Project
 
-## Status and Live Demo
+## Status and Demo
 
-![CI status](https://github.com/openmindculture/bookstack-reading-list-app/workflows/ci/badge.svg)
+![GitHub CI status for development branch](https://github.com/openmindculture/bookstack-reading-list-app/workflows/ci/badge.svg?branch=development)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1b0c9e7c-03c3-4c70-b6bf-cb8d0da569e8/deploy-status)](https://app.netlify.com/sites/uxdevlesezeichen/deploys)
 
