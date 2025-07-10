@@ -10,7 +10,28 @@ https://uxdevlesezeichen.netlify.app/
 
 https://dev-ux-lesezeichen.de/
 
-TODO: theme change
+TODO: 
+- configuration fix
+- keep custom style snippets,
+- but reinstall && reconfigure
+  Astro + React + Tailwind ( + Vite )
+- according to official best practice
+- preferably without AI
+- preferably using stable Tailwind 3
+
+to find a
+working best-practice intergration of astro, vite and tailwind that is not deprecated and that does not cause npm peer dependency conflicts. Or just point me to an authoritative example that shows how to integrate astro, vite, and tailwindcss properly.
+
+
+Starting points might be:
+
+https://docs.astro.build/en/guides/styling/#tailwind
+
+https://docs.astro.build/en/guides/integrations-guide/react/
+
+
+
+theme change
 - keep the new dx font, but only for the site title
 - remove the Adler fallback
 - use Atkinson everywhere else

@@ -29,11 +29,13 @@ const books = [
 
 <Layout title="Dev-UX-Lesezeichen">
   <main>
-    <h1 class="text-3xl font-bold mb-8">Dev-UX-Lesezeichen</h1>
-    <p class="text-gray-600 mb-8">
+    <h1>Dev-UX-Lesezeichen</h1>
+    <p>
       Entdecke interessante Vorschläge aus den Bereichen Webdesign, Webentwicklung, DevUX-Kollaboration/Co-Creation,
       UX/UI, Barrierefreiheit, nachhaltiges Webdesign und nachhaltige Webentwicklung.
     </p>
+
+		<h1 class="text-test-magenta">Test Clamp Heading</h1>
        
     <h2>Links und Literaturliste</h2>
     <p>Vorab erscheint zwischenzeitlich eine Liste mit Links und Leseempfehlungen zu Dev-UX, UX/UI-Design, Usability und barrierefreier Webentwicklung.</p>
@@ -46,7 +48,7 @@ const books = [
 		<h3>Beispiele</h3>
 		<ul>
 			{books.map((book) => (
-				<li key={book.id}>
+				<li>
 					<h2>{book.title}</h2>
 					<p>{book.author}</p>
 					<img src={book.coverUrl} alt={`Cover of ${book.title}`} />
