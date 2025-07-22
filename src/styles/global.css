@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
 	font-family: 'Atkinson Hyperlegible';
@@ -40,10 +42,6 @@
 	font-style: normal;
 	font-display: swap;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
 	html, body {
