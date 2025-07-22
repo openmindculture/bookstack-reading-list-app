@@ -293,9 +293,71 @@ For most projects and teams, **npm is a perfectly solid choice**. It's the defau
 
 **Vite uses esbuild as a transpiler and pre-bundler** during development and for minification, but **relies on Rollup for the more complex production bundling** and its extensive plugin ecosystem. The eventual **plan is to consolidate these roles with Rolldown**.
 
-### Tailwind, the Lesser Evil
+### Tailwind Takeaways
 
-Tailwind CSS, that mixture of a Boostrap-like framework and WordPress-like `theme.json` horror, can be helpful in practice. CSS-savvy developers must pay the price of learning an **additional abstraction layer** with its inconsistencies and idiosyncrasies. Still, Tailwind supports writing and using pure CSS that linters can analyze better than the JSX-in-CSS chaos often found in React projects. JIT is now standard, compiling custom CSS to prevent exporting rules that are never used.
+There is a "Tailwind look and feel" defined by Tailwind's default styles and presets, some of which resemble the Bootstrap framework. **Tailwind's philosophy is to provide sensible defaults and utility classes that lead to good design.**
+
+#### Linting Tailwind CSS
+
+Tailwind supports writing and using pure CSS that linters can analyze better than the JSX-in-CSS chaos often found in React projects. JIT is now standard, compiling custom CSS to prevent exporting rules that are never used.
+
+#### Built-in Preset Class Names
+
+Tailwind's built-in classes follow different schemas. Its numbers and letters do not imply mathematical accuracy, e.g. `2xl` is not "two times L" or "two times anything". The presence of "8xl" does not imply there is "9xl". Unsuffixed numbers and names are not supposed to be consistent between different contexts, but consistents within the same context, e.g. `text-8xl` is larger than `text-7xl`.
+
+- `mt-4 = margin: 1rem 0 0 0` (when no other `m...` class is present)
+
+#### Tailwind Color Palette
+
+Every color in the default palette includes 11 steps, with 50 being the lightest, and 950 being the darkest. Use color utilities like `bg-white`, `border-pink-300`, and `text-gray-950` to set the different color properties of elements in your design. You can adjust the opacity of a color using syntax like `bg-black/75`, where `75` sets the alpha channel of the color to 75%.
+
+A full list of utilities that use your color palette: https://tailwindcss.com/docs/colors#using-color-utilities
+
+Also consider https://hextotailwind.com/ to find approximate matches of Tailwind built-ins.
+
+#### Typography
+
+Leading, in typography, is pronounced “ledding” and refers to the space between lines of text. Tailwind's `text`-prefixed properties set typography and foreground colors. Tailwind's `text-xl` is only `1.25rem`, not really "extra-large". Tailwind has defaults of `text-6xl` and  `text-7xl`, but no `6.5 / 4rem` in between.
+
+- `leading-none = line-height: 1`
+- `leading-<number>
+line-height: calc(var(--spacing) * <number>)`
+- `text-8xl/1 sets both font-size and line-height`
+- `leading-[<value>]
+line-height: <value>;`
+
+Custom font families must be defined both in `global.css` (`@font-face` rules) and in `tailwind.config.ts` (`theme.extend.fontFamily`).
+
+#### Customizing Tailwind CSS v3
+
+Tailwind can be customized by adding individual classes. In Tailwind CSS v3 this is done in WordPress-like JSON syntax to extend the `theme.extend` configuration object, while Tailwind CSS v4 prefers setting custom properties in `global.css`. A so-called "Tailwind language server" helps IDEs like WebStorm, VSCode, Intellisense, to get auto-completion suggestions correct and show implied `rem` and `px` values.
+
+Extending Taiwlwind's configuration object implicitly creates custom properties like `--color-foo` and sets of CSS rules and class names, like `text-foo` (foreground) and `bg-foo` (background) color classes, `text-clamp-10ch` for a `theme.extend.fontSize.clamp-10ch` configuration key.
+
+Custom `fontSize` classes are prefixed with `text-`, but custom `fontFamily` keys create `font-` classes.
+
+A color configuration object will create color variations with the respective suffixes, like `theme.extend.colors.tahiti.light` implies `text-tahiti { color: var(--color-tahiti-light); }` while `theme.extend.colors.tahiti.DEFAULT` will create a `tahiti` color without a suffix.
+
+#### Customizing Tailwind CSS v4
+
+In Tailwind CSS v4 (alpha/beta, not recommended for astro yet) we would define custom properties in `global.css`:
+
+```css
+    @theme {
+        --color-my-custom-blue: #1a73e8;
+```
+
+#### At-Apply-Rules
+
+We should use Tailwind's at-rule `@apply` to style globals and often-used style combinations to keep our HTML markup clean and maintainable.
+
+So, instead of `<h1 class="font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont">' we could use `<h1 class="custom-heading-h1">` or even just `<h1>` with global CSS like below.
+
+```css
+h1, .custom-heading-h1 {
+  @apply font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont;
+}
+```
 
 ### Tech Stack Diversity
 
