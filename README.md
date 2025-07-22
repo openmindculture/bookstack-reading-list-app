@@ -29,7 +29,19 @@ https://docs.astro.build/en/guides/styling/#tailwind
 
 https://docs.astro.build/en/guides/integrations-guide/react/
 
+https://eslint.org/docs/latest/use/configure/migration-guide#custom-parsers
 
+https://github.com/storybookjs/storybook/discussions/24835
+
+https://github.com/storybookjs/storybook/discussions/28386
+
+https://storybook.js.org/docs/writing-tests/integrations/vitest-addon
+
+https://tailwindcss.com/docs/font-family
+
+https://docs.astro.build/en/reference/configuration-reference/
+
+https://docs.astro.build/en/guides/typescript/
 
 theme change
 - keep the new dx font, but only for the site title
@@ -279,3 +291,85 @@ For most projects and teams, **npm is a perfectly solid choice**. It's the defau
 **Vite** heavily leverages esbuild, but it's not built entirely on top of esbuild in the sense that esbuild handles everything. Vite uses esbuild for specific, performance-critical tasks, and combines it with other tools for a complete development and build experience.
 
 **Vite uses esbuild as a transpiler and pre-bundler** during development and for minification, but **relies on Rollup for the more complex production bundling** and its extensive plugin ecosystem. The eventual **plan is to consolidate these roles with Rolldown**.
+
+### Tailwind, the Lesser Evil
+
+Tailwind CSS, that mixture of a Boostrap-like framework and WordPress-like `theme.json` horror, can be helpful in practice. CSS-savvy developers must pay the price of learning an **additional abstraction layer** with its inconsistencies and idiosyncrasies. Still, Tailwind supports writing and using pure CSS that linters can analyze better than the JSX-in-CSS chaos often found in React projects. JIT is now standard, compiling custom CSS to prevent exporting rules that are never used.
+
+### Tech Stack Diversity
+
+At least there is no need to try to connect incompatible CJS (legacy CommonJS) `require` with EJS (ES6+ JS module or mjs) `import` and `export` syntax. **TypeScript** has saved us from React PropTypes, and **Vite** from incomprehensible Webpack configuration. Still, it can take days to screw together a project's tech stack. Still, some islands require an old syntax, like `postcss.config.cjs` or `.astro/content-modules.mjs`. We don't need to rewrite every line of code to TypeScript and that would even break some of our tools.
+
+### Astro + React Integration
+
+- use the `client:load` directive
+
+```
+---
+import List from './List';
+---
+<List client:load />
+```
+
+We don't need to add `.jsx` or `.tsx` but we should add `.astro` when importing from files.
+
+- trigger hydration only when visible using [client:visible](https://docs.astro.build/en/reference/directives-reference/#clientvisible) with an optional margin (treshold) without needing to write boilerplate code for the implicit `IntersectionObserver`
+
+```
+client:visible={{rootMargin: '200px'}}
+```
+
+Astro allows use to combine different languages and content types in a single file, keeping together what belongs together in terms of content, forget about **seperation of concerns**, and let Astro's implicit "magic" work on it. This mix risks to become dangerously unmaintainable once it gets too complex, and future syntax changes make it feel less intuitive that it was at the time of writing.
+
+### Separation of Concerns
+
+Are new file formats like `.astro` or `.mdx`, a lenient combination of markdown and JSX properly inspectable by static code analysis (like ESLint) and unit tests (like with Vitest). How can our project structure and code style make it easier for linters and code reviewers to find errors and antipatterns in our Astro code?
+
+Vitest is good at testing Astro components when using Astro's `getViteConfig()` helper in our `vitest.config.ts`. Vitest can test the JavaScript logic contained in `.mdx` files, while ESLint uses Remark to validate the markdown syntax, when we use
+
+- `eslint-plugin-astro`
+- `eslint-plugin-mdx`
+
+in our ESLint configuration.
+
+We don't need to separate language syntax, when seemingly mixed languages like 'TSX' do have a clear definition and documentation. But we whould separate responsibilities and break our code into small components that are easy to read, test, and maintain.
+
+Reducing (JS/React-controlled) interactivity to the minimum respects
+
+- the **Islands Architecture** approach
+- the **principle of least power**
+- progressive enhancement
+- web performance
+
+and improves
+
+- load time
+- user experience
+- maintainability
+
+### Astro: Robust Linting and Formatting Setup:
+
+ESLint with Plugins:
+
+Install and configure eslint-plugin-astro, eslint-plugin-mdx, and @typescript-eslint/parser (if using TypeScript).
+
+Integrate Prettier (using prettier-plugin-astro and eslint-config-prettier) to handle code formatting automatically. This eliminates stylistic debates in code reviews.
+
+Enable recommended rule sets (e.g., plugin:astro/recommended, plugin:mdx/recommended).
+
+@typescript-eslint/parser
+
+**TODO** check and verify, as detailed tips like that seemed to contradict when I last tried?
+
+### Tell Gemini to use Your Public GitHub Repository 
+
+Apart from Astro and Tailwind, Playwright was another technology that I had not used before, and so was AI. After an encounter with Windsurf and Cursor, that lasted one day and ended in disappointment, I decided to return to tutorials and learning by doing, restricting AI assistance to JetBrains AI and occasional Google Gemini requests. Pro tip: give Gemini a link to your GitHub branch or file and tell it to work on that specific code.
+
+### GitHub Agents
+
+GitHub also provides repository-based agents, including Dependabot and Copilot. GitHub workflows files allow to integrate third-party tools as well. Using branch protection rules, we can mandate that certain checks must have past before we can merge a feature branch.
+
+### GitHub as a Database
+
+As a technical feature, a reading list only exists in my mind and hasn't been implemented as a client-side local-storage feature yet. I dropped the idea of adding CRUD features, as the modular content architecture allows anyone with a rudimentary technical understanding to open a pull request on GitHub to add a new book to the lists.
+
