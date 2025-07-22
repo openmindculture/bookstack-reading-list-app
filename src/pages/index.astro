@@ -1,30 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const books = [
-	{
-		id: '1',
-		title: 'Designing with the Mind in Mind',
-		author: 'Jeff Johnson',
-		description: 'A practical guide to understanding human perception and cognition in UI design',
-		coverUrl: '/books/designing-mind.jpg'
-	},
-	{
-		id: '2',
-		title: 'Don\'t Make Me Think',
-		author: 'Steve Krug',
-		description: 'A common sense approach to web usability',
-		coverUrl: '/books/dont-make-me-think.jpg'
-	},
-	{
-		id: '3',
-		title: 'The Inmates Are Running the Asylum',
-		author: 'Alan Cooper',
-		description: 'Why high tech products drive us crazy and how to restore the sanity',
-		coverUrl: '/books/inmates.jpg'
-	}
-];
-
 ---
 
 <Layout title="Dev-UX-Lesezeichen">
@@ -36,7 +11,7 @@ const books = [
     </p>
 
 		<h1 class="text-test-magenta">Test Clamp Heading</h1>
-       
+
     <h2>Links und Literaturliste</h2>
     <p>Vorab erscheint zwischenzeitlich eine Liste mit Links und Leseempfehlungen zu Dev-UX, UX/UI-Design, Usability und barrierefreier Webentwicklung.</p>
     <h2>Lesezeichen, Bookmarks, Bücher?</h2>
@@ -44,17 +19,6 @@ const books = [
       Buchmarkt erschienen ist. Dazu gehören grundsätzlich auch E-Books im Self Publishing, aber keine Webseiten.
       Wenn du an derartigen Bookmarks interessiert bist, findest du bereits viele Angebote.
     </p>
-		
-		<h3>Beispiele</h3>
-		<ul>
-			{books.map((book) => (
-				<li>
-					<h2>{book.title}</h2>
-					<p>{book.author}</p>
-					<img src={book.coverUrl} alt={`Cover of ${book.title}`} />
-				</li>
-			))}
-		</ul>
 
     <h2>Themen, Tags und Kategorien</h2>
     <p>
