@@ -10,7 +10,7 @@ https://uxdevlesezeichen.netlify.app/
 
 https://dev-ux-lesezeichen.de/
 
-TODO: 
+TODO:
 - configuration fix
 - keep custom style snippets,
 - but reinstall && reconfigure
@@ -65,6 +65,7 @@ The main purpose of this code base and websites generated using this code is lea
   - `git commit`
   - test in `develop` branch
   - merge into main branch triggers production deploy to Netlify
+  - no other pushes or merges should trigger any Netlify action
 
 ## Requirements, Description, Acceptance Criteria
 
@@ -361,7 +362,7 @@ Enable recommended rule sets (e.g., plugin:astro/recommended, plugin:mdx/recomme
 
 **TODO** check and verify, as detailed tips like that seemed to contradict when I last tried?
 
-### Tell Gemini to use Your Public GitHub Repository 
+### Tell Gemini to use Your Public GitHub Repository
 
 Apart from Astro and Tailwind, Playwright was another technology that I had not used before, and so was AI. After an encounter with Windsurf and Cursor, that lasted one day and ended in disappointment, I decided to return to tutorials and learning by doing, restricting AI assistance to JetBrains AI and occasional Google Gemini requests. Pro tip: give Gemini a link to your GitHub branch or file and tell it to work on that specific code.
 
