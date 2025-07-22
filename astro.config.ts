@@ -10,4 +10,7 @@ export default defineConfig({
   // You do NOT need the vite.plugins entry for Tailwind
   // when using the @astrojs/tailwind integration.
   vite: {},
+  site: 'https://dev-ux-lesezeichen.de',
+  base: '/',
+  trailingSlash: 'always',
 });
