@@ -1,6 +1,18 @@
-
 node_modules/
+npm-debug.log*
 
 .idea/
 .cache
-yarn-error.log
+.eslintcache
+
+*storybook.log
+storybook-static
+
+dist/
+.astro/
+
+.env
+.env.production
+.DS_Store
+
+test-results
