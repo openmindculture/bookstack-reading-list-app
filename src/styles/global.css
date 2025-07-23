@@ -45,17 +45,18 @@
 
 @layer base {
 	html, body {
-		font-family: 'Atkinson Hyperlegible', Helvetica, Verdana, sans-serif;
-		@apply font-normal not-italic text-base;
+		@apply font-normal not-italic text-base text-lg font-atkinson;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Dx Kord', Helvetica, Verdana, sans-serif;
-		@apply font-bold break-words m-0 mt-4;
-		color: #401f6b;
+		@apply font-bold font-dx-kord break-words m-0 mt-4 leading-none text-blue-violet;
 	}
-	
+
 	h1 {
-		@apply text-8xl md:text-9xl; /* lg:text-clamp-10ch; */
+		@apply text-6xl md:text-7xl lg:text-8xl lg:text-clamp-10ch;
 	}
+
+  h2 {
+    @apply text-5xl lg:text-7xl;
+  }
 }

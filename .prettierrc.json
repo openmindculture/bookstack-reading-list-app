@@ -3,6 +3,7 @@
     "prettier-plugin-astro",
     "prettier-plugin-tailwindcss"
   ],
+  "singleQuote": true,
   "overrides": [
     {
       "files": "*.astro",

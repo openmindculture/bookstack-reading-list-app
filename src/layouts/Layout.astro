@@ -1,29 +1,33 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 export interface LayoutProps {
   title: string;
-	// children: JSX.Element | JSX.Element[]; 
-	// children: ReactNode // more flexible for mixed content
+  // children: JSX.Element | JSX.Element[];
+  // children: ReactNode // more flexible for mixed content
 }
 
 const { title } = Astro.props as LayoutProps;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>{title}</title>
-    <meta name="description" content="Eine moderne Lesezeichen-App für Webdesign, UX und Webentwicklung" />
-    <link rel="icon" type="image/svg+xml" href="/Astro.svg" />
+    <meta name="description" content="Eine moderne Lesezeichen-App für Webdesign, UX und Webentwicklung">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="bg-gray-100 min-h-screen">
-    <main class="container mx-auto px-4 py-8">
-			<!-- Use <slot /> when working with Astro Layouts or Astro Components. It's specific to Astro's way of passing child content from a parent component or page. -->
-			<slot /> <!-- Renders child content passed from the parent -->
-			<!-- Use {Astro.props.children} in framework components (e.g., React, Svelte, Vue) within Astro projects. These frameworks expect children to render nested content, which is different from <slot />. -->
-      <!-- {Astro.props.children} -->
+  <body class="bg-blue-azure min-h-screen">
+    <main class="bg-blue-sky rounded m-4 p-0 pt-4 pb-8">
+      <div class="container mx-auto px-4">
+        <!-- TODO which paddings and spacings class names -->
+        <!-- Use <slot /> when working with Astro Layouts or Astro Components. It's specific to Astro's way of passing child content from a parent component or page. -->
+        <slot />
+        <!-- Renders child content passed from the parent -->
+        <!-- Use {Astro.props.children} in framework components (e.g., React, Svelte, Vue) within Astro projects. These frameworks expect children to render nested content, which is different from <slot />. -->
+        <!-- {Astro.props.children} -->
+      </div>
     </main>
   </body>
 </html>

@@ -6,8 +6,11 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [react(), tailwind()],
-	// You do NOT need the vite.plugins entry for Tailwind
-	// when using the @astrojs/tailwind integration.
-	vite: {},
+  integrations: [react(), tailwind()],
+  // You do NOT need the vite.plugins entry for Tailwind
+  // when using the @astrojs/tailwind integration.
+  vite: {},
+  site: 'https://dev-ux-lesezeichen.de',
+  base: '/',
+  trailingSlash: 'always',
 });
