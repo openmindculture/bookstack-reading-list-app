@@ -1,49 +1,28 @@
-# Bookstack Reading List App Dev-UX-Lesezeicheen, an AI-Assisted Astro and React Revival Project
+# Bookstack Reading List App Dev-UX-Lesezeichen, an Astro and React Revival Project
 
 ## Status and Demo
 
-![GitHub CI status for development branch](https://github.com/openmindculture/bookstack-reading-list-app/workflows/ci/badge.svg?branch=development)
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1b0c9e7c-03c3-4c70-b6bf-cb8d0da569e8/deploy-status)](https://app.netlify.com/sites/uxdevlesezeichen/deploys)
 
-https://uxdevlesezeichen.netlify.app/
+https://uxdevlesezeichen.netlify.app/ ✅✅
 
-https://dev-ux-lesezeichen.de/
+https://dev-ux-lesezeichen.de/ ✅✅
 
-TODO:
-- configuration fix
-- keep custom style snippets,
-- but reinstall && reconfigure
-  Astro + React + Tailwind ( + Vite )
-- according to official best practice
-- preferably without AI
-- preferably using stable Tailwind 3
+Tech Stack:
 
-to find a
-working best-practice intergration of astro, vite and tailwind that is not deprecated and that does not cause npm peer dependency conflicts. Or just point me to an authoritative example that shows how to integrate astro, vite, and tailwindcss properly.
+![Astro](doc/img/Astro.svg)
+![React](doc/img/React.svg)
+![Vite](doc/img/Vite.svg)
+![Vitest](doc/img/Vitest.svg)
+![Playwright](doc/img/Playwright.svg)
+![Storybook](doc/img/Storybook.svg)
+![TypeScript](doc/img/TypeScript.svg)
+![Tailwind](doc/img/Tailwind.svg)
+![git](doc/img/git.svg)
+![GitHub](doc/img/GitHub.svg)
+![npm](doc/img/npm.svg)
 
-
-Starting points might be:
-
-https://docs.astro.build/en/guides/styling/#tailwind
-
-https://docs.astro.build/en/guides/integrations-guide/react/
-
-https://eslint.org/docs/latest/use/configure/migration-guide#custom-parsers
-
-https://github.com/storybookjs/storybook/discussions/24835
-
-https://github.com/storybookjs/storybook/discussions/28386
-
-https://storybook.js.org/docs/writing-tests/integrations/vitest-addon
-
-https://tailwindcss.com/docs/font-family
-
-https://docs.astro.build/en/reference/configuration-reference/
-
-https://docs.astro.build/en/guides/typescript/
-
-theme change
+Theme change
 - keep the new dx font, but only for the site title
 - remove the Adler fallback
 - use Atkinson everywhere else
@@ -297,6 +276,22 @@ For most projects and teams, **npm is a perfectly solid choice**. It's the defau
 
 There is a "Tailwind look and feel" defined by Tailwind's default styles and presets, some of which resemble the Bootstrap framework. **Tailwind's philosophy is to provide sensible defaults and utility classes that lead to good design.**
 
+Quoting my original 2021 notes:
+
+#### Properly Using Conditional Class Names
+
+How to make sure to write dynamic / conditional styles in a detectable way?
+
+So we must avoid string concatenation to create class names. For example `<div class="text-{{ error ? 'red' : 'green' }}-600">` fails to expose the class names to the purge algorithm, thus `.text-red-600 and .text-green-600` will be missing in the exported style sheets unless they are used somewhere else by coincidence.
+
+On the other hand, writing the full class names still allows us to use conditional class names:
+
+```
+<div class="{{  error  ?  'text-red-600'  :  'text-green-600'  }}"></div>
+```
+
+We also want to load CSS in HTML `<head>`, not in JavaScript: this might unblock load speed by allowing parallel download of CSS and JavaScript, and it also allows us to define styled static page elements outside of our (p)react app, like a footer with links to external or static resources.
+
 #### Linting Tailwind CSS
 
 Tailwind supports writing and using pure CSS that linters can analyze better than the JSX-in-CSS chaos often found in React projects. JIT is now standard, compiling custom CSS to prevent exporting rules that are never used.
@@ -424,15 +419,23 @@ Enable recommended rule sets (e.g., plugin:astro/recommended, plugin:mdx/recomme
 
 **TODO** check and verify, as detailed tips like that seemed to contradict when I last tried?
 
-### Tell Gemini to use Your Public GitHub Repository
+## Further Reading
 
-Apart from Astro and Tailwind, Playwright was another technology that I had not used before, and so was AI. After an encounter with Windsurf and Cursor, that lasted one day and ended in disappointment, I decided to return to tutorials and learning by doing, restricting AI assistance to JetBrains AI and occasional Google Gemini requests. Pro tip: give Gemini a link to your GitHub branch or file and tell it to work on that specific code.
+https://docs.astro.build/en/guides/styling/#tailwind
 
-### GitHub Agents
+https://docs.astro.build/en/guides/integrations-guide/react/
 
-GitHub also provides repository-based agents, including Dependabot and Copilot. GitHub workflows files allow to integrate third-party tools as well. Using branch protection rules, we can mandate that certain checks must have past before we can merge a feature branch.
+https://eslint.org/docs/latest/use/configure/migration-guide#custom-parsers
 
-### GitHub as a Database
+https://github.com/storybookjs/storybook/discussions/24835
 
-As a technical feature, a reading list only exists in my mind and hasn't been implemented as a client-side local-storage feature yet. I dropped the idea of adding CRUD features, as the modular content architecture allows anyone with a rudimentary technical understanding to open a pull request on GitHub to add a new book to the lists.
+https://github.com/storybookjs/storybook/discussions/28386
+
+https://storybook.js.org/docs/writing-tests/integrations/vitest-addon
+
+https://tailwindcss.com/docs/font-family
+
+https://docs.astro.build/en/reference/configuration-reference/
+
+https://docs.astro.build/en/guides/typescript/
 
