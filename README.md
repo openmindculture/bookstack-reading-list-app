@@ -91,6 +91,11 @@ Extensibility: the software architecture should enable the app to be extended ea
 
 See the [Software Architecture Research and Decisions section](#software-architecture-research-and-decisions) for more information.
 
+Importing:
+
+- we can omit .jsx and .tsx file suffixes when importing React into Astro components.
+- we must add .astro explicitly when importing Astro code.
+
 #### Accessibility, Usability, Workflow Guidelines
 
 The web app must be accessible, responsive, robust, maintainable, eco-friendly and load quickly.
@@ -160,8 +165,15 @@ Storybook is framework-agnostic. Stories can be used by React and Astro (which c
 Storybook's official "Intro to Storybook for React" tutorial uses a `Task` component as a core example:
 
 - https://storybook.js.org/tutorials/intro-to-storybook/react/en/simple-component/
+- https://fantinel.dev/blog/storybook-astro-svelte
+
+As a standalone tool alongside an app, Storybook defines stories according to the Component Story Format (CSF), an ES6 module-based standard that is easy to write and portable between tools.
+
+`npm run storybook` starts a Storybook server and opens localhost:6006 in a browser to render all components configured in our `.storybook` directory. The `react-vite` framework and the `vitest` and `a11y` addons promise a seamless integration.
 
 ### How to implement frontend testing with Vitest, Storybook, and Playwright?
+
+Storybook integrated its experimental Vitest addon into the main project, to test our components' JavaScript/TypeScript logic with Vitest.
 
 This project, the Bookstack Reading List App showcased at Dev-UX-Lesezeichen.de, aims to combine a handful of modern frontend web development tools, notably Astro, Tailwind, React, Storybook, Vite, Vitest, and Playwright, preferably coding in TypeScript, applying descriptive declarations, and using test-driven development when possible.
 
@@ -169,8 +181,19 @@ This project, the Bookstack Reading List App showcased at Dev-UX-Lesezeichen.de,
 - Unit tests (Vitest)
 - Component tests (Storybook)
 - End-to-end tests (Playwright)
+- Visual Tests (Storybook Test Runner)
 
-We don't need Storyshots for regression testing, especially for visual regression, as it's deprecated. Storybook has often been powered Playwright, which excels at visual regression testing and can take screenshots. Storybook's `play` functions combined with Vitest (running in browser mode with Playwright) or the Storybook test runner are excellent.
+Storybook Test Runner uses Playwright, like my end-to-end integration tests do, so both tests can share common code by reusing utilities and fixtures in a shared `test-utils` folder that is imported from both test suites, like
+- custom matchers like `toHaveAccessibleName`,
+- test helpers like mocks and viewport settings,
+- environment setup like local storage or mock APIs.
+
+Vitest is good at testing Astro components when using Astro's `getViteConfig()` helper in our `vitest.config.ts.todo`. Vitest can test JavaScript logic contained in `.mdx` files, while ESLint uses Remark to validate markdown syntax, when we use
+
+- `eslint-plugin-astro`
+- `eslint-plugin-mdx`
+
+in our ESLint configuration.
 
 ### Why do we recommend Vitest Browser Mode?
 
@@ -383,7 +406,7 @@ Astro allows use to combine different languages and content types in a single fi
 
 Are new file formats like `.astro` or `.mdx`, a lenient combination of markdown and JSX properly inspectable by static code analysis (like ESLint) and unit tests (like with Vitest). How can our project structure and code style make it easier for linters and code reviewers to find errors and antipatterns in our Astro code?
 
-Vitest is good at testing Astro components when using Astro's `getViteConfig()` helper in our `vitest.config.ts`. Vitest can test the JavaScript logic contained in `.mdx` files, while ESLint uses Remark to validate the markdown syntax, when we use
+Vitest is good at testing Astro components when using Astro's `getViteConfig()` helper in our `vitest.config.ts.todo`. Vitest can test the JavaScript logic contained in `.mdx` files, while ESLint uses Remark to validate the markdown syntax, when we use
 
 - `eslint-plugin-astro`
 - `eslint-plugin-mdx`

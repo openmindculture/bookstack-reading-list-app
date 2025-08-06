@@ -15,7 +15,7 @@ export default defineConfig({
       screenshotFailures: false,
     },
     isolate: false,
-    setupFiles: ['./.storybook/vitest.setup.ts'],
+    setupFiles: ['./.storybook/vitest.setup.ts.todo'],
     coverage: {
       all: true,
       include: ['{app,lib,components}/**/*'],

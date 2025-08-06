@@ -27,6 +27,7 @@
     "@chromatic-com/storybook": "^4.1.0",
     "@storybook/addon-a11y": "^9.1.1",
     "@storybook/addon-docs": "^9.1.1",
+    "@storybook/addon-vitest": "^9.1.1",
     "@storybook/react-vite": "^9.1.1",
     "@typescript-eslint/eslint-plugin": "^8.36.0",
     "@typescript-eslint/parser": "^8.36.0",
