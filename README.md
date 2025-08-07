@@ -22,6 +22,23 @@ Tech Stack:
 ![GitHub](doc/img/GitHub.svg)
 ![npm](doc/img/npm.svg)
 
+TODO
+
+- [x] Astro + Vite + Tailwind setup
+- [x] Storybook setup
+- [ ] global style apply to Storybook (postponed)
+- [x] style class names to card (not working without global styles)
+- [ ] second page
+- [ ] content collection
+- [ ] to page with cards
+- [ ] to JSON like API output
+- [ ] Storybook testing
+- [ ] Vitest testing
+- [ ] Playwright testing
+- [ ] deploy milestone (page 2)
+- [ ] update blog post draft: even less details
+- [ ] clean up README
+
 Theme change
 - keep the new dx font, but only for the site title
 - remove the Adler fallback
@@ -40,7 +57,7 @@ The main purpose of this code base and websites generated using this code is lea
   - `npm run build`
   - `npm run preview`
 
-### deploy to production
+### dploy to production
   - `git commit`
   - test in `develop` branch
   - merge into main branch triggers production deploy to Netlify
