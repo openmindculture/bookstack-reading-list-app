@@ -156,6 +156,56 @@ Generate full code, include clear inline comments or JSDoc headers describing ea
 
 In TypeScript, do not use the 'any' type. Do not use the non-null assertion operator (`!`). Do not cast to unknown (e.g. `as unknown as T`).  It is critically important that you adhere to the above rules.
 
+### TypeScript in React
+
+Solution 1: PropsWithChildren is simple, but it doesn't describe our component very well. The compiler knows that our component can have children, but it doesn't know whether our component has other tag-specific properties.
+
+#### Solution 2: React.FC (function component)
+
+React.FC specifies a [function component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) and lets us also assign a type variable. It uses PropsWithChildren behind the scenes, so we don't have to worry about connecting our Props with it.
+
+```tsx
+export interface Props {
+  heading: string;
+}
+
+const PostPreview: React.FC<Props> = (props) => {
+```
+
+
+#### Solution 3: React.HTMLProps
+
+The most specialized version is to extend React.HTMLProps. The HTMLProps support a variety of tags (HTMLDivElement, HTMLFormElement, HTMLInputElement, etc.). Make sure that the type variable matches the outmost tag (the first tag, that is mentioned after return). Example:
+
+```tsx
+import React from 'react';
+
+export interface Props extends React.HTMLProps<HTMLDivElement> {
+  heading: string;
+}
+
+const PostPreview: React.FC<Props> = (props: Props) => {
+  return (
+    <div>
+      <h1>{props.heading}</h1>
+      {props.children}
+    </div>
+  );
+};
+
+export default PostPreview;
+```
+
+Source: Typing React Props in TypeScript https://dev.to/typescripttv/typing-react-props-in-typescript-5hal
+
+Types vs. intefaces:
+
+> always use interface for public API's definition when authoring a library or 3rd party ambient type definitions, as this allows a consumer to extend them via declaration merging if some definitions are missing.
+>
+> consider using type for your React Component Props and State, for consistency and because it is more constrained.
+
+Source: https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/
+
 ## Testing and Development Tech Stack Choices
 
 ### Integrating Storybook, React, and Astro
