@@ -6,7 +6,7 @@ interface CardProps {
 }
 
 const Card = ({ title='', description='' }: CardProps) => {
-  return <div>
+  return <div className="font-dx-kord text-blue-violet">
     <h3>{title}</h3>
     <p>{description}</p>
   </div>;
