@@ -160,9 +160,9 @@ The development branch, `develop` is the current development state that should b
 
 New features should be developed in a modular way using feature branches in a process similar, but not necessarily identical, to git flow, preferably using atomic commits and trunk-based development against the `develop` branch as the "trunk" of the development process. Feature branches must never be merged into the main branch directly.
 
-Developers, bots, and AI agents or assistants should refer to the requirements stated in this document, in optional GitHub issues. Generally, developers and assistants should always strive to provide correct, complete, and working code and they should ask for missing project code, documentation, or definitions necessary for an adequate response, instead of guessing.
+Developers, bots, and AI agents or assistants should refer to the requirements stated in this document, in optional GitHub issues. Generally, developers and assistants should always strive to provide correct, complete, and working code and they should ask for missing project code, documentation, or definitions necessary for an adequate response, instead of guessing. AI assistants must be instructed to provide concise, complete, and correct answers to clear and simple questions, adhere to best practices and coding standards, and don't suggest counterproductive antipatterns.
 
-Adhere to best practices and coding standards. In Astro, prefer native HTML elements like <head> over overengineered custom elements like <Head> unless they are necessary. Generate working code using the latest stable npm package dependencies and install all dependencies that are needed. Don't generate faulty code that you are able to fix, generate error-free code in the first place! Don't change code based on assumptions, especially if the code is currently correct, don't try to fix it.
+In Astro, prefer native HTML elements like <head> over overengineered custom elements like <Head> unless they are necessary. Generate working code using the latest stable npm package dependencies and install all dependencies that are needed. Don't generate faulty code that you are able to fix, generate error-free code in the first place! Don't change code based on assumptions, especially if the code is currently correct, don't try to fix it.
 
 In TypeScript, do not use the 'any' type. Do not use the non-null assertion operator (`!`). Do not cast to unknown (e.g. `as unknown as T`).  It is critically important that you adhere to the above rules.
 
@@ -344,6 +344,10 @@ Double-checking step by step:
 
 It is correct to use Tailwind 3 (not Tailwind 4) with Astro 5, and all of our libraries use the same PostCSS version without explicit pinning. Tailwind 3.3 is the latest stable Tailwind 3 release. Astro and Vite are up to date as well.
 
+The documentation implies that for integrating Tailwind's PostCSS compilation, when using Vite, we can simply skip to the next step, and, in case of a failing Webpack configuration scripts, for manual configuration instructions for PostCSS, you can refer to the documentation here.
+
+For manual configuration instructions for PostCSS, you can refer to the documentation here.
+
 We need to import our `global.css` explicitly in our Storybook preview configuration. And we need to fix/workaround the path definitions in `tailwind.config.js` to make it work with Storybook.
 
 And we need `@types/node` as a  `devDependency` and we should import `path` (not `join`) and call `path.join` to prevent a fatal TypeScript error due to an ambiguous `path = path | PlatformPath`.
@@ -503,8 +507,23 @@ This project defines code style and syntax rules, although some specific configu
 - [vitest.config.ts](vitest.config.ts)
 
 For full IDE coding support,
-- install Astro and MDX IDE extension or use the `@mdx-js/language-server` npm module;
+- install Astro and MDX IDE plugins/extension or use the `@mdx-js/language-server` npm module;
 - install `eslint-plugin-astro` and `eslint-plugin-mdx`;
+- configure TypeScript support to prevent expecting TS syntax in JS files in IDE settings if necessary.
+
+If an IDE like JetBrains WebStorm applies TypeScript syntax checking or inspections to JavaScript (`.js`) files, this behavior might be controlled by WebStorm's language service settings, but `tsconfig.json` is the correct place for TypeScript-related settings. Any IDE-specific inspection scopes and ingore patterns should be removed as they are neither necessary nor gauaranteed to work.
+
+- disable TypeScript inspections on JavaScript files:
+  - in WebStorm go to Preferences/Settings →  Appearance & Behavior → Scopes and reate a custom scope that excludes all `.js` files.
+  - in WebStorm: go to Preferences/Settings →  Editor → Inspections to apply this scope to the TypeScript inspections setting the severity for that scope to "No highlighting".
+  - make sure your custom scope with the "No highlighting" severity is at the top of the scope list. The IDE processes scopes from top to bottom, and the first matching scope's rules are applied.
+
+- configure `allowJs` in `tsconfig.json`:
+You can control whether TypeScript treats JS files within your project by the top-level `allowJs` configuration option. Counterintuitively, setting `"allowJs": false` in your `tsconfig.json` does not disallow using any `.js` files in our project, it only disallows (or at least promieses to reduce) TypeScript processing and checking on `.js` files.
+
+- exclude certain files or folders from TypeScript service in `tsconfig.json`: use the "exclude" array to tell TypeScript to ignore files/folders (like build outputs or config files you don’t want checked). This prevents those files from being parsed.
+
+While none of the above is still not guaranteed to prevent an IDE from nagging about valid syntax, it will at least reduce the severity to warning levels and prevent false positive error messages.
 
 ### Build Tools: npm vs. yarn vs. bun vs. ...
 

@@ -5,6 +5,8 @@
     "**/*"
   ],
   "exclude": [
-    "dist"
-  ]
+    "dist",
+    "**.js"
+  ],
+  "allowJs": false
 }
