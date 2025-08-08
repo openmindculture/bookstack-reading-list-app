@@ -35,9 +35,9 @@ This README file contains unfinished and incomplete notes that might be outdated
 
 - [x] Astro + Vite + Tailwind setup
 - [x] Storybook setup
-- [ ] global style apply to Storybook (postponed)
+- [ ] global style apply to Storybook (postponed, branch: feature/testing)
 - [x] style class names to card (not working without global styles)
-- [ ] second page
+- [ ] second page (ongoing, branch: feature/content-demo)
 - [ ] content collection
 - [ ] to page with cards
 - [ ] to JSON like API output
