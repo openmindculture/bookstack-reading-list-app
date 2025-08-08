@@ -210,11 +210,13 @@ Source: Typing React Props in TypeScript https://dev.to/typescripttv/typing-reac
 >
 > Source: https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/
 
-## JSX
-
-JSX is not HTML, despite the similar angular brackets. Tags must be closed or self-closing, and class name attributes are called `className` (not `class`) in JSX.
-
 ## React
+
+With React 17 and later, using "the new JSX transform", also known as "the automatic runtime", explicitly specified by TypeScript `compilerOptions: jsx: react-jsx` in `tsconfig.json`, we can generally omit `import React from 'react';` in JSX and TSX files, as this implies `react/jsx-runtime` import. However, to use React APIs like hooks such as useState, or components like Suspense, those must be imported explicitly.
+
+### JSX
+
+JSX is not HTML, despite the similar angular brackets. Tags must be closed or self-closing, and class name attributes are called `className` (not `class`) in JSX. With TypeScript, JSX becomes TSX.
 
 ### Controlling Complexity
 
@@ -235,14 +237,16 @@ Code splitting - Dynamic imports with React.lazy()
 Server-side rendering - Streaming SSR
 Concurrent features - Works with concurrent rendering
 
+## Hooked on React
+
+React Hooks that developers should know: useCallback, useReducer, useRef, useState, useContext, useEffect, and useMemo.
+
 ### useState, useContext, useContext
 
 useState + useContext: Perfect for simple to moderate state sharing
 useReducer: For more complex state logic. Built-in Suspense: For handling async operations.
 
-## Hooked on React
 
-React Hooks that developers should know: useCallback, useReducer, useRef, useState, useContext, useEffect, and useMemo.
 
 Tutorials suggested that `useMemo` doesn't always work smoothly with `useEffect` and that we must be careful to avoid unnecessary rerendering and avoid overusing `useEffect` and `useMemo`, as `useMemo` can sometimes lead to more rerenders or recalculations than expected in React components if used incorrectly, especially on first render. Now that sounds more like the React that I knew of. So, let me recap what these hooks actually mean.
 
