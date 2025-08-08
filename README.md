@@ -342,11 +342,15 @@ Before asking myself in which project I could possibly open a GitHub issue, or h
 
 Double-checking step by step:
 
+The path to `global.css` is correct. Changing it to a project-rooted `/src/styles/global.css` doesn't change anything. Specifying a nonexistant paht like `src/global.css` throws a fatal errror.
+
+To make sure that `.storybook/preview.ts` isn't just checked but really used, I added a `console.log('storybook preview ts executed');` below the import. Its output shows in my browser console.
+
 It is correct to use Tailwind 3 (not Tailwind 4) with Astro 5, and all of our libraries use the same PostCSS version without explicit pinning. Tailwind 3.3 is the latest stable Tailwind 3 release. Astro and Vite are up to date as well.
 
 The documentation implies that for integrating Tailwind's PostCSS compilation, when using Vite, we can simply skip to the next step, and, in case of a failing Webpack configuration scripts, for manual configuration instructions for PostCSS, you can refer to the documentation here.
 
-For manual configuration instructions for PostCSS, you can refer to the documentation here.
+Summary and follow-up discussion: [Integrating Astro 5, Storybook 9, Vite 7, and Tailwind 3 🐇🕳️](https://dev.to/ingosteinke/integrating-astro-5-storybook-9-vite-7-and-tailwind-3-54ja)
 
 We need to import our `global.css` explicitly in our Storybook preview configuration. And we need to fix/workaround the path definitions in `tailwind.config.js` to make it work with Storybook.
 
