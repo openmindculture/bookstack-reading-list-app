@@ -1,11 +1,12 @@
+import path from 'node:path';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
-    './src/**/*.{astro,html,jsx,tsx}',
-    './src/**/*.css',
-    './public/**/*.html',
+    path.join(__dirname, './src/**/*.{astro,html,jsx,tsx}'),
+    path.join(__dirname, './src/**/*.css'),
+    path.join(__dirname, './public/**/*.html'),
   ],
   theme: {
     extend: {
