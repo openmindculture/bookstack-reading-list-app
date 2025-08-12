@@ -13,7 +13,7 @@ const Navigation = ({ NavigationCollection }: NavigationCollectionProps) => {
   return <nav>
     <ul>
       {NavigationCollection.map((NavigationItem, index) => (
-        <li key={'nav-item-'+index}>{NavigationItem.caption}</li>
+        <li key={'nav-item-'+index}><a href={NavigationItem.url}>{NavigationItem.caption}</a></li>
       ))}
     </ul>
   </nav>;
