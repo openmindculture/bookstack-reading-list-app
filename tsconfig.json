@@ -5,6 +5,11 @@
     "**/*"
   ],
   "exclude": [
-    "dist"
-  ]
+    "dist",
+    "**.js"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  },
+  "allowJs": false
 }

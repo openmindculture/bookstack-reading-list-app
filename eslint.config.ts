@@ -23,13 +23,6 @@ export default tseslint.config(
       parserOptions: {},
     },
     rules: {
-      '@typescript-eslint/quotes': [
-        'error',
-        'single',
-        {
-          allowTemplateLiterals: true,
-        },
-      ],
     },
   },
 );

@@ -3,7 +3,6 @@
     "stylelint-config-standard",
     "stylelint-config-tailwindcss"
   ],
-  "customSyntax": "postcss-scss",
   "rules": {
     "at-rule-empty-line-before": null,
     "at-rule-no-deprecated": null,
