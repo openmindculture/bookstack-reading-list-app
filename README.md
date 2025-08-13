@@ -325,7 +325,52 @@ Storybook is framework-agnostic. Stories can be used by React and Astro (which c
 
 Storybook can't understand Astro, but Astro can render TSX to static HTML, so we can just write any component in TSX. If we don't specify any `client:` directive, Astro will render React components to static HTML without any interactive JavaScript.
 
-However, we can use Astro's collection files and front matter to pass data to our components, whether static (React, Astro) or interactive (React, Vue, Svelte, ...)
+However, we can use Astro's collection files and front matter to pass data to our components, whether static (React, Astro) or interactive. But before you start to rewrite every static Astro component to React, pause and think twice - there's a catch that I'll explain in the interactivity section:
+
+Astro ideally lets us focus on markup and don't use JSX and typed properties where plain HTML and (Tailwind) CSS, or content-focused markdown is more appropriate.
+
+However, while emitting performance-optimized frontend code and markup as intended, my source still becomes 90% React and 10% Astro due to my decision to use Storybook to test and preview my components. Maybe that's the catch: something simple enough for static rendering doesn't need Storybook's interactive "play" functionality, when it will be end-to-end-tested as part of the rendered application.
+
+How can we restrict interactivity to the smallest possible entities to profit from speed and performance of Astro's static rendering? Let's say, we have a set of cards, and each card has a star-shaped favorite button. In the initial view, the buttons are the only elements that need to be interactive. Consequentially, the favorited status can't be part of the card's state, but rather the toggle's state.
+
+To ensure a component can be rendered statically, all interactive code must either be defined on a child compoents' level, or as global app functionality to prevent code duplication and make the components easier to read and maintain.
+
+<Layout>                 # Astro (static, filled with dynamic data in build-time)
+  <Navigation />         # React (static)
+  <ReadingList />        # React (interactive, synchronize with local storage and/or API)
+  <Search>               # React (interactive)
+    <SearchInput />      # React (interactive)
+    <Grid>               # React (interactive)
+      <Card>             # React (interactive)
+        <ToggleButton /> # React (interactive)
+      </Card>
+    </Grid>
+  </Search>
+  <Grid>                 # React (static in initial view)
+    <Card>               # React (static in initial view)
+      <ToggleButton />   # React (interactive)
+    </Card>
+  </Grid>
+</Layout>
+
+<JsonWrapper>            # initial Grid content rendered to JSON as a "mock API" for React search
+  <JsonGrid />           # dto. (static)
+</JsonWrapper>
+
+This is essential for understanding the power of an Islands Architecture: how to make specific React elements to interact with their grandparents and global state elements? To put it another way, to stick with the image of the island landscape, how to establish ferryboat routes between interactive islands without disturbing the static ones that we could imagine as no-go-zones, possibly inhabited by cute, endangered, animals.
+
+That's not even an Astro-specific problem, but a common challenge of classic React applications: How to avoid property drill down by using global state and a global data store? The idea of context is exactly that - for you to be able to share updateable state to the descendants without having to pass it from component to component.
+
+![sketch of an islands landscape to illustrate the above component structure](doc/img/islands-architecture.png)
+
+
+#### How to read from Astro content collection files?
+
+...
+
+#### How to validate Astro data with imported TypeScript interface?
+
+...
 
 #### Storybook for React
 
@@ -563,6 +608,12 @@ On the other hand, writing the full class names still allows us to use condition
 <div class="{{  error  ?  'text-red-600'  :  'text-green-600'  }}"></div>
 ```
 
+In React, `class` becomes `className` according to the HTMLElement DOM specification.
+
+```
+<div className="{{  error  ?  'text-red-600'  :  'text-green-600'  }}"></div>
+```
+
 We also want to load CSS in HTML `<head>`, not in JavaScript: this might unblock load speed by allowing parallel download of CSS and JavaScript, and it also allows us to define styled static page elements outside of our (p)react app, like a footer with links to external or static resources.
 
 #### Linting Tailwind CSS
@@ -626,6 +677,27 @@ h1, .custom-heading-h1 {
   @apply font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont;
 }
 ```
+
+Another challenge, or maybe rather an overambitious micro-optimization, is the decision where to put SVG icons that change their stroke or fill appearance to indicate state change. As I decided to use Tailwind to prevent wasting time reinventing the CSS wheel, there should be a Tailwind best-practice way to do it.
+
+#### (Tailwind) CSS Status Icons Best Practice
+
+Use SVG elements, not CSS data-urls, use fill and stroke class names like `<svg class="fill-current text-green-500">`.
+
+To prevent duplication in code or frontend, use SVG symbols, supported in all relevant browsers for many years:
+
+```html
+<svg style="diplay:none">
+  <symbol id="status-icon" viewBox="20 20 20 20" ...><!-- just like an SVG element --></symbol>
+</svg>
+
+reuse 100x:
+<svg class="w-6 h-6 fill-current text-green-500"></svg>
+```
+
+#### Custom Class Names in Tailwind
+
+Prefix your class names, and avoid generic abbreviations to prevent namespace collisions with built-in classes.
 
 ### Tech Stack Diversity
 
