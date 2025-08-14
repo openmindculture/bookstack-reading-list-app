@@ -8,10 +8,17 @@ export interface LayoutProps {
 }
 
 const { title } = Astro.props as LayoutProps;
+// TODO should we generate the navigation collection from our files?
+// TODO or move to a more obvious include file
+//      to improve maintainability and separation of concerns
 const NavigationCollection = [
   {
     caption: 'Home',
     url: '/',
+  },
+  {
+    caption: 'English',
+    url: '/index-english/',
   },
   {
     caption: 'App',

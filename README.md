@@ -346,7 +346,7 @@ To ensure a component can be rendered statically, all interactive code must eith
       </Card>
     </Grid>
   </Search>
-  <Grid>                 # React (static in initial view)
+  <Grid>                 # React (static in initial view with partial content)
     <Card>               # React (static in initial view)
       <ToggleButton />   # React (interactive)
     </Card>
