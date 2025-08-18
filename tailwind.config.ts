@@ -8,6 +8,9 @@ const config: Config = {
     path.join(__dirname, './src/**/*.css'),
     path.join(__dirname, './public/**/*.html'),
   ],
+  safelist: [
+    'max-w-36',
+  ],
   theme: {
     extend: {
       fontFamily: {
