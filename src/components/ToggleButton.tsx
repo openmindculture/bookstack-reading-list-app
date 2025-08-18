@@ -31,10 +31,10 @@ const ToggleButton: React.FC<CustomButtonProps> = ({
       onClick={handleClick}
       {...(onChange !== undefined && { 'data-has-change-handler': true })}
     >
-      <svg 
+      <svg
         className={`w-6 h-6 text-blue-500 ${selected ? 'fill-current' : ''}`}
       >
-        <use href='status-icon' />
+        <use href='#status-icon' />
       </svg>
       {children}
     </button>
