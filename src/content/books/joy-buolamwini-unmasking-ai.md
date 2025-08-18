@@ -4,6 +4,6 @@ author: "Joy Buolamwini"
 description: ""
 coverUrl: "joy-buolamwini-unmasking-ai.jpg"
 externalUrl: ""
-isbn: ""
-date: 2024
+isbn: "9780593241837"
+pubYear: 2024
 ---

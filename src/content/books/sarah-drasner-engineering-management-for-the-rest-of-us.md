@@ -6,6 +6,6 @@ description: |
 
    Sarah Drasner shares what no one told her about management that she wished she would have known.
 coverUrl: "sarah-drasner-engineering-management-for-the-rest-of-us.jpg"
-isbn: "9798986769301"
-year: 2022
+isbn: "9798986769318"
+pubYear: 2022
 ---

@@ -7,5 +7,5 @@ description: |
   This practical book takes a deep dive into how you can to solve these problems.
 coverUrl: "sarah-drasner-svg-animations.jpg"
 isbn: "9781491939703"
-year: 2017
+pubYear: 2017
 ---

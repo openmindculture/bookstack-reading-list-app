@@ -5,5 +5,5 @@ description: ""
 coverUrl: "hannah-fry-hello-world.jpg"
 externalUrl: ""
 isbn: ""
-date: 2018
+pubYear: 2018
 ---
