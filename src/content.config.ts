@@ -6,17 +6,19 @@ import { glob, file } from 'astro/loaders';
 
 // 3. Define your collection(s)
 const books = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/books" }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/books' }),
   schema: z.object({
     title: z.string(),
     author: z.string(),
     description: z.string(),
     coverUrl: z.string().optional(),
     externalUrl: z.string().optional(),
+    icon: z.enum(['book', 'blogpost', 'podcast']).default('book').optional(),
     isbn: z.string().optional(),
+    language: z.enum(['en', 'de', 'ar-LB']).optional(),
     pubYear: z.number().int().optional(),
     updatedYear: z.number().int().optional(),
-  })
+  }),
 });
 
 // 4. Export a single `collections` object to register your collection(s)

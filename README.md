@@ -17,6 +17,7 @@ https://dev-ux-lesezeichen.de/ ✅✅
 ![Playwright](doc/img/Playwright.svg)
 ![Storybook](doc/img/Storybook.svg)
 ![TypeScript](doc/img/TypeScript.svg)
+![Zod](doc/img/Zod.svg)
 ![Tailwind](doc/img/Tailwind.svg)
 ![git](doc/img/git.svg)
 ![GitHub](doc/img/GitHub.svg)
