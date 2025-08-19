@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Card from './Card';
+import Book from './Book.tsx';
 
 const meta = {
-  component: Card,
-} satisfies Meta<typeof Card>;
+  component: Book,
+} satisfies Meta<typeof Book>;
 
 export default meta;
 

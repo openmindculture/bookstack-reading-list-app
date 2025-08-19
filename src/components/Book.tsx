@@ -10,7 +10,7 @@ interface CardProps {
   coverUrl: string;
 }
 
-const Card = ({
+const Book = ({
   author = '',
   title = '',
   description = '',
@@ -47,4 +47,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default Book;

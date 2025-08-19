@@ -1,45 +1,21 @@
 ---
 // TODO How to read from Astro content collection files?
 // TODO How to validate Astro data with imported TypeScript interface?
-import Card from './Card.tsx';
+import Book from './Book.tsx';
 import FavoriteSymbol from './FavoriteSymbol.astro';
-const books = [
-  {
-    id: '1',
-    title: 'Designing with the Mind in Mind',
-    author: 'Jeff Johnson',
-    description:
-      'A practical guide to understanding human perception and cognition in UI design',
-    coverUrl: '/images/books/978-0-12-818202-4.jpg',
-    isbn: '978-0-12-818202-4',
-  },
-  {
-    id: '2',
-    title: "Don't Make Me Think",
-    author: 'Steve Krug',
-    description: 'A common sense approach to web usability',
-    coverUrl: '/books/dont-make-me-think.jpg',
-    isbn: '978-6-54-321012-3',
-  },
-  {
-    id: '3',
-    title: 'The Inmates Are Running the Asylum',
-    author: 'Alan Cooper',
-    description:
-      'Why high tech products drive us crazy and how to restore the sanity',
-    coverUrl: '/books/inmates.jpg',
-    isbn: '978-6-54-321012-4',
-  },
-];
+import { getCollection, type CollectionEntry } from 'astro:content';
+const books: CollectionEntry<'book'>[] = await getCollection('books');
+
+// The sort order of generated collections is non-deterministic and platform-dependent. This means that if you are calling getCollection() and need your entries returned in a specific order (e.g. blog posts sorted by date), you must sort the collection entries yourself.
 ---
 
 <FavoriteSymbol />
 
 <ul class="flex flex-wrap md:flex-col">
   {
-    books.map((book) => (
+    books.map(book => (
       <li>
-        <Card
+        <Book
           author={book.author}
           title={book.title}
           description={book.description}
@@ -47,6 +23,7 @@ const books = [
           coverUrl={book.coverUrl}
         />
       </li>
+
     ))
   }
 </ul>

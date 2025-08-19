@@ -2,7 +2,7 @@
 import { defineCollection, z } from 'astro:content';
 
 // 2. Import loader(s)
-import { glob, file } from 'astro/loaders';
+import { glob } from 'astro/loaders';
 
 // 3. Define your collection(s)
 const books = defineCollection({
@@ -21,5 +21,5 @@ const books = defineCollection({
   }),
 });
 
-// 4. Export a single `collections` object to register your collection(s)
-export const collections = { books };
+// noinspection JSUnusedGlobalSymbols
+export const collections = { book: books };
