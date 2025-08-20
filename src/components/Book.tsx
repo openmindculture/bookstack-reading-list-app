@@ -3,11 +3,16 @@ import ToggleButton from './ToggleButton';
 // TODO import setSelected or define using React useState
 
 interface CardProps {
-  author: string;
   title: string;
+  author: string;
   description?: string;
-  isbn: string;
-  coverUrl: string;
+  coverUrl?: string;
+  externalUrl?: string;
+  icon?: 'book'|'blogpost'|'podcast';
+  isbn?: string;
+  language?: 'en'|'de'|'ar-LB'|'';
+  pubYear?: bigint;
+  updatedYear?: bigint;
 }
 
 const Book = ({

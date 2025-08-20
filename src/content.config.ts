@@ -10,7 +10,7 @@ const books = defineCollection({
   schema: z.object({
     title: z.string(),
     author: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
     coverUrl: z.string().optional(),
     externalUrl: z.string().optional(),
     icon: z.enum(['book', 'blogpost', 'podcast']).default('book').optional(),

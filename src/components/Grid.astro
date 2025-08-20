@@ -2,25 +2,36 @@
 // TODO How to read from Astro content collection files?
 // TODO How to validate Astro data with imported TypeScript interface?
 import Book from './Book.tsx';
-import FavoriteSymbol from './FavoriteSymbol.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import SvgSymbolBlogpost from './SvgSymbolBlogpost.astro';
+import SvgSymbolBook from './SvgSymbolBook.astro';
+import SvgSymbolFavorite from './SvgSymbolFavorite.astro';
+import SvgSymbolPodcast from './SvgSymbolPodcast.astro';
+import { getCollection, type CollectionEntry, z } from 'astro:content';
 const books: CollectionEntry<'book'>[] = await getCollection('books');
 
 // The sort order of generated collections is non-deterministic and platform-dependent. This means that if you are calling getCollection() and need your entries returned in a specific order (e.g. blog posts sorted by date), you must sort the collection entries yourself.
 ---
 
-<FavoriteSymbol />
+<SvgSymbolBlogpost />
+<SvgSymbolBook />
+<SvgSymbolFavorite />
+<SvgSymbolPodcast />
 
 <ul class="flex flex-wrap md:flex-col">
   {
     books.map(book => (
       <li>
         <Book
-          author={book.author}
           title={book.title}
+          author={book.author}
           description={book.description}
-          isbn={book.isbn}
           coverUrl={book.coverUrl}
+          externalUrl={book.externalUrl}
+          icon={book.icon}
+          isbn={book.isbn}
+          language={book.language}
+          pubYear={book.pubYear}
+          updatedYear={book.updatedYear}
         />
       </li>
 
