@@ -43,9 +43,9 @@ This README file contains unfinished and incomplete notes that might be outdated
 - [ ] style class names to components: Detecting classes in source files?, see https://tailwindcss.com/docs/detecting-classes-in-source-files
 - [x] second page (ongoing, branch: feature/content-demo)
 - [x] content collection
-- [ ] to page with cards
+- [x] to page with cards
 - [ ] to JSON like API output
-- [ ] Storybook testing
+- [x] Storybook testing
 - [ ] Vitest testing
 - [ ] Storybook+Vitest testing
 - [ ] Playwright end-to-end integration testing
