@@ -23,6 +23,7 @@ const ToggleButton: React.FC<CustomButtonProps> = ({
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const newSelected = !selected;
     setSelected(newSelected);
+    console.log('event:click', event);
   };
 
   return (
@@ -37,7 +38,7 @@ const ToggleButton: React.FC<CustomButtonProps> = ({
       <svg
         className={`hover:fill-pink-500 hover:text-pink-500 h-6 w-6 text-yellow-300 ${selected ? 'fill-yellow-300' : 'fill-none'}`}
       >
-        <use href="#status-icon" />
+        <use href="#symbol-favorite" />
       </svg>
       {children}
     </button>
