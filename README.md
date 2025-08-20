@@ -19,12 +19,13 @@ https://dev-ux-lesezeichen.de/ ✅✅
 ![Storybook](doc/img/Storybook.svg)
 ![TypeScript](doc/img/TypeScript.svg)
 ![Zod](doc/img/Zod.svg)
+![Markdown](doc/img/Markdown.svg)
 ![Tailwind](doc/img/Tailwind.svg)
 ![CSS](doc/img/CSS.svg)
 ![git](doc/img/git.svg)
 ![GitHub](doc/img/GitHub.svg)
 ![npm](doc/img/npm.svg)
-![Markdown](doc/img/Markdown.svg)
+![Netlify](doc/img/Netlify.svg)
 
 See the [Software Architecture Research and Decisions section](#software-architecture-research-and-decisions) for more information.
 
@@ -692,7 +693,7 @@ To prevent duplication in code or frontend, use SVG symbols, supported in all re
 
 ```html
 <svg style="diplay:none">
-  <symbol id="status-icon" viewBox="20 20 20 20" ...><!-- just like an SVG element --></symbol>
+  <symbol id="status-symbol" viewBox="20 20 20 20" ...><!-- just like an SVG element --></symbol>
 </svg>
 
 reuse 100x:
