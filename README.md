@@ -10,6 +10,7 @@ https://dev-ux-lesezeichen.de/ ✅✅
 
 ### Tech Stack:
 
+![HTML5](doc/img/HTML5.svg)
 ![Astro](doc/img/Astro.svg)
 ![React](doc/img/React.svg)
 ![Vite](doc/img/Vite.svg)
@@ -19,6 +20,7 @@ https://dev-ux-lesezeichen.de/ ✅✅
 ![TypeScript](doc/img/TypeScript.svg)
 ![Zod](doc/img/Zod.svg)
 ![Tailwind](doc/img/Tailwind.svg)
+![CSS](doc/img/CSS.svg)
 ![git](doc/img/git.svg)
 ![GitHub](doc/img/GitHub.svg)
 ![npm](doc/img/npm.svg)
