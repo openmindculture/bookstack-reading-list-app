@@ -29,11 +29,11 @@ const Book = (props: CardProps) => {
           {!!props.language && <img src="images/languages/{props.language}.svg" alt="language: {props.language}" />}
       </div>
     </div>
-  <div className="omc-hex-tile relative">
+  <div className="omc-hex-tile relative">Image:
     {!!props.coverUrl && (
       <img
         className="w-3xs max-w-full object-cover"
-            src={props.coverUrl}
+            src={`../images/books/${props.coverUrl}`}
             alt={`Cover of ${props.title}`}
           />
         )}
