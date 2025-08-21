@@ -63,7 +63,7 @@
 
 @layer components {
   .omc-hex-tile {
-    @apply max-w-[9rem];
+    @apply w-[12rem];
     clip-path: polygon(
       50% 0%,
       100% 25%,

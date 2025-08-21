@@ -7,6 +7,7 @@ interface CardProps {
   author: string;
   description?: string;
   coverUrl?: string;
+  coverBgColor?: string;
   externalUrl?: string;
   icon?: 'book'|'blogpost'|'podcast';
   isbn?: string;
@@ -29,10 +30,11 @@ const Book = (props: CardProps) => {
           {!!props.language && <img src="images/languages/{props.language}.svg" alt="language: {props.language}" />}
       </div>
     </div>
-  <div className="omc-hex-tile relative">Image:
+      /* How to export an ad-hoc color name? What's better concept solution? How to comment out in JSX? */
+  <div className={'omc-hex-tile relative' + (props.coverBgColor ? ` bg-[${props.coverBgColor}]` : null)}  >
     {!!props.coverUrl && (
       <img
-        className="w-3xs max-w-full object-cover"
+        className="w-3xs max-w-[150%] object-cover"
             src={`../images/books/${props.coverUrl}`}
             alt={`Cover of ${props.title}`}
           />

@@ -17,7 +17,7 @@ const books: CollectionEntry<'book'>[] = await getCollection('book');
 <SvgSymbolFavorite />
 <SvgSymbolPodcast />
 
-<ul class="flex flex-wrap md:flex-col">
+<ul class="flex flex-wrap flex-col md:flex-row">
   {
     books.map(({ id, data }) => (
       <li>
@@ -27,6 +27,7 @@ const books: CollectionEntry<'book'>[] = await getCollection('book');
           author={data.author}
           description={data.description}
           coverUrl={data.coverUrl}
+          coverBgColor={data.coverBgColor}
           externalUrl={data.externalUrl}
           icon={data.icon}
           isbn={data.isbn}
