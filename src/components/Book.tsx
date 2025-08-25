@@ -7,7 +7,7 @@ interface CardProps {
   author: string;
   description?: string;
   coverUrl?: string;
-  coverClassName?: 'bg-blue'|'bg-gray-800';
+  coverClassName?: 'bg-blue'|'bg-gray-800'|'bg-rose-500';
   externalUrl?: string;
   icon?: 'book'|'blogpost'|'podcast';
   isbn?: string;
@@ -19,8 +19,8 @@ interface CardProps {
 const Book = (props: CardProps) => {
   return (
     <article className="flex flex-nowrap space-x-1 font-dx-kord text-blue-violet {{isFavorite ? 'isFavorite' : '' }}">
-      <div className={'omc-hex-tile w-80 max-w-full h-96 bg-blue-violet p-0.5'}>
-        <div className={'omc-hex-tile w-80 max-w-full h-96 m-0 bg-blue-sky p-1'}>
+      <div className={'custom-hex-tile w-80 max-w-full h-96 bg-blue-violet p-0.5'}>
+        <div className={'custom-hex-tile w-80 max-w-full h-96 m-0 bg-blue-sky p-1'}>
           <h3 className="bg-pink-500">{props.title}</h3>
           <p>{props.description}</p>
           <p>Author: {props.author}</p>
@@ -30,7 +30,7 @@ const Book = (props: CardProps) => {
           {!!props.language && <img src="images/languages/{props.language}.svg" alt="language: {props.language}" />}
       </div>
     </div>
-  <div className={'omc-hex-tile w-80 max-w-full h-96 relative' + (props.coverClassName ? ` ${props.coverClassName}` : '')}  >
+  <div className={'custom-hex-tile w-80 max-w-full h-96 relative' + (props.coverClassName ? ` ${props.coverClassName}` : '')}  >
     {!!props.coverUrl && (
       <img
         className="w-3xs max-w-[150%] object-cover"

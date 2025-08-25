@@ -62,7 +62,13 @@
 }
 
 @layer components {
-  .omc-hex-tile {
+  .custom-grid-has-row-behavior .is-even {
+    margin: -6rem -10rem 6rem 10rem;
+  }
+  .custom-grid-has-row-behavior .is-even > .custom-hex-tile {
+    box-shadow: 120px 80px 40px 20px red;
+  }
+  .custom-hex-tile {
     @apply w-[12rem];
     clip-path: polygon(
       50% 0%,

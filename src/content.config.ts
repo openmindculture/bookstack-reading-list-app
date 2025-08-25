@@ -10,7 +10,7 @@ const books = defineCollection({
     description: z.string().optional(),
     coverUrl: z.string().optional(),
     /* Tailwind detection vs. additional safelisting? */
-    coverClassName: z.enum(['bg-blue', 'bg-gray-800']).optional(),
+    coverClassName: z.enum(['bg-blue', 'bg-gray-800', 'bg-rose-500']).optional(),
     externalUrl: z.string().optional(),
     icon: z.enum(['book', 'blogpost', 'podcast']).default('book').optional(),
     isbn: z.string().optional(),
