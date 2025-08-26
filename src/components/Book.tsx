@@ -33,7 +33,7 @@ const Book = (props: CardProps) => {
   <div className={'custom-hex-tile w-80 max-w-full h-96 relative' + (props.coverClassName ? ` ${props.coverClassName}` : '')}  >
     {!!props.coverUrl && (
       <img
-        className="w-3xs max-w-full object-cover"
+        className="object-cover w-3xs max-w-full hover:scale-110 transition-transform"
             src={`../images/books/${props.coverUrl}`}
             alt={`Cover of ${props.title}`}
           />
