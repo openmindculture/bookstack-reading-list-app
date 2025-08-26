@@ -17,10 +17,10 @@ const books: CollectionEntry<'book'>[] = await getCollection('book');
 <SvgSymbolFavorite />
 <SvgSymbolPodcast />
 
-<ul class="flex flex-wrap gap-1 relative custom-grid-has-row-behavior">
+<ul class="flex flex-wrap gap-0 relative custom-grid-has-row-behavior">
   {
     books.map(({ id, data }) => (
-      <li>
+      <li class="pb-1">
         <Book
           id={id}
           title={data.title}
@@ -50,7 +50,7 @@ const books: CollectionEntry<'book'>[] = await getCollection('book');
         const tileElement = wrappableElement as HTMLElement;
         let gappedHeight = tileElement.offsetHeight + verticalGap;
         tileElement.dataset.gappedHeight = String(gappedHeight);
-        let offsetRows = Math.floor(tileElement.offsetTop / gappedHeight);
+        let offsetRows = Math.round(tileElement.offsetTop / gappedHeight);
         const rowNumber = offsetRows + 1;
         tileElement.classList.add('row-' + rowNumber);
         tileElement.dataset.offsetTop = String(tileElement.offsetTop);

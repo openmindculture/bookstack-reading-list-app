@@ -63,10 +63,12 @@
 
 @layer components {
   .custom-grid-has-row-behavior .is-even {
-    margin: -6rem -10rem 6rem 10rem;
+    margin-left: 10rem;
+    margin-right: -10rem;
   }
-  .custom-grid-has-row-behavior .is-even > .custom-hex-tile {
-    box-shadow: 120px 80px 40px 20px red;
+  .custom-grid-has-row-behavior [class^="row"]:not(.row-1) {
+    margin-top: -6rem;
+    margin-bottom: 0;
   }
   .custom-hex-tile {
     @apply w-[12rem];
