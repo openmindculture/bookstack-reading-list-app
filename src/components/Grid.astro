@@ -17,7 +17,7 @@ const books: CollectionEntry<'book'>[] = await getCollection('book');
 <SvgSymbolFavorite />
 <SvgSymbolPodcast />
 
-<ul class="flex flex-wrap gap-0 relative custom-grid-has-row-behavior">
+<ul class="flex flex-wrap gap-0 relative custom-grid-has-row-behavior" id="astro-grid-generated-id">
   {
     books.map(({ id, data }) => (
       <li class="pb-1">
@@ -40,25 +40,23 @@ const books: CollectionEntry<'book'>[] = await getCollection('book');
     ))
   }
 </ul>
-<script>
-  document.addEventListener("DOMContentLoaded", (event) => {
-    const layoutContainers = document.querySelectorAll('.custom-grid-has-row-behavior');
-    for (const layoutContainer of layoutContainers) {
-      const verticalGap = parseInt(getComputedStyle(layoutContainer).rowGap, 10);
-      const wrappableElements = layoutContainer.children;
-      for (const wrappableElement of wrappableElements) {
-        const tileElement = wrappableElement as HTMLElement;
-        let gappedHeight = tileElement.offsetHeight + verticalGap;
-        tileElement.dataset.gappedHeight = String(gappedHeight);
-        let offsetRows = Math.round(tileElement.offsetTop / gappedHeight);
-        const rowNumber = offsetRows + 1;
-        tileElement.classList.add('row-' + rowNumber);
-        tileElement.dataset.offsetTop = String(tileElement.offsetTop);
-        tileElement.dataset.offsetRows = String(offsetRows);
+<script is:inline>
+const layoutContainers = document.querySelectorAll('.custom-grid-has-row-behavior');
+const layoutContainer = document.getElementById('astro-grid-generated-id');
+if (layoutContainer) {
+  const verticalGap = parseInt(getComputedStyle(layoutContainer).rowGap, 10);
+  const wrappableElements = layoutContainer.children;
+  for (const tileElement of wrappableElements) {
+    let gappedHeight = tileElement.offsetHeight + verticalGap;
+    tileElement.dataset.gappedHeight = String(gappedHeight);
+    let offsetRows = Math.round(tileElement.offsetTop / gappedHeight);
+    const rowNumber = offsetRows + 1;
+    tileElement.classList.add('row-' + rowNumber);
+    tileElement.dataset.offsetTop = String(tileElement.offsetTop);
+    tileElement.dataset.offsetRows = String(offsetRows);
 
 
-        tileElement.classList.add((offsetRows % 2) ? 'is-even' : 'is-odd');
-      }
-    }
-  });
+    tileElement.classList.add((offsetRows % 2) ? 'is-even' : 'is-odd');
+  }
+}
 </script>
