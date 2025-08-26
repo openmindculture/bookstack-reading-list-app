@@ -8,7 +8,7 @@ import SvgSymbolFavorite from './SvgSymbolFavorite.astro';
 import SvgSymbolPodcast from './SvgSymbolPodcast.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 const books: CollectionEntry<'book'>[] = await getCollection('book');
-
+const gridId = 'astro-grid-generated-id';
 // The sort order of generated collections is non-deterministic and platform-dependent. This means that if you are calling getCollection() and need your entries returned in a specific order (e.g. blog posts sorted by date), you must sort the collection entries yourself.
 ---
 
@@ -17,7 +17,10 @@ const books: CollectionEntry<'book'>[] = await getCollection('book');
 <SvgSymbolFavorite />
 <SvgSymbolPodcast />
 
-<ul class="flex flex-wrap gap-0 relative custom-grid-has-row-behavior" id="astro-grid-generated-id">
+<ul
+  class="custom-grid-has-row-behavior relative flex flex-wrap gap-0"
+  id={gridId}
+>
   {
     books.map(({ id, data }) => (
       <li class="pb-1">
@@ -36,23 +39,25 @@ const books: CollectionEntry<'book'>[] = await getCollection('book');
           updatedYear={data.updatedYear}
         />
       </li>
-
     ))
   }
 </ul>
-<script is:inline>
-const layoutContainers = document.querySelectorAll('.custom-grid-has-row-behavior');
-const layoutContainer = document.getElementById('astro-grid-generated-id');
-if (layoutContainer) {
-  const verticalGap = parseInt(getComputedStyle(layoutContainer).rowGap, 10);
-  const wrappableElements = layoutContainer.children;
-  for (const tileElement of wrappableElements) {
-    let gappedHeight = tileElement.offsetHeight + verticalGap;
-    let offsetRows = Math.round(tileElement.offsetTop / gappedHeight);
-    const rowNumber = offsetRows + 1;
-    tileElement.classList.add('row');
-    tileElement.classList.add('row-' + rowNumber);
-    tileElement.classList.add((offsetRows % 2) ? 'is-even' : 'is-odd');
+<script is:inline define:vars={{gridId}}>
+  const layoutContainer = document.getElementById(gridId);
+  if (layoutContainer) {
+    const tileElements = layoutContainer.children;
+    let previousOffset = 0;
+    let currentRow = 1;
+    for (const /** @type {HTMLElement} */ tileElement of tileElements) {
+      if (tileElement.offsetTop > previousOffset) {
+        currentRow++;
+      }
+      previousOffset = tileElement.offsetTop;
+      tileElement.classList.add('row');
+      tileElement.classList.add('row-' + currentRow);
+      if (currentRow % 2) {
+        tileElement.classList.add('custom-shifted');
+      }
+    }
   }
-}
 </script>

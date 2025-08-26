@@ -62,7 +62,7 @@
 }
 
 @layer components {
-  .custom-grid-has-row-behavior .is-even {
+  .custom-grid-has-row-behavior .custom-shifted {
     margin-left: 10rem;
     margin-right: -10rem;
   }
