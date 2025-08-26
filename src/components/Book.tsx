@@ -26,8 +26,8 @@ const Book = (props: CardProps) => {
           <p>Author: {props.author}</p>
           {!!props.isbn && <p>ISBN: {props.isbn}</p>}
           {!!props.pubYear && <p>{props.pubYear} {!!props.updatedYear && <div>updated: {props.updatedYear}</div>}</p>}
-          {!!props.icon && <svg><use href="#symbol-{props.icon}" /></svg>}
-          {!!props.language && <img src="images/languages/{props.language}.svg" alt="language: {props.language}" />}
+          {!!props.icon && <svg><use href={`#symbol-${props.icon}`} /></svg>}
+          {!!props.language && <img src={`../images/languages/${props.language}.svg`} alt={`language: ${props.language}`} />}
       </div>
     </div>
   <div className={'custom-hex-tile w-80 max-w-full h-96 relative' + (props.coverClassName ? ` ${props.coverClassName}` : '')}  >
