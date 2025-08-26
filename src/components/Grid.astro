@@ -48,15 +48,10 @@ if (layoutContainer) {
   const wrappableElements = layoutContainer.children;
   for (const tileElement of wrappableElements) {
     let gappedHeight = tileElement.offsetHeight + verticalGap;
-    tileElement.dataset.gappedHeight = String(gappedHeight);
     let offsetRows = Math.round(tileElement.offsetTop / gappedHeight);
     const rowNumber = offsetRows + 1;
     tileElement.classList.add('row');
     tileElement.classList.add('row-' + rowNumber);
-    tileElement.dataset.offsetTop = String(tileElement.offsetTop);
-    tileElement.dataset.offsetRows = String(offsetRows);
-
-
     tileElement.classList.add((offsetRows % 2) ? 'is-even' : 'is-odd');
   }
 }
