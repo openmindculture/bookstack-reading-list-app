@@ -25,6 +25,8 @@ const config: Config = {
         current: 'currentColor',
         white: '#ffffff',
         blue: {
+          'slate': '#6181bd',
+          /* TODO remove unused: */
           sky: '#e3f3ff',
           azure: '#9dc0fa',
           indigo: '#8f97e8',

@@ -7,7 +7,7 @@ interface CardProps {
   author: string;
   description?: string;
   coverUrl?: string;
-  coverClassName?: 'bg-blue'|'bg-gray-800'|'bg-rose-500'|'bg-stone-800'|'bg-slate-900';
+  coverClassName?: 'bg-blue'|'bg-blue-slate'|'bg-blue-950'|'bg-gray-800'|'bg-rose-500'|'bg-stone-800'|'bg-slate-900'|'bg-fuchsia-900'|'bg-red-100'|'yellow-800';
   externalUrl?: string;
   icon?: 'book'|'blogpost'|'podcast';
   isbn?: string;
