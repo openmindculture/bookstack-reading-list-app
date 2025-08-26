@@ -51,6 +51,7 @@ if (layoutContainer) {
     tileElement.dataset.gappedHeight = String(gappedHeight);
     let offsetRows = Math.round(tileElement.offsetTop / gappedHeight);
     const rowNumber = offsetRows + 1;
+    tileElement.classList.add('row');
     tileElement.classList.add('row-' + rowNumber);
     tileElement.dataset.offsetTop = String(tileElement.offsetTop);
     tileElement.dataset.offsetRows = String(offsetRows);

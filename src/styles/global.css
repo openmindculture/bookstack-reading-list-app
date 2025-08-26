@@ -66,7 +66,7 @@
     margin-left: 10rem;
     margin-right: -10rem;
   }
-  .custom-grid-has-row-behavior [class^="row"]:not(.row-1) {
+  .custom-grid-has-row-behavior .row:not(.row-1) {
     margin-top: -6rem;
     margin-bottom: 0;
   }
