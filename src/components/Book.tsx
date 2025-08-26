@@ -7,7 +7,7 @@ interface CardProps {
   author: string;
   description?: string;
   coverUrl?: string;
-  coverClassName?: 'bg-blue'|'bg-gray-800'|'bg-rose-500';
+  coverClassName?: 'bg-blue'|'bg-gray-800'|'bg-rose-500'|'bg-stone-800'|'bg-slate-900';
   externalUrl?: string;
   icon?: 'book'|'blogpost'|'podcast';
   isbn?: string;
@@ -33,7 +33,7 @@ const Book = (props: CardProps) => {
   <div className={'custom-hex-tile w-80 max-w-full h-96 relative' + (props.coverClassName ? ` ${props.coverClassName}` : '')}  >
     {!!props.coverUrl && (
       <img
-        className="w-3xs max-w-[150%] object-cover"
+        className="w-3xs max-w-full object-cover"
             src={`../images/books/${props.coverUrl}`}
             alt={`Cover of ${props.title}`}
           />
