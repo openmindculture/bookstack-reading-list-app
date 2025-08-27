@@ -8,4 +8,5 @@ description: |
 coverUrl: "sarah-drasner-engineering-management-for-the-rest-of-us.jpg"
 isbn: "9798986769318"
 pubYear: 2022
+showOnHomepage: true
 ---

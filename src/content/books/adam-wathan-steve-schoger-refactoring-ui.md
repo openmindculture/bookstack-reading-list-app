@@ -6,4 +6,5 @@ description: |
 coverUrl: "adam-wathan-steve-schoger-refactoring-ui.jpg"
 coverClassName: "bg-gray-800"
 externalUrl: "https://www.refactoringui.com/"
+pubYear: 2018
 ---

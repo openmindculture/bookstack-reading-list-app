@@ -3,5 +3,5 @@ author: "Tim Frick"
 title: "Designing for Sustainability"
 description: |
 coverUrl: "tim-frick-designing-for-sustainability.jpg"
-pubDate: 2016
+pubYear: 2016
 ---

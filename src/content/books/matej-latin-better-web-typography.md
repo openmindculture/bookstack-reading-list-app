@@ -8,4 +8,5 @@ updatedYear: 2025
 externalUrl: "https://betterwebtype.com/web-typography-book-offer/"
 coverUrl: "matej-latin-better-web-typography.jpg"
 isbn: "978-0464213680"
+showOnHomepage: true
 ---

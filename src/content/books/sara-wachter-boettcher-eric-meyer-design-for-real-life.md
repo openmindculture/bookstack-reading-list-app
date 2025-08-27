@@ -6,4 +6,5 @@ description: |
 coverUrl: "sara-wachter-boettcher-eric-meyer-design-for-real-life.jpg"
 isbn: "978-1952616372"
 pubYear: 2016
+showOnHomepage: true
 ---

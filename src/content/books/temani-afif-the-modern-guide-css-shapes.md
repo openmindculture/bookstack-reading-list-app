@@ -7,4 +7,5 @@ coverUrl: "temani-afif-the-modern-guide-css-shapes.jpg"
 externalUrl: "https://www.smashingmagazine.com/2024/05/modern-guide-making-css-shapes/"
 icon: "blogpost"
 pubYear: 2024
+showOnHomepage: true
 ---

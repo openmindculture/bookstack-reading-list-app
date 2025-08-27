@@ -6,4 +6,5 @@ description: |
 coverUrl: "jeremy-keith-resilient-web-design.jpg"
 externalUrl: "https://resilientwebdesign.com/"
 pubYear: 2016
+showOnHomepage: true
 ---

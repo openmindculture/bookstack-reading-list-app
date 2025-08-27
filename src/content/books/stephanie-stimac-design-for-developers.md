@@ -6,4 +6,5 @@ description: |
 coverUrl: "stephanie-stimac-design-for-developers.jpg"
 externalUrl: "https://www.manning.com/books/design-for-developers"
 pubYear: 2023
+showOnHomepage: true
 ---

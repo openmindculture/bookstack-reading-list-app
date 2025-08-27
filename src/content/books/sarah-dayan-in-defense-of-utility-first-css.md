@@ -5,4 +5,5 @@ description: "Slides of a presentation at DotCSS in December 2019 in Paris, Fran
 coverUrl: "sarah-dayan-in-defense-of-utility-first-css.jpg"
 externalUrl: "https://noti.st/sarahdayan/pmD0XT/in-defense-of-utility-first-css"
 pubYear: 2019
+showOnHomepage: true
 ---

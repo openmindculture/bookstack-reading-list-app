@@ -15,8 +15,9 @@ const books = defineCollection({
     icon: z.enum(['book', 'blogpost', 'podcast']).default('book').optional(),
     isbn: z.string().optional(),
     language: z.enum(['en', 'de', 'ar-LB']).optional(),
-    pubYear: z.number().int().optional(),
+    pubYear: z.number().int(),
     updatedYear: z.number().int().optional(),
+    showOnHomepage: z.boolean().optional(),
   }),
 });
 

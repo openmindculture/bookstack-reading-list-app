@@ -8,4 +8,5 @@ coverClassName: "bg-red-100"
 icon: "podcast"
 language: "ar-LB"
 pubYear: 2023
+showOnHomepage: true
 ---

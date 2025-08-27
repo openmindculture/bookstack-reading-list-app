@@ -12,8 +12,9 @@ interface CardProps {
   icon?: 'book'|'blogpost'|'podcast';
   isbn?: string;
   language?: 'en'|'de'|'ar-LB'|'';
-  pubYear?: number; // no bigint to prevent clashing with Zod's z.number().int() still technically typeof Number
+  pubYear: number;
   updatedYear?: number;
+  showOnHomepage?: boolean;
 }
 
 const Book = (props: CardProps) => {

@@ -7,4 +7,5 @@ coverUrl: "stephanie-walter-user-journey-mapping.jpg"
 externalUrl: "https://stephaniewalter.design/"
 isbn: "978-1098140946"
 pubYear: 2022
+showOnHomepage: true
 ---
