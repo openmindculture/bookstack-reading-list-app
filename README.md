@@ -21,6 +21,7 @@ https://dev-ux-lesezeichen.de/ ✅✅
 ![Zod](doc/img/Zod.svg)
 ![Markdown](doc/img/Markdown.svg)
 ![Tailwind](doc/img/Tailwind.svg)
+![daisyUI](doc/img/daisyUI-mark-rotating.svg)
 ![CSS](doc/img/CSS.svg)
 ![git](doc/img/git.svg)
 ![GitHub](doc/img/GitHub.svg)
@@ -318,7 +319,22 @@ TODO ...
 
 What happened to React-Select dropdowns and controlled input? Does React still use a virtual DOM when Preact can do without? What's the best practice to handle web forms and user input with React 19 in 2025?
 
-TODO
+- "controlled input" (state as single source of truth, rerender after typing) is still popular and recommended, unless we prefer full accessible HTML5-style web form control (I do)
+
+## daisyUI Tailwind Plugin
+
+[Daisy](https://daisyui.com/) is a pure CSS plugin adding style presets like button classes and form elements to Tailwind.
+
+Tailwind v3 (required by Astro 5.12) implies daisyUI v4 (not the latest v5).
+
+## Tailwind Playground Online
+
+like codepen, e.g. https://play.tailwindcss.com/L2yalFmJcY
+
+## More Tailwind Takeaways and Learning Notes
+
+unpublished blog post draft:
+[doc/An Astro React Revival Project and its Tailwind Takeaways - DEV Community.PDF](doc/An%20Astro%20React%20Revival%20Project%20and%20its%20Tailwind%20Takeaways%20-%20DEV%20Community.pdf)
 
 ## Testing and Development Tech Stack Choices
 
