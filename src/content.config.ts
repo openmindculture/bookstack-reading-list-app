@@ -21,5 +21,6 @@ const books = defineCollection({
   }),
 });
 
+// prevent false positive JetBrains code inspection warning
 // noinspection JSUnusedGlobalSymbols
 export const collections = { book: books };

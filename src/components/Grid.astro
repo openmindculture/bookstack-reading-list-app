@@ -6,12 +6,19 @@ import SvgSymbolBlogpost from './SvgSymbolBlogpost.astro';
 import SvgSymbolBook from './SvgSymbolBook.astro';
 import SvgSymbolFavorite from './SvgSymbolFavorite.astro';
 import SvgSymbolPodcast from './SvgSymbolPodcast.astro';
-import { getCollection, type CollectionEntry, type InferEntrySchema } from 'astro:content';
-const books: CollectionEntry<'book'>[] = (await getCollection('book',({ data }: { data: InferEntrySchema<'book'> }) => {
-  return !!data.showOnHomepage;
-})).sort(
-  (a, b) => b.data.pubYear - a.data.pubYear
-);
+import {
+  getCollection,
+  type CollectionEntry,
+  type InferEntrySchema,
+} from 'astro:content';
+const books: CollectionEntry<'book'>[] = (
+  await getCollection(
+    'book',
+    ({ data }: { data: InferEntrySchema<'book'> }) => {
+      return !!data.showOnHomepage;
+    },
+  )
+).sort((a, b) => b.data.pubYear - a.data.pubYear);
 const gridId = 'astro-grid-generated-id';
 // The sort order of generated collections is non-deterministic and platform-dependent. This means that if you are calling getCollection() and need your entries returned in a specific order (e.g. blog posts sorted by date), you must sort the collection entries yourself.
 ---
@@ -46,7 +53,7 @@ const gridId = 'astro-grid-generated-id';
     ))
   }
 </ul>
-<script is:inline define:vars={{gridId}}>
+<script is:inline define:vars={{ gridId }}>
   const layoutContainer = document.getElementById(gridId);
   if (layoutContainer) {
     const tileElements = layoutContainer.children;
