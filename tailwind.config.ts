@@ -1,5 +1,6 @@
 import path from 'node:path';
 import type { Config } from 'tailwindcss';
+import daisyui from 'daisyui'
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
@@ -36,6 +37,9 @@ const config: Config = {
           black: '#0b1522',
           DEFAULT: '#0000ff',
         },
+        orange: {
+          'daisy': '#feb94f',
+        },
         'tahiti': {
           light: '#cffafe',
           200: '#a5f3fc',
@@ -45,7 +49,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [daisyui],
 };
 
 export default config;
