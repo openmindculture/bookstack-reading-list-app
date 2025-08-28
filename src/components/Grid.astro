@@ -66,7 +66,7 @@ const gridId = 'astro-grid-generated-id'; // TODO use uuid
       previousOffset = tileElement.offsetTop;
       tileElement.classList.add('row');
       tileElement.classList.add('row-' + currentRow);
-      if (currentRow % 2) {
+      if (currentRow % 2 == 0) {
         tileElement.classList.add('custom-shifted');
       }
     }
