@@ -72,7 +72,7 @@
     margin-bottom: 0;
   }
   .custom-hex-tile {
-    @apply w-[19rem] max-w-full h-96;
+    @apply w-[19rem] max-w-full h-96 flex flex-col justify-center items-center font-atkinson;
     clip-path: polygon(
       50% 0%,
       100% 25%,

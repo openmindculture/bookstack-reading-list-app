@@ -22,10 +22,8 @@ const Book = (props: BookProps) => {
     <article className="flex flex-nowrap space-x-1 font-dx-kord text-blue-violet {{isFavorite ? 'isFavorite' : '' }}">
       <div className={'custom-hex-tile  bg-blue-violet p-0.5'}>
         <div className={'custom-hex-tile w-80 max-w-full h-96 m-0 bg-blue-sky p-1'}>
-          <h3 className="bg-pink-500">{props.title}</h3>
-          <p>{props.description}</p>
+          <h3 className='font-dx-kord text-2xl'>{props.title}</h3>
           <p>Author: {props.author}</p>
-          {!!props.isbn && <p>ISBN: {props.isbn}</p>}
           {!!props.pubYear && <p>{props.pubYear} {!!props.updatedYear && <div>updated: {props.updatedYear}</div>}</p>}
           {!!props.icon && <svg><use href={`#symbol-${props.icon}`} /></svg>}
           {!!props.language && <img src={`../images/languages/${props.language}.svg`} alt={`language: ${props.language}`} />}
