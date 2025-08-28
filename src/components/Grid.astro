@@ -19,7 +19,7 @@ const books: CollectionEntry<'book'>[] = (
     },
   )
 ).sort((a, b) => b.data.pubYear - a.data.pubYear);
-const gridId = 'astro-grid-generated-id';
+const gridId = 'astro-grid-generated-id'; // TODO use uuid
 // The sort order of generated collections is non-deterministic and platform-dependent. This means that if you are calling getCollection() and need your entries returned in a specific order (e.g. blog posts sorted by date), you must sort the collection entries yourself.
 ---
 
