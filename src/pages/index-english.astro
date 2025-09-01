@@ -3,59 +3,103 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Dev-UX-Lesezeichen">
-    <h1>Dev-UX-Lesezeichen</h1>
-    <p>
-      Entdecke interessante Vorschläge aus den Bereichen Webdesign, Webentwicklung, DevUX-Kollaboration/Co-Creation,
-      UX/UI, Barrierefreiheit, nachhaltiges Webdesign und nachhaltige Webentwicklung. Bald an dieser Stelle: eine einfache Web-App zur digitalisierung deines Stapels ungelesener Fachbücher. Lesezeichen können ohne Anmeldung gesetzt, angesehen und ausgedruckt werden. Deine Lesezeichen werden dann nur auf deinem eigenen Computer bzw. Smartphone gespeichert. Angemeldete Leserinnen und Leser können selbst Bücher hinzufügen und bestehende Einträge bearbeiten. Weitere Funktionen wie das Einlesen von Titeln durch Scannen von Barcodes sind geplant, aber zurzeit noch nicht möglich.
-    </p>
+  <h1>Dev-UX Bookmarks</h1>
+  <p>
+    Discover interesting recommendations related to web design, web development,
+    DevUX collaboration/co-creation, UX/UI, accessibility, sustainable web
+    design, and sustainable web development. Coming soon here: a simple web app
+    for digitizing your stack of uunread textbooks. Without registration, you
+    can bookmark, view, and print your individual list. Your bookmars will only
+    be stored on your own computer or smartphone. Registered readers can add or
+    suggest new and edit existing entries. Further functionality like adding by
+    scanning barcodes are planned, but not implemented yet.
+  </p>
 
-    <h2>Links und Literaturliste</h2>
-    <p>Vorab erscheint zwischenzeitlich eine Liste mit Links und Leseempfehlungen zu Dev-UX, UX/UI-Design, Usability, JavaScript, nachhaltiger und barrierefreier Webentwicklung, sowie technische und soziale Aspekte sogenannter künstlicher Intelligenz und Grundlagen der angewandten Informatik.</p>
+  <h2>Links and Reading List</h2>
+  <p>
+    In advance, here is a list of links and reading recommendations about
+    Dev-UX, UX/UI design, usability, JavaScript, sustainable and accessible web
+    devlopment, plus technical and social aspects of so-called artificial
+    intelligence and fundamentals of applied computer science.
+  </p>
 
-    <h2>Lesezeichen, Bookmarks, Bücher?</h2>
-    <p>Auf dieser Seite geht es um Merklisten und Empfehlungen für Bücher, also alles was mit oder ohne eigene ISBN auf dem
-      Buchmarkt erschienen ist. Dazu gehören grundsätzlich auch E-Books im Self Publishing, aber keine Webseiten.
-      Wenn du an derartigen Bookmarks interessiert bist, findest du bereits viele Angebote.
-    </p>
+  <h2>Bookmarks, Books and what else?</h2>
+  <p>
+    This website features watch lists and recommendations for books, in the
+    sense of anything printable published with or without an ISBN, including
+    self-published ebooks, but no websites. Auf dieser Seite geht es um
+    Merklisten und Empfehlungen für Bücher, also alles was mit oder ohne eigene
+    ISBN auf dem Buchmarkt erschienen ist. Dazu gehören grundsätzlich auch
+    E-Books im Self Publishing, aber keine Webseiten. If you are interested in
+    bookmarks of this kind, you will already find many offers.
+  </p>
 
-    <h2>Themen, Tags und Kategorien</h2>
-    <p>
-      Unsere Bücherlisten werden zunächst recht minimalistisch beschrieben: Autor, Titel, <strike>ISBN</strike> und Tags sollten genügen, dachte inch anfangs, und
-      weitere objektive Informationen ließen sich größtenteils dynamisch anhand der ISBN ermitteln. In der Praxis ist das gar nicht so einfach. Der gleiche Inhalt muss als gebundenes Format, Taschenbuch oder E-Book jeweils mindestens eine eigene ISBN haben. Zudem gibt es neben der modernen ISBN13 teilweise alternative kürzere ISBN10-Angaben, und manche Bücher haben gar keine solche Nummer, wenn sie im sogenannten Self-Publishing, beispielsweise bei Leanpub, veröffentlicht wurden.
+  <h2>Topics, Tags, and Categories</h2>
+  <p>
+    Our book lists are initially described in a rather minimalistic way: autor,
+    title, <strike>ISBN</strike> and tags should be enough, at least that's what
+    I thought when I started this project, as anything else can be retrieved based
+    on ISBN numbern. In practice it's not that easy. The same content, as hardcover,
+    paperback, or ebook, must have its own ISBN, and the modern ISBN13 and the shorter
+    ISBN10 can be written with or without dashes. Some books don't have an ISBN at,
+    when they were "self-published", for example at Leanpub. Author and title are
+    neither redundant nor normalized. Autor und Titel sind ebensowenig redundant
+    wie eindeutig normaliert. Although there are different author identifiers here
+    too, ‘J. Smith’ could stand for several different people. What we are foregoing
+    for the time being, as well as the publisher, distributor, seller, price and
+    sources for second-hand goods, which should be of particular interest in the
+    case of out-of-print titles. Categorisation is always difficult; tagging using
+    (hash) tags would be easier to implement and expand.
+  </p>
 
-      Autor und Titel sind ebensowenig redundant wie eindeutig normaliert. Obwohl es auch hier verschiedene Autorenkennungen gibt, könnten "J. Smith" hier für mehrere verschiedene Personen stehen. Worauf wir bis auf weiteres verzichten, wie auch auf Herausgeber, Verlag, Verkäufer, Preis und Bezugsquellen für Gebrauchtwaren, was besonders
-      bei vergriffenen Titeln interessant sein dürfte. Eine Kategorisierung ist immer schwierig, eine Verschlagwortung
-      mithilfe von (Hash-) Tags wäre einfacher umzusetzen und zu erweitern.
-    </p>
+  <h2>Searching Hidden Fields</h2>
+  <p>
+    I decided to hide most information, including an optional long description,
+    for the sake of visual clarity. However, hidden fields are searchable, so
+    you can find a book by matching text, ISBN etc.
+  </p>
 
-    <h2>Autorinnen, Autoren, Sprachen und Formate</h2>
-    <p>
-      Grundsätzlich können Fachbücher in allen Sprachen in die Liste aufgenommen werden, zumal viele Fachbücher im IT- und
-      Design-Bereich ohnehin nicht auf Deutsch, sondern hauptsächlich auf Englisch erschienen sind. Wenn ein Buch auf
-      Deutsch herausgegeben wurde, sollte bevorzugt die deutsche Sprachausgabe aufgenommen werden. Zu den Ausnahmen zählen unter anderem eine Podcast-Folge in arabischer Sprache mit Sara Soueidan sowie einige Blogs, Slides und Podcasts von wichtigen Persönlichkeiten, die bislang keine gedruckten Bücher veröffentlicht haben.
-    </p>
+  <h2>Authors, Languages, and Formats</h2>
+  <p>
+    English and international books are eligible for inclusion,
+    but you can suggest French, Arabic or any other titles as well.
+    If a book was published in German, the German language edition should be prefered.
+    Known exceptions include, among others, a podcast episode in Arabic featuring
+    an interview with Sara Soueidan and several blogs, slides and podcasts by
+    notable people who have not yet published any printed books.
+  </p>
 
-    <p>Ältere Bücher in der Liste sind oft immer noch interessant, zumal manche in überarbeiteten Auflagen erschienen. Die Auswahl bleibt eklektisch und auch von persönlichen Begegnungen auf Kongressen und Meetups beeinflusst, stellt somit eine persönliche Auswahl von mir (Ingo Steinke) dar. Versteht es bitte als Inspiration, selbst nach weiterer interessanter Lektüre zu suchen, sei es gedruckt oder online.</p>
+  <p>
+    Older books in the list are often still interesting, especially since some have been
+    revised and republished. The selection remains eclectic and is also
+    influenced by personal encounters at conferences and meetups, thus representing
+    a personal selection by me (Ingo Steinke). Please understand this incomplete
+    list as inspiration to search for further interesting reading yourself,
+    whether in print or online.
+  </p>
 
-    <h2>Ergänzungen und Korrekturen</h2>
-    <p>
-      Falls du Fehler finden solltest, sende uns gerne eine formlose Nachricht. Alternativ kannst du einen Zugang zum
-      Bearbeiten beantragen, um selbst fehlende Informationen und Einträge zu ergänzen und bestehende Lesezeichen zu
-      erweitern und zu korrigieren. Grundsätzlich bleibt es den Betreibern vorbehalten, Werke nicht aufzunehmen oder
-      bestehende Einträge ohne Angaben von Gründen zu löschen.
-    </p>
+  <h2>Amendments and Corrections</h2>
+  <p>
+    If you spot any error, please feel free to send us an informal message.
+    Alternatively you can apply to become an editors. The maintainers reserve
+    the right not to include works or to delete existing entries without giving reasons.
+  </p>
 
-    <h2>Haftungsausschluss (Disclaimer)</h2>
-    <p>
-      Diese Web-App wird ohne Gewähr gratis bereitgestellt und kann sich jederzeit ändern oder abgeschaltet werden.
-      Es handelt sich um öffentliche Beta-Software, die hauptsächlich als Beispiel für die Programmierung mit
-      Astro, React und TypeScript dient. Wenn du selbst eine ähnliche App gebrauchen kannst,
-      fordere gerne ein unverbindliches Angebot an!
-    </p>
-    <h2>Impressum</h2>
-    <p>
-      Verantwortlich für dieses Angebot ist
-      <a href="https://www.ingo-steinke.de" target="_blank" rel="noopener">Ingo Steinke, Webentwickler</a>,
-      Donaustr. 83, 12043 Berlin.
-    </p>
+  <h2>Disclaimer</h2>
+  <p>
+    This is a free web app that comes as-is without any kind of warranty!
+    Everything is subject to change or termination at any time. This is a
+    public beta software mainly intended as an example for practicing web
+    development using Astro, React, and TypeScript.
+    If you think you need a similar kind of app,
+    Wenn du selbst eine ähnliche App
+    gebrauchen kannst, request a non-binding quote!
+  </p>
+  <h2>Imprint</h2>
+  <p>
+    Responsible for this offer:
+    <a href="https://www.ingo-steinke.de" target="_blank" rel="noopener"
+      >Ingo Steinke, web developer</a
+    >, Donaustr. 83, 12043 Berlin.
+  </p>
 </Layout>
