@@ -10,6 +10,7 @@ https://dev-ux-lesezeichen.de/ ✅✅
 
 ### Tech Stack:
 
+![HTML5](doc/img/HTML5.svg)
 ![Astro](doc/img/Astro.svg)
 ![React](doc/img/React.svg)
 ![Vite](doc/img/Vite.svg)
@@ -17,11 +18,15 @@ https://dev-ux-lesezeichen.de/ ✅✅
 ![Playwright](doc/img/Playwright.svg)
 ![Storybook](doc/img/Storybook.svg)
 ![TypeScript](doc/img/TypeScript.svg)
+![Zod](doc/img/Zod.svg)
+![Markdown](doc/img/Markdown.svg)
 ![Tailwind](doc/img/Tailwind.svg)
+![daisyUI](doc/img/daisyUI-mark-rotating.svg)
+![CSS](doc/img/CSS.svg)
 ![git](doc/img/git.svg)
 ![GitHub](doc/img/GitHub.svg)
 ![npm](doc/img/npm.svg)
-![Markdown](doc/img/Markdown.svg)
+![Netlify](doc/img/Netlify.svg)
 
 See the [Software Architecture Research and Decisions section](#software-architecture-research-and-decisions) for more information.
 
@@ -35,17 +40,18 @@ This README file contains unfinished and incomplete notes that might be outdated
 
 - [x] Astro + Vite + Tailwind setup
 - [x] Storybook setup
-- [ ] global style apply to Storybook (postponed, branch: feature/testing)
-- [x] style class names to card (not working without global styles)
-- [ ] second page (ongoing, branch: feature/content-demo)
-- [ ] content collection
-- [ ] to page with cards
+- [x] global style apply to Storybook
+- [ ] style class names to components: Detecting classes in source files?, see https://tailwindcss.com/docs/detecting-classes-in-source-files
+- [x] second page (ongoing, branch: feature/content-demo)
+- [x] content collection
+- [x] to page with cards
 - [ ] to JSON like API output
-- [ ] Storybook testing
+- [x] Storybook testing
 - [ ] Vitest testing
-- [ ] Playwright testing
+- [ ] Storybook+Vitest testing
+- [ ] Playwright end-to-end integration testing
 - [ ] deploy milestone (page 2)
-- [ ] update blog post draft: even less details
+- [x] update blog post draft: even less details
 - [x] clean up README
 
 Theme change
@@ -313,7 +319,29 @@ TODO ...
 
 What happened to React-Select dropdowns and controlled input? Does React still use a virtual DOM when Preact can do without? What's the best practice to handle web forms and user input with React 19 in 2025?
 
-TODO
+- "controlled input" (state as single source of truth, rerender after typing) is still popular and recommended, unless we prefer full accessible HTML5-style web form control (I do)
+
+## daisyUI Tailwind Plugin
+
+[Daisy](https://daisyui.com/) is a pure CSS plugin adding style presets like button classes and form elements to Tailwind.
+
+Tailwind v3 (required by Astro 5.12) implies daisyUI v4 (not the latest v5).
+
+Daisy brings its own, semantic, class names and built-in themes like light and dark, so that we can use and customize
+design system class names like `button-primary`. Custom color definitions in the daisyUI configuration section in
+`tailwind.config.ts` must use CSS color values like `#feb94f`, not Tailwind's built-in or customized class names
+like `blue-500` or `orange-daisy`.
+
+Alternatively, we can combine daisy and Tailwind class names like in `badge badge-lg bg-orange-daisy text-black`.
+
+## Tailwind Playground Online
+
+like codepen, e.g. https://play.tailwindcss.com/L2yalFmJcY
+
+## More Tailwind Takeaways and Learning Notes
+
+unpublished blog post draft:
+[doc/An Astro React Revival Project and its Tailwind Takeaways - DEV Community.PDF](doc/An%20Astro%20React%20Revival%20Project%20and%20its%20Tailwind%20Takeaways%20-%20DEV%20Community.pdf)
 
 ## Testing and Development Tech Stack Choices
 
@@ -325,7 +353,52 @@ Storybook is framework-agnostic. Stories can be used by React and Astro (which c
 
 Storybook can't understand Astro, but Astro can render TSX to static HTML, so we can just write any component in TSX. If we don't specify any `client:` directive, Astro will render React components to static HTML without any interactive JavaScript.
 
-However, we can use Astro's collection files and front matter to pass data to our components, whether static (React, Astro) or interactive (React, Vue, Svelte, ...)
+However, we can use Astro's collection files and front matter to pass data to our components, whether static (React, Astro) or interactive. But before you start to rewrite every static Astro component to React, pause and think twice - there's a catch that I'll explain in the interactivity section:
+
+Astro ideally lets us focus on markup and don't use JSX and typed properties where plain HTML and (Tailwind) CSS, or content-focused markdown is more appropriate.
+
+However, while emitting performance-optimized frontend code and markup as intended, my source still becomes 90% React and 10% Astro due to my decision to use Storybook to test and preview my components. Maybe that's the catch: something simple enough for static rendering doesn't need Storybook's interactive "play" functionality, when it will be end-to-end-tested as part of the rendered application.
+
+How can we restrict interactivity to the smallest possible entities to profit from speed and performance of Astro's static rendering? Let's say, we have a set of cards, and each card has a star-shaped favorite button. In the initial view, the buttons are the only elements that need to be interactive. Consequentially, the favorited status can't be part of the card's state, but rather the toggle's state.
+
+To ensure a component can be rendered statically, all interactive code must either be defined on a child compoents' level, or as global app functionality to prevent code duplication and make the components easier to read and maintain.
+
+<Layout>                 # Astro (static, filled with dynamic data in build-time)
+  <Navigation />         # React (static)
+  <ReadingList />        # React (interactive, synchronize with local storage and/or API)
+  <Search>               # React (interactive)
+    <SearchInput />      # React (interactive)
+    <Grid>               # React (interactive)
+      <Card>             # React (interactive)
+        <ToggleButton /> # React (interactive)
+      </Card>
+    </Grid>
+  </Search>
+  <Grid>                 # React (static in initial view with partial content)
+    <Card>               # React (static in initial view)
+      <ToggleButton />   # React (interactive)
+    </Card>
+  </Grid>
+</Layout>
+
+<JsonWrapper>            # initial Grid content rendered to JSON as a "mock API" for React search
+  <JsonGrid />           # dto. (static)
+</JsonWrapper>
+
+This is essential for understanding the power of an Islands Architecture: how to make specific React elements to interact with their grandparents and global state elements? To put it another way, to stick with the image of the island landscape, how to establish ferryboat routes between interactive islands without disturbing the static ones that we could imagine as no-go-zones, possibly inhabited by cute, endangered, animals.
+
+That's not even an Astro-specific problem, but a common challenge of classic React applications: How to avoid property drill down by using global state and a global data store? The idea of context is exactly that - for you to be able to share updateable state to the descendants without having to pass it from component to component.
+
+![sketch of an islands landscape to illustrate the above component structure](doc/img/islands-architecture.png)
+
+
+#### How to read from Astro content collection files?
+
+...
+
+#### How to validate Astro data with imported TypeScript interface?
+
+...
 
 #### Storybook for React
 
@@ -563,6 +636,12 @@ On the other hand, writing the full class names still allows us to use condition
 <div class="{{  error  ?  'text-red-600'  :  'text-green-600'  }}"></div>
 ```
 
+In React, `class` becomes `className` according to the HTMLElement DOM specification.
+
+```
+<div className="{{  error  ?  'text-red-600'  :  'text-green-600'  }}"></div>
+```
+
 We also want to load CSS in HTML `<head>`, not in JavaScript: this might unblock load speed by allowing parallel download of CSS and JavaScript, and it also allows us to define styled static page elements outside of our (p)react app, like a footer with links to external or static resources.
 
 #### Linting Tailwind CSS
@@ -626,6 +705,38 @@ h1, .custom-heading-h1 {
   @apply font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont;
 }
 ```
+
+Another challenge, or maybe rather an overambitious micro-optimization, is the decision where to put SVG icons that change their stroke or fill appearance to indicate state change. As I decided to use Tailwind to prevent wasting time reinventing the CSS wheel, there should be a Tailwind best-practice way to do it.
+
+#### (Tailwind) CSS Status Icons Best Practice
+
+Use SVG elements, not CSS data-urls, use fill and stroke class names like `<svg class="fill-current text-green-500">`.
+
+To prevent duplication in code or frontend, use SVG symbols, supported in all relevant browsers for many years:
+
+```html
+<svg style="diplay:none">
+  <symbol id="symbol-status" viewBox="20 20 20 20" ...><!-- just like an SVG element --></symbol>
+</svg>
+
+reuse 100x:
+<svg class="w-6 h-6 fill-current text-green-500"><use href="#symbol-status"</svg>
+```
+
+Inline SVG can use `currentColor` to be styled by CSS, while external standalone and embedded as data-uri can't.
+Standalone SVG should use `<svg xmlns=http://www.w3.org/2000/svg` namespace, but not the optional XML prolog with encoding,
+like `<?xml version="1.0" encoding="utf-8"?>`, as SVG is defined to always use UTF-8 encoding,
+and not the optional DOCTYPE header with DTD definitions like `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">`. Both should be omitted. Inline SVG needs no such boilerplate metadata.
+
+We should also omit unused `xlink` definitions and unhelpful attributes like `xml:space="preserve"`.
+
+When using SVG images in a project, strive to normalize the default output sizes, defined by `width` and `height` for
+all images that belong to the same group, like flags, brands or media type icons. Specify the `viewBox` if width and
+height differ from the original, unscaled geometry values like this: `viewBox="0 0 2880 1920" width="90" height="32"`.
+
+#### Custom Class Names in Tailwind
+
+Prefix your class names, and avoid generic abbreviations to prevent namespace collisions with built-in classes.
 
 ### Tech Stack Diversity
 

@@ -1,42 +1,42 @@
 @font-face {
-	font-family: 'Atkinson Hyperlegible';
-	src: url('/fonts/Atkinson-Hyperlegible-Regular-102a.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+  font-family: 'Atkinson Hyperlegible';
+  src: url('/fonts/Atkinson-Hyperlegible-Regular-102a.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Atkinson Hyperlegible Italic';
-	src: url('/fonts/Atkinson-Hyperlegible-Italic-102a.woff2') format('woff2');
-	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
+  font-family: 'Atkinson Hyperlegible Italic';
+  src: url('/fonts/Atkinson-Hyperlegible-Italic-102a.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Atkinson Hyperlegible Bold';
-	src: url('/fonts/Atkinson-Hyperlegible-Bold-102a.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+  font-family: 'Atkinson Hyperlegible Bold';
+  src: url('/fonts/Atkinson-Hyperlegible-Bold-102a.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Atkinson Hyperlegible Bold Italic';
-	src: url('/fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2') format('woff2');
-	font-weight: 700;
-	font-style: italic;
-	font-display: swap;
+  font-family: 'Atkinson Hyperlegible Bold Italic';
+  src: url('/fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
 }
 
 /*! Dirtyline Studio Dx Kord is licensed to Ingo Steinke */
 @font-face {
-	font-family: 'Dx Kord';
-	src: url('/fonts/Dx-Kord-Variable.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+  font-family: 'Dx Kord';
+  src: url('/fonts/Dx-Kord-Variable.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @tailwind base;
@@ -44,19 +44,41 @@
 @tailwind utilities;
 
 @layer base {
-	html, body {
-		@apply font-normal not-italic text-base text-lg font-atkinson;
-	}
+  html, body {
+    @apply font-normal not-italic text-base text-lg font-atkinson;
+  }
 
-	h1, h2, h3, h4, h5, h6 {
-		@apply font-bold font-dx-kord break-words m-0 mt-4 leading-none text-blue-violet;
-	}
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold font-dx-kord break-words m-0 mt-4 leading-none text-blue-violet;
+  }
 
-	h1 {
-		@apply text-6xl md:text-7xl lg:text-8xl lg:text-clamp-10ch;
-	}
+  h1 {
+    @apply text-6xl md:text-7xl lg:text-8xl lg:text-clamp-10ch;
+  }
 
   h2 {
     @apply text-5xl lg:text-7xl;
+  }
+}
+
+@layer components {
+  /* TODO fix mobile behavior */
+  .custom-grid-has-row-behavior .custom-shifted {
+    margin-left: 9.5rem;
+    margin-right: -9.5rem;
+  }
+  .custom-grid-has-row-behavior .row:not(.row-1) {
+    margin-top: -6rem;
+    margin-bottom: 0;
+  }
+  .custom-hex-tile {
+    @apply w-[19rem] max-w-full h-96 flex flex-col justify-center items-center font-atkinson;
+    clip-path: polygon(
+      50% 0%,
+      100% 25%,
+      100% 75%,
+      50% 100%,
+      0% 75%,
+      0% 25%);
   }
 }

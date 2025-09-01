@@ -8,10 +8,17 @@ export interface LayoutProps {
 }
 
 const { title } = Astro.props as LayoutProps;
+// TODO should we generate the navigation collection from our files?
+// TODO or move to a more obvious include file
+//      to improve maintainability and separation of concerns
 const NavigationCollection = [
   {
     caption: 'Home',
     url: '/',
+  },
+  {
+    caption: 'English',
+    url: '/index-english/',
   },
   {
     caption: 'App',
@@ -22,7 +29,6 @@ const NavigationCollection = [
 // import { z, defineCollection } from 'astro:content';
 // const glob = import.meta.glob('../pages/**'); /* vite */
 ---
-
 <!doctype html>
 <html lang="de">
   <head>
@@ -37,7 +43,7 @@ const NavigationCollection = [
       <Navigation NavigationCollection={NavigationCollection} />
     </head>
     <main class="bg-blue-sky rounded m-4 p-0 pt-4 pb-8">
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto pl-4 pr-12">
         <!-- TODO which paddings and spacings class names -->
         <!-- Use <slot /> when working with Astro Layouts or Astro Components. It's specific to Astro's way of passing child content from a parent component or page. -->
         <slot />

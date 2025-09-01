@@ -1,5 +1,6 @@
 import path from 'node:path';
 import type { Config } from 'tailwindcss';
+import daisyui from 'daisyui'
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
@@ -7,6 +8,9 @@ const config: Config = {
     path.join(__dirname, './src/**/*.{astro,html,jsx,tsx}'),
     path.join(__dirname, './src/**/*.css'),
     path.join(__dirname, './public/**/*.html'),
+  ],
+  safelist: [
+    'max-w-36',
   ],
   theme: {
     extend: {
@@ -22,6 +26,8 @@ const config: Config = {
         current: 'currentColor',
         white: '#ffffff',
         blue: {
+          'slate': '#6181bd',
+          /* TODO remove unused: */
           sky: '#e3f3ff',
           azure: '#9dc0fa',
           indigo: '#8f97e8',
@@ -30,6 +36,9 @@ const config: Config = {
           midnight: '#191970',
           black: '#0b1522',
           DEFAULT: '#0000ff',
+        },
+        orange: {
+          'daisy': '#feb94f',
         },
         'tahiti': {
           light: '#cffafe',
@@ -40,7 +49,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [daisyui],
 };
 
 export default config;
