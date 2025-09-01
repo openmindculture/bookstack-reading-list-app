@@ -7,4 +7,5 @@ coverUrl: "ahmad-shadeed-debugging-css.jpg"
 externalUrl: "https://debuggingcss.com/"
 isbn: ""
 pubYear: 2020
+showOnHomepage: true
 ---

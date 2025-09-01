@@ -6,4 +6,5 @@ description: |
 coverUrl: "regine-gilbert-inclusive-design-for-a-digital-world.jpg"
 pubYear: 2019
 isbn: "9781484250150"
+showOnHomepage: true
 ---

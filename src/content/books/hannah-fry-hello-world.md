@@ -6,4 +6,5 @@ coverUrl: "hannah-fry-hello-world.jpg"
 externalUrl: ""
 isbn: ""
 pubYear: 2018
+showOnHomepage: true
 ---

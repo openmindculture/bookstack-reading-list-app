@@ -6,4 +6,5 @@ description: |
 coverUrl: "brad-frost-atomic-design.svg"
 externalUrl: "https://atomicdesign.bradfrost.com/"
 pubYear: 2013
+showOnHomepage: true
 ---

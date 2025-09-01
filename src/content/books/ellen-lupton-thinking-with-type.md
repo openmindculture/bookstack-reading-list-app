@@ -7,4 +7,5 @@ pubYear: 2010
 updatedYear: 2024
 coverUrl: "ellen-lupton-thinking-with-type.jpg"
 isbn: "978-1797226828"
+showOnHomepage: true
 ---

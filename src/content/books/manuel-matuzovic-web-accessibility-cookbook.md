@@ -7,4 +7,5 @@ description: |
 coverUrl: "manuel-matuzovic-web-accessibility-cookbook.jpg"
 externalUrl: "https://accessibility-cookbook.com/"
 pubYear: 2024
+showOnHomepage: true
 ---

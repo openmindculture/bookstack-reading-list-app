@@ -62,8 +62,17 @@
 }
 
 @layer components {
-  .omc-hex-tile {
-    @apply max-w-[9rem];
+  /* TODO fix mobile behavior */
+  .custom-grid-has-row-behavior .custom-shifted {
+    margin-left: 9.5rem;
+    margin-right: -9.5rem;
+  }
+  .custom-grid-has-row-behavior .row:not(.row-1) {
+    margin-top: -6rem;
+    margin-bottom: 0;
+  }
+  .custom-hex-tile {
+    @apply w-[19rem] max-w-full h-96 flex flex-col justify-center items-center font-atkinson;
     clip-path: polygon(
       50% 0%,
       100% 25%,

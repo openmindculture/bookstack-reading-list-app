@@ -21,6 +21,7 @@ https://dev-ux-lesezeichen.de/ ✅✅
 ![Zod](doc/img/Zod.svg)
 ![Markdown](doc/img/Markdown.svg)
 ![Tailwind](doc/img/Tailwind.svg)
+![daisyUI](doc/img/daisyUI-mark-rotating.svg)
 ![CSS](doc/img/CSS.svg)
 ![git](doc/img/git.svg)
 ![GitHub](doc/img/GitHub.svg)
@@ -318,7 +319,29 @@ TODO ...
 
 What happened to React-Select dropdowns and controlled input? Does React still use a virtual DOM when Preact can do without? What's the best practice to handle web forms and user input with React 19 in 2025?
 
-TODO
+- "controlled input" (state as single source of truth, rerender after typing) is still popular and recommended, unless we prefer full accessible HTML5-style web form control (I do)
+
+## daisyUI Tailwind Plugin
+
+[Daisy](https://daisyui.com/) is a pure CSS plugin adding style presets like button classes and form elements to Tailwind.
+
+Tailwind v3 (required by Astro 5.12) implies daisyUI v4 (not the latest v5).
+
+Daisy brings its own, semantic, class names and built-in themes like light and dark, so that we can use and customize
+design system class names like `button-primary`. Custom color definitions in the daisyUI configuration section in
+`tailwind.config.ts` must use CSS color values like `#feb94f`, not Tailwind's built-in or customized class names
+like `blue-500` or `orange-daisy`.
+
+Alternatively, we can combine daisy and Tailwind class names like in `badge badge-lg bg-orange-daisy text-black`.
+
+## Tailwind Playground Online
+
+like codepen, e.g. https://play.tailwindcss.com/L2yalFmJcY
+
+## More Tailwind Takeaways and Learning Notes
+
+unpublished blog post draft:
+[doc/An Astro React Revival Project and its Tailwind Takeaways - DEV Community.PDF](doc/An%20Astro%20React%20Revival%20Project%20and%20its%20Tailwind%20Takeaways%20-%20DEV%20Community.pdf)
 
 ## Testing and Development Tech Stack Choices
 
@@ -693,12 +716,23 @@ To prevent duplication in code or frontend, use SVG symbols, supported in all re
 
 ```html
 <svg style="diplay:none">
-  <symbol id="status-symbol" viewBox="20 20 20 20" ...><!-- just like an SVG element --></symbol>
+  <symbol id="symbol-status" viewBox="20 20 20 20" ...><!-- just like an SVG element --></symbol>
 </svg>
 
 reuse 100x:
-<svg class="w-6 h-6 fill-current text-green-500"></svg>
+<svg class="w-6 h-6 fill-current text-green-500"><use href="#symbol-status"</svg>
 ```
+
+Inline SVG can use `currentColor` to be styled by CSS, while external standalone and embedded as data-uri can't.
+Standalone SVG should use `<svg xmlns=http://www.w3.org/2000/svg` namespace, but not the optional XML prolog with encoding,
+like `<?xml version="1.0" encoding="utf-8"?>`, as SVG is defined to always use UTF-8 encoding,
+and not the optional DOCTYPE header with DTD definitions like `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">`. Both should be omitted. Inline SVG needs no such boilerplate metadata.
+
+We should also omit unused `xlink` definitions and unhelpful attributes like `xml:space="preserve"`.
+
+When using SVG images in a project, strive to normalize the default output sizes, defined by `width` and `height` for
+all images that belong to the same group, like flags, brands or media type icons. Specify the `viewBox` if width and
+height differ from the original, unscaled geometry values like this: `viewBox="0 0 2880 1920" width="90" height="32"`.
 
 #### Custom Class Names in Tailwind
 

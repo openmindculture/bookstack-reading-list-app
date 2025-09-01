@@ -8,4 +8,5 @@ description: |
 coverUrl: "sarah-drasner-svg-animations.jpg"
 isbn: "9781491939703"
 pubYear: 2017
+showOnHomepage: true
 ---
