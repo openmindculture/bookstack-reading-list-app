@@ -1,5 +1,9 @@
-const SearchInput = (
-  <label className="input input-bordered flex items-center gap-2">
+interface SearchInputProps {
+  // icon?: 'book'|'blogpost'|'podcast';
+}
+
+const SearchInput: React.FC<SearchInputProps> = (props) => {
+  return <label className="input input-bordered flex items-center gap-2">
     <input
       type="text"
       className="grow"
@@ -18,6 +22,6 @@ const SearchInput = (
       />
     </svg>
   </label>
-);
+};
 
 export default SearchInput;

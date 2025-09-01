@@ -1,5 +1,4 @@
 import ToggleButton from './ToggleButton';
-import React from 'react';
 import { z } from 'astro:content';
 import { bookSchema } from '../content.config';
 
