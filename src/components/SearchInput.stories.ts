@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import SearchInput from './SearchInput.tsx';
+import SearchInput from './SearchInput';
 
 const meta = {
   component: SearchInput,

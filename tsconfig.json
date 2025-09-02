@@ -9,7 +9,15 @@
     "**.js"
   ],
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@content/*": ["src/content/*"],
+      "@schemas/*": ["src/schemas/*"],
+      "@styles/*": ["src/styles/*"]
+    }
   },
+
   "allowJs": false
 }

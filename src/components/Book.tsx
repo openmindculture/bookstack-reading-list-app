@@ -1,6 +1,6 @@
 import ToggleButton from './ToggleButton';
-import { z } from 'astro:content';
-import { bookSchema } from '../content.config';
+import { z } from 'zod';
+import { bookSchema } from '@schemas/bookSchema';
 
 type BookProps = z.infer<typeof bookSchema>;
 

@@ -55,6 +55,7 @@
     "stylelint-use-nesting": "^6.0.0",
     "typescript": "^5.3.3",
     "typescript-eslint": "^8.36.0",
+    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
   "eslintConfig": {

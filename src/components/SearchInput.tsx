@@ -1,5 +1,5 @@
 interface SearchInputProps {
-  // icon?: 'book'|'blogpost'|'podcast';
+ icon?: 'book'|'blogpost'|'podcast';
 }
 
 const SearchInput: React.FC<SearchInputProps> = (props) => {
