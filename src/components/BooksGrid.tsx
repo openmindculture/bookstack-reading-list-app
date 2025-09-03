@@ -8,7 +8,7 @@ import SvgSymbolFavorite from './SvgSymbolFavorite.svg';
 import SvgSymbolPodcast from './SvgSymbolPodcast.svg';
 import { z } from 'zod';
 
-type BookProps = z.infer<typeof bookSchema> & { id: string };
+type BookProps = z.infer<typeof bookSchema> & { id?: string };
 
 interface BooksGridProps {
   books: BookProps[];

@@ -2,7 +2,7 @@ import ToggleButton from './ToggleButton';
 import { z } from 'zod';
 import { bookSchema } from '@schemas/bookSchema';
 
-type BookProps = z.infer<typeof bookSchema> & { id: string };
+type BookProps = z.infer<typeof bookSchema> & { id?: string };
 
 const Book = (props: BookProps) => {
   return (

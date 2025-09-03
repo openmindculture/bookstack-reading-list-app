@@ -4,7 +4,7 @@ export const bookSchema = z.object({
   // Astro generates a unique id for every item automatically
   id: z.string().optional(),
   // alterantively in .tsx components:
-  // type BookProps = z.infer<typeof bookSchema> & { id: string };
+  // type BookProps = z.infer<typeof bookSchema> & { id?: string };
   title: z.string(),
   author: z.string(),
   description: z.string().optional(),
