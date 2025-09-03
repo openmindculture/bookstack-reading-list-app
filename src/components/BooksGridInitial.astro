@@ -5,10 +5,8 @@ import BooksGrid from './BooksGrid';
 import {
   getCollection,
   type CollectionEntry,
-  type InferEntrySchema,
-  z
+  type InferEntrySchema
 } from 'astro:content';
-import { bookSchema } from '../schemas/bookSchema';
 const books: CollectionEntry<'book'>[] = (
   await getCollection(
     'book',
@@ -18,13 +16,12 @@ const books: CollectionEntry<'book'>[] = (
   )
 ).sort((a, b) => b.data.pubYear - a.data.pubYear);
 const gridId = 'astro-grid-generated-id'; // TODO use uuid
-type Book = z.infer<typeof bookSchema>;
-// Validate and transform raw content data using Zod, add id from CollectionEntry
-const validatedBooks: Book[] = books.map(bookEntry => {
-  const validatedData = bookSchema.parse(bookEntry.data);
-  return { id: bookEntry.id, ...validatedData };
-});
+// Map the data to the format the React component expects
+const booksForReact = books.map(bookEntry => ({
+  id: bookEntry.id,
+  ...bookEntry.data,
+}));
 // still gives  /app/index.html[InvalidComponentArgs] Invalid arguments passed to component.
 // ^ only at build time
 ---
-<BooksGrid gridId={gridId} books={validatedBooks} />
+<BooksGrid gridId={gridId} books={booksForReact} />
