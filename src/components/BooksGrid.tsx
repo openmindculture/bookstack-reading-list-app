@@ -20,6 +20,7 @@ const BooksGrid = ({ books, gridId }: BooksGridProps) => {
   const ulRef = useRef<HTMLUListElement>(null);
   useLayoutEffect(() => {
     if (ulRef.current) {
+      // can we rely on a global window.refineMasonryLayout?
       refineMasonryLayout(ulRef.current.id);
     }
   }, [books]);

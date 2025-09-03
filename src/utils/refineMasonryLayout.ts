@@ -1,5 +1,6 @@
 const refineMasonryLayout = (gridId: string): void => {
   const layoutContainer = document.getElementById(gridId);
+  console.log('refineMasonryLayout', layoutContainer);
   if (layoutContainer) {
     const tileElements = layoutContainer.children;
     let previousOffset = 0;

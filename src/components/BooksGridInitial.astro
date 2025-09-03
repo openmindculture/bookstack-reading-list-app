@@ -1,6 +1,5 @@
 ---
 import Book from './Book.tsx';
-import refineMasonryLayout from '../utils/refineMasonryLayout';
 import SvgSymbolBlogpost from './SvgSymbolBlogpost.svg';
 import SvgSymbolBook from './SvgSymbolBook.svg';
 import SvgSymbolFavorite from './SvgSymbolFavorite.svg';
@@ -50,6 +49,9 @@ const gridId = 'astro-grid-generated-id'; // TODO use uuid
     ))
   }
 </ul>
-<script is:inline define:vars={{ gridId }}>
+
+<script define:vars={{ gridId }}>
+  import refineMasonryLayout from '@utils/refineMasonryLayout';
   refineMasonryLayout(gridId);
 </script>
+
