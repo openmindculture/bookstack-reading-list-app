@@ -1,5 +1,6 @@
 import { bookSchema } from '@schemas/bookSchema';
 import Book from './Book.tsx';
+import { useLayoutEffect, useRef } from 'react';
 import refineMasonryLayout from '../utils/refineMasonryLayout';
 import SvgSymbolBlogpost from './SvgSymbolBlogpost.svg';
 import SvgSymbolBook from './SvgSymbolBook.svg';
@@ -15,6 +16,13 @@ interface BooksGridProps {
 }
 
 const BooksGrid = ({ books, gridId }: BooksGridProps) => {
+  // useLayoutEffect runs after the DOM elements are rendered and the layout (including flexbox or CSS box model) is calculated, but before the browser actually paints the pixels on screen. All CSS styles, including flex layouts, have been applied and computed. This should avoid a visual glitch when adjusting our masonry layout.
+  const ulRef = useRef<HTMLUListElement>(null);
+  useLayoutEffect(() => {
+    if (ulRef.current) {
+      refineMasonryLayout(ulRef.current.id);
+    }
+  }, [books]);
   return (
     <div>
       <SvgSymbolBlogpost />
