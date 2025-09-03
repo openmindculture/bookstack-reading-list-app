@@ -24,5 +24,7 @@ const validatedBooks: Book[] = books.map(bookEntry => {
   const validatedData = bookSchema.parse(bookEntry.data);
   return { id: bookEntry.id, ...validatedData };
 });
+// still gives  /app/index.html[InvalidComponentArgs] Invalid arguments passed to component.
+// ^ only at build time
 ---
 <BooksGrid gridId={gridId} books={validatedBooks} />
