@@ -1,7 +1,10 @@
 ---
-// TODO How to read from Astro content collection files?
-// TODO How to validate Astro data with imported TypeScript interface?
-import BooksGrid from './BooksGrid';
+import Book from './Book.tsx';
+import refineMasonryLayout from '../utils/refineMasonryLayout';
+import SvgSymbolBlogpost from './SvgSymbolBlogpost.svg';
+import SvgSymbolBook from './SvgSymbolBook.svg';
+import SvgSymbolFavorite from './SvgSymbolFavorite.svg';
+import SvgSymbolPodcast from './SvgSymbolPodcast.svg';
 import {
   getCollection,
   type CollectionEntry,
@@ -16,12 +19,37 @@ const books: CollectionEntry<'book'>[] = (
   )
 ).sort((a, b) => b.data.pubYear - a.data.pubYear);
 const gridId = 'astro-grid-generated-id'; // TODO use uuid
-// Map the data to the format the React component expects
-const booksForReact = books.map(bookEntry => ({
-  id: bookEntry.id,
-  ...bookEntry.data,
-}));
-// still gives  /app/index.html[InvalidComponentArgs] Invalid arguments passed to component.
-// ^ only at build time
 ---
-<BooksGrid gridId={gridId} books={booksForReact} />
+<SvgSymbolBlogpost />
+<SvgSymbolBook />
+<SvgSymbolFavorite />
+<SvgSymbolPodcast />
+
+<ul
+  class="custom-grid-has-row-behavior relative flex flex-wrap gap-0"
+  id={gridId}
+>
+  {
+    books.map(({ id, data }) => (
+      <li class="pb-1">
+        <Book
+          id={id}
+          title={data.title}
+          author={data.author}
+          description={data.description}
+          coverUrl={data.coverUrl}
+          coverClassName={data.coverClassName}
+          externalUrl={data.externalUrl}
+          icon={data.icon}
+          isbn={data.isbn}
+          language={data.language}
+          pubYear={data.pubYear}
+          updatedYear={data.updatedYear}
+        />
+      </li>
+    ))
+  }
+</ul>
+<script is:inline define:vars={{ gridId }}>
+  refineMasonryLayout(gridId);
+</script>
