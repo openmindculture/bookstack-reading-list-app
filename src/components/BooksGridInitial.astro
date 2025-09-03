@@ -6,7 +6,9 @@ import {
   getCollection,
   type CollectionEntry,
   type InferEntrySchema,
+  z
 } from 'astro:content';
+import { bookSchema } from '../schemas/bookSchema';
 const books: CollectionEntry<'book'>[] = (
   await getCollection(
     'book',
@@ -16,11 +18,16 @@ const books: CollectionEntry<'book'>[] = (
   )
 ).sort((a, b) => b.data.pubYear - a.data.pubYear);
 const gridId = 'astro-grid-generated-id'; // TODO use uuid
+type Book = z.infer<typeof bookSchema>;
+function pickBookFields(data: Book) {
+  const { title, author, description, coverUrl, coverClassName, externalUrl, icon, isbn, language, pubYear, updatedYear, showOnHomepage } = data;
+  return { title, author, description, coverUrl, coverClassName, externalUrl, icon, isbn, language, pubYear, updatedYear, showOnHomepage };
+}
 const bookDataArray = books.map(bookEntry => ({
   id: bookEntry.id,
-  ...bookEntry.data,
+  // ...bookEntry.data, caused invalid arguments exception
+  // so need to add fields explicitly
+  ...pickBookFields(bookEntry.data),
 }));
-// The sort order of generated collections is non-deterministic and platform-dependent. This means that if you are calling getCollection() and need your entries returned in a specific order (e.g. blog posts sorted by date), you must sort the collection entries yourself.
 ---
 <BooksGrid gridId={gridId} books={bookDataArray} />
-

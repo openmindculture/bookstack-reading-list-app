@@ -11,7 +11,7 @@ const Book = (props: BookProps) => {
         <div className={'custom-hex-tile w-80 max-w-full h-96 m-0 bg-blue-sky p-1'}>
           <h3 className='font-dx-kord text-2xl'>{props.title}</h3>
           <p>Author: {props.author}</p>
-          {!!props.pubYear && <p>{props.pubYear} {!!props.updatedYear && <div>updated: {props.updatedYear}</div>}</p>}
+          {!!props.pubYear && <p>{props.pubYear} {!!props.updatedYear && <span>updated: {props.updatedYear}</span>}</p>}
           {!!props.icon && <svg><use href={`#symbol-${props.icon}`} /></svg>}
           {!!props.language && <img src={`../images/languages/${props.language}.svg`} alt={`language: ${props.language}`} />}
       </div>
