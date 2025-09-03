@@ -1,0 +1,26 @@
+---
+// TODO How to read from Astro content collection files?
+// TODO How to validate Astro data with imported TypeScript interface?
+import BooksGrid from './BooksGrid';
+import {
+  getCollection,
+  type CollectionEntry,
+  type InferEntrySchema,
+} from 'astro:content';
+const books: CollectionEntry<'book'>[] = (
+  await getCollection(
+    'book',
+    ({ data }: { data: InferEntrySchema<'book'> }) => {
+      return !!data.showOnHomepage;
+    },
+  )
+).sort((a, b) => b.data.pubYear - a.data.pubYear);
+const gridId = 'astro-grid-generated-id'; // TODO use uuid
+const bookDataArray = books.map(bookEntry => ({
+  id: bookEntry.id,
+  ...bookEntry.data,
+}));
+// The sort order of generated collections is non-deterministic and platform-dependent. This means that if you are calling getCollection() and need your entries returned in a specific order (e.g. blog posts sorted by date), you must sort the collection entries yourself.
+---
+<BooksGrid gridId={gridId} books={bookDataArray} />
+
