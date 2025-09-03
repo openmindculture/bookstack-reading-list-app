@@ -178,6 +178,21 @@ As Astro is the least known part of our tech stack, we should prefer more establ
 
 We can omit `.jsx` and `.tsx` file suffixes when importing React into Astro or other React components.
 
+#### Client Side Scripts
+
+```html
+<!-- this would be client-side browser code: -->
+<script type="module">
+  // can't import "@utils/refineMasonryLayout" here, only in front matter
+  // but then we need a component to use it as client module?
+  import "../utils/refineMasonryLayout.ts";
+</script>
+
+<!-- root-relative /src path makes Astro pass it to Vite bundler -->
+<!-- TypeScript path alias won't work here -->
+<script type="module" src="/src/utils/refineMasonryLayout.ts"></script>
+```
+
 ### TypeScript in React
 
 Interfaces work much like React PropTypes, and we can use `React.FC<Props>` or `React.HTMLProps<HTMLDivElement>` if needed.

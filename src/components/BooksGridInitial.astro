@@ -50,8 +50,4 @@ const gridId = 'astro-grid-generated-id'; // TODO use uuid
   }
 </ul>
 
-<script define:vars={{ gridId }}>
-  import refineMasonryLayout from '@utils/refineMasonryLayout';
-  refineMasonryLayout(gridId);
-</script>
-
+<script type="module" src="/src/utils/refineMasonryLayout.ts"></script>

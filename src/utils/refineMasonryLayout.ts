@@ -1,6 +1,5 @@
-const refineMasonryLayout = (gridId: string): void => {
-  const layoutContainer = document.getElementById(gridId);
-  console.log('refineMasonryLayout', layoutContainer);
+const refineMasonryLayout = (gridId?: string, grid?: HTMLElement): void => {
+  const layoutContainer = gridId ? document.getElementById(gridId) : grid;
   if (layoutContainer) {
     const tileElements = layoutContainer.children;
     let previousOffset = 0;
@@ -18,5 +17,24 @@ const refineMasonryLayout = (gridId: string): void => {
     }
   }
 }
+
+const refineAllMasonryLayouts = (): void => {
+  let adjustedGridChildren = document.getElementsByClassName('custom-shifted');
+  for (let adjusted of adjustedGridChildren) {
+    adjusted.classList.remove('custom-shifted');
+  }
+  let masonryGridElements = document.getElementsByClassName('custom-grid-has-row-behavior');
+  for (let masonry of masonryGridElements) {
+    refineMasonryLayout(undefined, masonry as HTMLElement);
+  }
+}
+
+addEventListener('DOMContentLoaded', () => {
+  refineAllMasonryLayouts()
+})
+
+addEventListener('resize', () => {
+  refineAllMasonryLayouts();
+})
 
 export default refineMasonryLayout;
