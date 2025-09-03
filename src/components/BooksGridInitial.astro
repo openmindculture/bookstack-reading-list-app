@@ -19,15 +19,10 @@ const books: CollectionEntry<'book'>[] = (
 ).sort((a, b) => b.data.pubYear - a.data.pubYear);
 const gridId = 'astro-grid-generated-id'; // TODO use uuid
 type Book = z.infer<typeof bookSchema>;
-function pickBookFields(data: Book) {
-  const { title, author, description, coverUrl, coverClassName, externalUrl, icon, isbn, language, pubYear, updatedYear, showOnHomepage } = data;
-  return { title, author, description, coverUrl, coverClassName, externalUrl, icon, isbn, language, pubYear, updatedYear, showOnHomepage };
-}
-const bookDataArray = books.map(bookEntry => ({
-  id: bookEntry.id,
-  // ...bookEntry.data, caused invalid arguments exception
-  // so need to add fields explicitly
-  ...pickBookFields(bookEntry.data),
-}));
+// Validate and transform raw content data using Zod, add id from CollectionEntry
+const validatedBooks: Book[] = books.map(bookEntry => {
+  const validatedData = bookSchema.parse(bookEntry.data);
+  return { id: bookEntry.id, ...validatedData };
+});
 ---
-<BooksGrid gridId={gridId} books={bookDataArray} />
+<BooksGrid gridId={gridId} books={validatedBooks} />
