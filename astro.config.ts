@@ -11,8 +11,18 @@ export default defineConfig({
   integrations: [react(), tailwind(), sitemap()],
   vite: {
     plugins: [tsconfigPaths() as any],
+    // Enable detailed error reporting
+    // mode: 'development',
+    // build: {
+    //  minify: false,
+    //  sourcemap: true
+    // }
   },
   site: 'https://dev-ux-lesezeichen.de',
   base: '/',
   trailingSlash: 'always',
+  // additional debug info:
+  // devToolbar: {
+  //  enabled: true
+  // }
 });
