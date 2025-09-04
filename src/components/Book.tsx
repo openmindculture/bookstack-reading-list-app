@@ -6,10 +6,10 @@ type BookProps = z.infer<typeof bookSchema>;
 
 const Book = (props: BookProps) => {
   return (
-    <article className="flex flex-nowrap space-x-1 font-dx-kord text-blue-violet {{isFavorite ? 'isFavorite' : '' }}">
-      <div className={'custom-hex-tile  bg-blue-violet p-0.5'}>
-        <div className={'custom-hex-tile w-80 max-w-full h-96 m-0 bg-blue-sky p-1'}>
-          <h3 className='font-dx-kord text-2xl'>{props.title}</h3>
+    <article className="custom-hex-tiles-wrapper {{isFavorite ? 'isFavorite' : '' }}">
+      <div className={'custom-hex-tile bg-blue-violet p-0.5'}>
+        <div className={'custom-hex-tile custom-hex-tile-inner'}>
+          <h3>{props.title}</h3>
           <p>Author: {props.author}</p>
           {!!props.pubYear && <p>{props.pubYear} {!!props.updatedYear && <span>updated: {props.updatedYear}</span>}</p>}
           {!!props.icon && <svg><use href={`#symbol-${props.icon}`} /></svg>}

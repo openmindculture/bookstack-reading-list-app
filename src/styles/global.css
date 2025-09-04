@@ -81,4 +81,13 @@
       0% 75%,
       0% 25%);
   }
+  .custom-hex-tile-inner {
+    @apply w-80 max-w-full h-96 m-0 bg-blue-sky p-1 text-center;
+  }
+  .custom-hex-tiles-wrapper {
+    @apply flex flex-nowrap space-x-1 font-dx-kord text-blue-violet;
+  }
+  .custom-hex-tile h3 {
+    @apply font-dx-kord text-2xl;
+  }
 }

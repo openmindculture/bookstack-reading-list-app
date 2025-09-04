@@ -1,7 +1,7 @@
 import { bookSchema } from '@schemas/bookSchema';
 import Book from './Book.tsx';
 import { useLayoutEffect, useRef } from 'react';
-import refineMasonryLayout from '../utils/refineMasonryLayout';
+import refineMasonryLayout from '@utils/refineMasonryLayout';
 import SvgSymbolBlogpost from './SvgSymbolBlogpost.svg';
 import SvgSymbolBook from './SvgSymbolBook.svg';
 import SvgSymbolFavorite from './SvgSymbolFavorite.svg';

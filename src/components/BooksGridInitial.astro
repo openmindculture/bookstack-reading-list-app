@@ -18,6 +18,7 @@ const books: CollectionEntry<'book'>[] = (
   )
 ).sort((a, b) => b.data.pubYear - a.data.pubYear);
 const gridId = 'astro-grid-generated-id'; // TODO use uuid
+// TODO refactor below code to prevent code duplication, use BooksGrid.tsx preferably
 ---
 <SvgSymbolBlogpost />
 <SvgSymbolBook />
