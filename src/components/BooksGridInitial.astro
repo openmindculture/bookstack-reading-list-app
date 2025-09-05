@@ -1,9 +1,6 @@
 ---
 import Book from './Book.tsx';
-import SvgSymbolBlogpost from './SvgSymbolBlogpost.svg';
-import SvgSymbolBook from './SvgSymbolBook.svg';
 import SvgSymbolFavorite from './SvgSymbolFavorite.svg';
-import SvgSymbolPodcast from './SvgSymbolPodcast.svg';
 import {
   getCollection,
   type CollectionEntry,
@@ -20,10 +17,7 @@ const books: CollectionEntry<'book'>[] = (
 const gridId = 'astro-grid-generated-id'; // TODO use uuid
 // TODO refactor below code to prevent code duplication, use BooksGrid.tsx preferably
 ---
-<SvgSymbolBlogpost />
-<SvgSymbolBook />
 <SvgSymbolFavorite />
-<SvgSymbolPodcast />
 
 <ul
   class="custom-grid-has-row-behavior relative flex flex-wrap gap-0"

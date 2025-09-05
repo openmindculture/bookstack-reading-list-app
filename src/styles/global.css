@@ -87,6 +87,14 @@
   .custom-hex-tiles-wrapper {
     @apply flex flex-nowrap space-x-1 font-dx-kord text-blue-violet;
   }
+  .custom-icons-wrapper {
+    @apply flex flex-nowrap space-x-1 mt-1;
+  }
+  .custom-icons-wrapper img,
+  .custom-icons-wrapper svg {
+    height: 23px;
+    width: auto;
+  }
   .custom-hex-tile h3 {
     @apply font-dx-kord text-2xl;
   }

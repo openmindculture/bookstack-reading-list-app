@@ -12,11 +12,19 @@ const Book = (props: BookProps) => {
           <h3>{props.title}</h3>
           <p>Author: {props.author}</p>
           {!!props.pubYear && <p>{props.pubYear} {!!props.updatedYear && <span>updated: {props.updatedYear}</span>}</p>}
-          {!!props.icon && <svg><use href={`#symbol-${props.icon}`} /></svg>}
-          {!!props.language && <img src={`../images/languages/${props.language}.svg`} alt={`language: ${props.language}`} />}
+          <div className="custom-icons-wrapper">
+            {!!props.icon && <div className="custom-icon"><img src={`../images/icons/${props.icon}.svg`} /></div>}
+            {!!props.language && <div className="custom-icon">
+              <img src={`../images/languages/${props.language}.svg`}
+                   alt={`language: ${props.language}`}
+                   width='120'
+              />
+            </div>
+            }
+          </div>
+        </div>
       </div>
-    </div>
-  <div className={'custom-hex-tile  relative' + (props.coverClassName ? ` ${props.coverClassName}` : '')}  >
+      <div className={'custom-hex-tile relative' + (props.coverClassName ? ` ${props.coverClassName}` : '')}  >
     {!!props.coverUrl && (
       <img
         className="object-cover w-3xs max-w-full hover:scale-110 transition-transform"

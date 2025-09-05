@@ -2,10 +2,7 @@ import { bookSchema } from '@schemas/bookSchema';
 import Book from './Book.tsx';
 import { useLayoutEffect, useRef } from 'react';
 import refineMasonryLayout from '@utils/refineMasonryLayout';
-import SvgSymbolBlogpost from './SvgSymbolBlogpost.svg';
-import SvgSymbolBook from './SvgSymbolBook.svg';
 import SvgSymbolFavorite from './SvgSymbolFavorite.svg';
-import SvgSymbolPodcast from './SvgSymbolPodcast.svg';
 import { z } from 'zod';
 
 type BookProps = z.infer<typeof bookSchema>;
@@ -26,10 +23,7 @@ const BooksGrid = ({ books, gridId }: BooksGridProps) => {
   }, [books]);
   return (
     <div>
-      <SvgSymbolBlogpost />
-      <SvgSymbolBook />
       <SvgSymbolFavorite />
-      <SvgSymbolPodcast />
       <ul
         className="relative flex flex-wrap gap-0 custom-grid-has-row-behavior"
         id={gridId}
