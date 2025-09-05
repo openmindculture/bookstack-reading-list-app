@@ -6,6 +6,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 const config: Config = {
   content: [
     path.join(__dirname, './src/**/*.{astro,html,jsx,tsx}'),
+    path.join(__dirname, './src/**/*.stories.ts'),
     path.join(__dirname, './src/**/*.css'),
     path.join(__dirname, './public/**/*.html'),
   ],
