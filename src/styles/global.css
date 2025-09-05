@@ -96,6 +96,9 @@
     width: auto;
   }
   .custom-hex-tile h3 {
-    @apply font-dx-kord text-2xl;
+    @apply font-dx-kord text-2xl max-w-full text-ellipsis line-clamp-3;
+  }
+  .custom-hex-tile .author {
+    @apply max-w-full text-ellipsis line-clamp-3;
   }
 }

@@ -10,7 +10,7 @@ const Book = (props: BookProps) => {
       <div className={'custom-hex-tile bg-blue-violet p-0.5'}>
         <div className={'custom-hex-tile custom-hex-tile-inner'}>
           <h3>{props.title}</h3>
-          <p>Author: {props.author}</p>
+          <p className='author'>Author: {props.author}</p>
           {!!props.pubYear && (
             <p>
               {props.pubYear}{' '}
