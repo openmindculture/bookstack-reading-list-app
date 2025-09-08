@@ -11,6 +11,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
+    initiallySelected: true,
+  },
+};
 
+export const InitiallyNotSelected: Story = {
+  args: {
+    initiallySelected: true,
   },
 };
