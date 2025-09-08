@@ -23,7 +23,6 @@ const BooksGrid = ({ books, gridId }: BooksGridProps) => {
   }, [books]);
   return (
     <div>
-      {/* we can't just import <SvgSymbolFavorite /> in React so we'll do that once in the top level app wrapper */}
       <ul
         className="relative flex flex-wrap gap-0 custom-grid-has-row-behavior"
         id={gridId}
