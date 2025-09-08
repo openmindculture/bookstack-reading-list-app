@@ -1,4 +1,14 @@
-import { createContext, useState, useCallback, useMemo, useContext, use, Suspense, ReactNode } from 'react';
+import {
+  createContext,
+  useState,
+  useCallback,
+  useMemo,
+  useContext,
+  use,
+  Suspense,
+  Component,
+  type ReactNode,
+} from 'react';
 import { bookSchema } from '@schemas/bookSchema';
 import { z } from 'zod';
 
@@ -52,13 +62,13 @@ const safeLocalStorage = {
     } catch (error) {
       console.warn('localStorage setItem failed:', error);
     }
-  }
+  },
 };
 
 // Create a promise for fetching books
 const createBooksPromise = (): Promise<Book[]> => {
   return fetch('/api/books')
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -124,20 +134,21 @@ function BooksDataProvider({ children, booksPromise }: BooksDataProviderProps) {
     });
   }, []);
 
-  const value = useMemo<BooksContextType>(() => ({
-    books,
-    favorites,
-    toggleFavorite,
-    // Helper to check if a book is favorited
-    isFavorite: (bookId: string) => Boolean(favorites[bookId]),
-    // Get array of favorite book IDs
-    favoriteIds: Object.keys(favorites).filter(id => favorites[id]),
-  }), [books, favorites, toggleFavorite]);
+  const value = useMemo<BooksContextType>(
+    () => ({
+      books,
+      favorites,
+      toggleFavorite,
+      // Helper to check if a book is favorited
+      isFavorite: (bookId: string) => Boolean(favorites[bookId]),
+      // Get array of favorite book IDs
+      favoriteIds: Object.keys(favorites).filter((id) => favorites[id]),
+    }),
+    [books, favorites, toggleFavorite],
+  );
 
   return (
-    <BooksContext.Provider value={value}>
-      {children}
-    </BooksContext.Provider>
+    <BooksContext.Provider value={value}>{children}</BooksContext.Provider>
   );
 }
 
@@ -155,7 +166,10 @@ function BooksProvider({ children }: BooksProviderProps) {
 }
 
 // Error boundary component for handling fetch errors
-class BooksErrorBoundary extends Component<{ children: ReactNode }, ErrorBoundaryState> {
+class BooksErrorBoundary extends Component<
+  { children: ReactNode },
+  ErrorBoundaryState
+> {
   constructor(props: { children: ReactNode }) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -175,7 +189,9 @@ class BooksErrorBoundary extends Component<{ children: ReactNode }, ErrorBoundar
         <div>
           <h3>Failed to load books</h3>
           <p>Error: {this.state.error?.message}</p>
-          <button onClick={() => this.setState({ hasError: false, error: null })}>
+          <button
+            onClick={() => this.setState({ hasError: false, error: null })}
+          >
             Try again
           </button>
         </div>

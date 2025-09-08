@@ -249,12 +249,30 @@ We can finally use React without most of the things that made it so awkward to w
 - As opposed to an unidirectional top-to-bottom "drill-down", an **"inverse data flow"** sends data from components, like an input text field, to their parent elements or to a global context.
 - **State Lifting** means finding the least complex solution for sharing data between connected components like in a form's fieldset.
 
-### useState, useContext, useContext
+The Context API provides functionality for global state handling without additional data management libraries but still avoiding the native window object's race conditions in a complex single page app. However, overuse of context can lead to unnecessary re-renders and negatively impact performance.
 
-useState + useContext: Perfect for simple to moderate state sharing
-useReducer: For more complex state logic. Built-in Suspense: For handling async operations.
+Any component that needs the data stored in Context can access it through the Consumer component. The Consumer uses a render prop API – meaning it takes a function as its child. The function receives the context value and returns a React node.
+
+### useState, useContext, use use()
+
+- useState + useContext: Perfect for simple to moderate state sharing
+- useReducer: For more complex state logic. Built-in Suspense: For handling async operations.
 
 Tutorials suggested that `useMemo` doesn't always work smoothly with `useEffect` and that we must be careful to avoid unnecessary rerendering and avoid overusing `useEffect` and `useMemo`, as `useMemo` can sometimes lead to more rerenders or recalculations than expected in React components if used incorrectly, especially on first render. Now that sounds more like the React that I knew of. So, let me recap what these hooks actually mean.
+
+React 19's new use() hook introduced for server components, it is mainly used for suspending promises (like for data fetching) and is not a replacement for useContext or useState.
+
+### How to combine useContext with useState and/or use use() in modern React 19 app using TypeScript?
+
+- Create a context with a type describing the shared state and the state setter (or dispatch) function.
+
+- In a parent component, declare a useState hook to hold the state.
+
+- Pass the state and the setter function as the value to the context provider.
+
+- In child components, consume the context using useContext to access the current state and the setter function.
+
+-For state with context: combine useState in a provider component and share its value/setter via useContext.
 
 ### useEffect
 
