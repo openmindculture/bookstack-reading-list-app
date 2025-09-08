@@ -51,6 +51,7 @@ const Book = (props: BookProps) => {
         <ToggleButton
           className="absolute right-[calc(50%-12px)] top-3 z-10"
           forTargetId={props.id}
+          initiallySelected={false}
           /* selected = isFavorite state, not of the card, but of the toggle */
           /* the actual state is in a global stateful ReadingList component synchronized with local storage */
           /* onChange={() => setSelected((prevSelected) => !prevSelected)} */ /* put that code inside the button component to ensure this Card component can be rendered statically */
