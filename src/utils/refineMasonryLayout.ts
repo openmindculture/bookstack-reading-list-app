@@ -18,7 +18,7 @@ const refineMasonryLayout = (gridId?: string, grid?: HTMLElement): void => {
   }
 }
 
-const refineAllMasonryLayouts = (): void => {
+export const refineAllMasonryLayouts = (): void => {
   let adjustedGridChildren = document.getElementsByClassName('custom-shifted');
   for (let adjusted of adjustedGridChildren) {
     adjusted.classList.remove('custom-shifted');

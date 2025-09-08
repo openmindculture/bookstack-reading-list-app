@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Grid from '../components/BooksGridInitial.astro';
+import SvgSymbolFavorite from './SvgSymbolFavorite.svg';
+// TODO how to provide global elements to Storybook components?
 ---
 
 <Layout title="Dev-UX-Lesezeichen">
-    <h1>App - Dev-UX-Lesezeichen</h1>
-    <Grid />
-
+  <h1>App - Dev-UX-Lesezeichen</h1>
+  <SvgSymbolFavorite />
+  <Grid />
 </Layout>

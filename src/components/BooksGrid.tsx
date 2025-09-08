@@ -2,7 +2,7 @@ import { bookSchema } from '@schemas/bookSchema';
 import Book from './Book.tsx';
 import { useLayoutEffect, useRef } from 'react';
 import refineMasonryLayout from '@utils/refineMasonryLayout';
-import SvgSymbolFavorite from './SvgSymbolFavorite.svg';
+
 import { z } from 'zod';
 
 type BookProps = z.infer<typeof bookSchema>;
@@ -23,7 +23,7 @@ const BooksGrid = ({ books, gridId }: BooksGridProps) => {
   }, [books]);
   return (
     <div>
-      <SvgSymbolFavorite />
+      {/* we can't just import <SvgSymbolFavorite /> in React so we'll do that once in the top level app wrapper */}
       <ul
         className="relative flex flex-wrap gap-0 custom-grid-has-row-behavior"
         id={gridId}
