@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Grid from '../components/BooksGridInitial.astro';
+import SearchableBooks from '../components/SearchableBooks.tsx';
 ---
 
-<Layout title="Dev-UX-Lesezeichen">
-  <h1>App - Dev-UX-Lesezeichen</h1>
+<Layout title="Dev-UX-Lesezeichen" headline="App - Dev-UX-Lesezeichen">
+  <SearchableBooks />
   <Grid />
 </Layout>
