@@ -253,6 +253,35 @@ The Context API provides functionality for global state handling without additio
 
 Any component that needs the data stored in Context can access it through the Consumer component. The Consumer uses a render prop API – meaning it takes a function as its child. The function receives the context value and returns a React node.
 
+### React Context Provider Scope
+
+Unlike the `window` object, `globalThis` or state management frameworks like Redux, MobX, or Zustand, React Context only connects components within the same upline, better known as a tree or subtree, or within the same Astro island.
+
+#### React Context Provider Scope in Astro
+
+Within an Astro island, wrap all related React components inside the provider at the top level and use Astro's `client:` directive to trigger hydration. The provider is litereally the highest level component, but coded to wrap arbitrary nested children.
+
+```tsx
+function MyProvider({ children }: { children: ReactNode }) {
+  const value = ''; /* your typed value */;
+  return (
+    <MyContext.Provider value={value}>
+      {children}
+    </MyContext.Provider>
+  );
+}
+
+// usage:
+<MyProvider>
+  <ComponentA />
+  <ComponentB />
+</MyProvider>
+```
+
+![islands-architecture.png](doc/islands-architecture.png)
+
+This might seem like introducing a potential visual challenge when we need flow/floating, but in practice we might "get away" with padding, overlap, and placing the search input absolutely relative to the common parent outside of the React subtree island.
+
 ### useState, useContext, use use()
 
 - useState + useContext: Perfect for simple to moderate state sharing
