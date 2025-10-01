@@ -43,4 +43,7 @@ const gridId = 'astro-grid-generated-id'; // TODO use uuid
   }
 </ul>
 
-<script type="module" src="/src/utils/refineMasonryLayout.ts"></script>
+<script>
+  import { initMasonryLayouts } from 'hexagonal-masonry-placement';
+  initMasonryLayouts();
+</script>
