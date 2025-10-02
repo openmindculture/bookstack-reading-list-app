@@ -223,7 +223,7 @@ function useBooks(): BooksContextType {
 }
 
 // Export the complete provider and hook
-export { BooksProviderWithErrorBoundary as BooksProvider, useBooks };
+export { BooksProviderWithErrorBoundary as BooksContextProvider, useBooks };
 
 // Export types for consumers
 export type { Book, BooksContextType };
