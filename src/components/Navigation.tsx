@@ -1,5 +1,7 @@
 export interface NavigationItemProps {
   caption: string;
+  description: string;
+  hreflang: string;
   url: string;
 }
 
@@ -15,6 +17,8 @@ const Navigation = ({ NavigationCollection }: NavigationCollectionProps) => {
           <li key={'nav-item-' + index}>
             <a
               href={NavigationItem.url}
+              hrefLang={NavigationItem.hreflang}
+              title={NavigationItem.description}
               className="badge badge-lg bg-orange-daisy text-black"
             >
               {NavigationItem.caption}

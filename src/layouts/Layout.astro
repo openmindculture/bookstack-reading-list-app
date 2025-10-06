@@ -14,16 +14,22 @@ const { title, headline } = Astro.props as LayoutProps;
 //      to improve maintainability and separation of concerns
 const NavigationCollection = [
   {
-    caption: 'Home',
+    caption: 'App',
+    description: 'open the web app',
+    hreflang: 'en',
     url: '/',
   },
   {
-    caption: 'English',
-    url: '/index-english/',
+    caption: 'about',
+    description: 'English',
+    hreflang: 'en',
+    url: '/about/',
   },
   {
-    caption: 'App',
-    url: '/app/',
+    caption: 'über',
+    description: 'Deutsch',
+    hreflang: 'de',
+    url: '/ueber/',
   },
 ];
 // import path from 'node:path';

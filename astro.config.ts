@@ -25,4 +25,8 @@ export default defineConfig({
   // devToolbar: {
   //  enabled: true
   // }
+  redirects: {
+    '/app': '/',
+    '/index-english': '/about/',
+  }
 });
