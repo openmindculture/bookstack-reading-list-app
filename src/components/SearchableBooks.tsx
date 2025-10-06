@@ -16,7 +16,7 @@ in a React component within an Astro app?
  */
 
 const searchableBooks = () => {
-  return <div>
+  return <div id="searchable-books">
     <BooksContextProvider>
       <SearchInput/>
       <BooksGrid books={[]} gridId='book-search-result'/>

@@ -64,6 +64,10 @@
 }
 
 @layer components {
+  main.has-search-results .initial-fallback-results {
+    display: none;
+  }
+
   .custom-grid-container {
     @apply container xl:clear-both mx-auto pl-4 pr-12;
   }
