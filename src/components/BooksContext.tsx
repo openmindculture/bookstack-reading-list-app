@@ -54,6 +54,11 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
     // TODO debounce handler
     // TODO fetch from API again when we have a backend that can handle search
     // TODO filter books matching more fields
+    if (!searchQuery) {
+      setFilteredBooks([]);
+      console.log('empty search');
+      return;
+    }
     const searchQueryToLowerCase = searchQuery.toLowerCase();
     const filtered = allBooks.filter((book) =>
       book.title.toLowerCase().includes(searchQueryToLowerCase) ||

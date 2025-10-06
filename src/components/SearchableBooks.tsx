@@ -6,7 +6,7 @@ const searchableBooks = () => {
   return <div id="searchable-books">
     <BooksContextProvider>
       <SearchInput/>
-      <BooksGrid books={[]} gridId='book-search-result'/>
+      <BooksGrid gridId='book-search-result'/>
     </BooksContextProvider>
   </div>
 };
