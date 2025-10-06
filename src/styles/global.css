@@ -45,11 +45,10 @@
 
 @layer base {
   html, body {
-    @apply font-normal not-italic text-base text-lg font-atkinson;
+    @apply font-normal not-italic text-base text-lg font-atkinson m-0 p-0;
   }
-
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold font-dx-kord break-words m-0 mt-4 leading-none text-blue-violet;
+    @apply font-bold font-dx-kord break-words m-0 pt-4 leading-none text-blue-violet;
   }
 
   h1 {
@@ -62,6 +61,9 @@
 }
 
 @layer components {
+  .custom-grid-container {
+    @apply container xl:clear-both mx-auto pl-4 pr-12;
+  }
   /* TODO fix mobile behavior */
   .custom-grid-has-row-behavior .custom-shifted {
     margin-left: 9.5rem;

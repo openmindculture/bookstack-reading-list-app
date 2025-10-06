@@ -3,7 +3,7 @@ import Book from './Book.tsx';
 import {
   getCollection,
   type CollectionEntry,
-  type InferEntrySchema
+  type InferEntrySchema,
 } from 'astro:content';
 const books: CollectionEntry<'book'>[] = (
   await getCollection(
@@ -17,33 +17,35 @@ const gridId = 'astro-grid-generated-id'; // TODO use uuid
 // TODO refactor below code to prevent code duplication, use BooksGrid.tsx preferably
 ---
 
-<ul
-  class="custom-grid-has-row-behavior relative flex flex-wrap gap-0"
-  id={gridId}
->
-  {
-    books.map(({ id, data }) => (
-      <li class="pb-1">
-        <Book
-          id={id}
-          title={data.title}
-          author={data.author}
-          description={data.description}
-          coverUrl={data.coverUrl}
-          coverClassName={data.coverClassName}
-          externalUrl={data.externalUrl}
-          icon={data.icon}
-          isbn={data.isbn}
-          language={data.language}
-          pubYear={data.pubYear}
-          updatedYear={data.updatedYear}
-        />
-      </li>
-    ))
-  }
-</ul>
-
+<div class="custom-grid-container">
+  <ul
+    class="custom-grid-has-row-behavior relative flex flex-wrap gap-0"
+    id={gridId}
+  >
+    {
+      books.map(({ id, data }) => (
+        <li class="pb-1">
+          <Book
+            id={id}
+            title={data.title}
+            author={data.author}
+            description={data.description}
+            coverUrl={data.coverUrl}
+            coverClassName={data.coverClassName}
+            externalUrl={data.externalUrl}
+            icon={data.icon}
+            isbn={data.isbn}
+            language={data.language}
+            pubYear={data.pubYear}
+            updatedYear={data.updatedYear}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</div>
 <script>
   import { initMasonryLayouts } from 'hexagonal-masonry-placement';
+
   initMasonryLayouts();
 </script>

@@ -29,7 +29,7 @@ const BooksGrid = ({ books, gridId }: BooksGridProps) => {
     }
   }, [books]);
   return (
-    <div>
+    <div className="custom-grid-container">
       <ul
         className="relative flex flex-wrap gap-0 custom-grid-has-row-behavior"
         id={gridId}
