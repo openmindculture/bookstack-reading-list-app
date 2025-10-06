@@ -14,6 +14,7 @@
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@content/*": ["src/content/*"],
+      "@lib/*": ["src/lib/*"],
       "@schemas/*": ["src/schemas/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"]

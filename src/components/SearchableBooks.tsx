@@ -9,14 +9,20 @@ interface SearchableBooksProps {
 
 // load books list TODO
 
+/*
+provide either api url or book data?
+What is the real best practice for a testable/mockable API fetch
+in a React component within an Astro app?
+ */
+
 const searchableBooks = () => {
   return <div>
     <BooksContextProvider>
-      <div></div>
+      <SearchInput/>
+      <BooksGrid books={[]} gridId='book-search-result'/>
     </BooksContextProvider>
-    <SearchInput/>
-    <BooksGrid books={[]} gridId='book-search-result'/>
   </div>
 };
 
 export default searchableBooks;
+
