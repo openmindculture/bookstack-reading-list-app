@@ -5,7 +5,7 @@ interface SearchInputProps {
 }
 
 const SearchInput: React.FC<SearchInputProps> = () => {
-  return <label className="input input-bordered flex items-center gap-2 lg:mt-2 lg:mr-2 clear-both xl:clear-none max-w-lg ml-auto">
+  return <label className="input input-bordered flex items-center gap-2 lg:mr-2 lg:mt-2 2xl:-mt-[4.75rem] 2xl:mb-8 clear-both xl:clear-none max-w-[calc(100%-1rem)] lg:max-w-lg ml-auto">
     <input
       type="text"
       className="grow"
