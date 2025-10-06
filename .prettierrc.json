@@ -16,6 +16,12 @@
       "options": {
         "singleQuote": true
       }
+    },
+    {
+      "files": "*.tsx",
+      "options": {
+        "singleQuote": true
+      }
     }
   ]
 }

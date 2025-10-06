@@ -67,5 +67,8 @@
       "plugin:astro/recommended",
       "plugin:storybook/recommended"
     ]
+  },
+  "prettier": {
+    "prettier.singleQuote": true
   }
 }
