@@ -4,6 +4,8 @@ import Navigation from '../components/Navigation';
 export interface LayoutProps {
   title: string;
   headline: string;
+  lang: string;
+  metadescription: string;
   // children: JSX.Element | JSX.Element[];
   // children: ReactNode // more flexible for mixed content
 }
@@ -37,12 +39,12 @@ const NavigationCollection = [
 // const glob = import.meta.glob('../pages/**'); /* vite */
 ---
 <!doctype html>
-<html lang="de">
+<html lang="{lang}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>{title}</title>
-    <meta name="description" content="Eine moderne Lesezeichen-App für Webdesign, UX und Webentwicklung">
+    <meta name="description" content="{metadescription}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- don't use script tags here -->
   </head>
