@@ -1,30 +1,30 @@
 ---
-import Book from './Book.tsx';
+import Book from "./Book.tsx";
 import {
   getCollection,
   type CollectionEntry,
   type InferEntrySchema,
-} from 'astro:content';
-const books: CollectionEntry<'book'>[] = (
+} from "astro:content";
+const books: CollectionEntry<"book">[] = (
   await getCollection(
-    'book',
-    ({ data }: { data: InferEntrySchema<'book'> }) => {
+    "book",
+    ({ data }: { data: InferEntrySchema<"book"> }) => {
       return !!data.showOnHomepage;
     },
   )
 ).sort((a, b) => b.data.pubYear - a.data.pubYear);
-const gridId = 'astro-grid-generated-id'; // TODO use uuid
+const gridId = "astro-grid-generated-id"; // TODO use uuid
 // TODO refactor below code to prevent code duplication, use BooksGrid.tsx preferably
 ---
 
-<div class="custom-grid-container initial-fallback-results">
+<div class='custom-grid-container initial-fallback-results'>
   <ul
-    class="custom-grid-has-row-behavior relative flex flex-wrap gap-0"
+    class='custom-grid-has-row-behavior relative flex flex-wrap gap-0'
     id={gridId}
   >
     {
       books.map(({ id, data }) => (
-        <li class="pb-1">
+        <li class='pb-1'>
           <Book
             id={id}
             title={data.title}
@@ -45,7 +45,7 @@ const gridId = 'astro-grid-generated-id'; // TODO use uuid
   </ul>
 </div>
 <script>
-  import { initMasonryLayouts } from 'hexagonal-masonry-placement';
+  import { initMasonryLayouts } from "hexagonal-masonry-placement";
 
   initMasonryLayouts();
 </script>

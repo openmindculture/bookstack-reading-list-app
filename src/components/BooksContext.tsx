@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from 'react';
 import { bookSchema } from '@schemas/bookSchema';
 import { fetchBooks } from '@lib/fetchBooks.ts';
 import { z } from 'zod';
@@ -40,7 +46,9 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
         setAllBooks(data);
         console.log('after setAllBooks data:', data);
       } catch (err) {
-        console.error(err instanceof Error ? err.message : 'Failed to load books');
+        console.error(
+          err instanceof Error ? err.message : 'Failed to load books',
+        );
       } finally {
         console.log('finished loading all books');
       }
@@ -60,26 +68,27 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
       return;
     }
     const searchQueryToLowerCase = searchQuery.toLowerCase();
-    const filtered = allBooks.filter((book) =>
-      book.title.toLowerCase().includes(searchQueryToLowerCase) ||
-      book.author.toLowerCase().includes(searchQueryToLowerCase) ||
-      (book.description && book.description.toLowerCase().includes(searchQueryToLowerCase)) ||
-      (book.isbn && book.isbn.toLowerCase().includes(searchQueryToLowerCase))
+    const filtered = allBooks.filter(
+      (book) =>
+        book.title.toLowerCase().includes(searchQueryToLowerCase) ||
+        book.author.toLowerCase().includes(searchQueryToLowerCase) ||
+        (book.description &&
+          book.description.toLowerCase().includes(searchQueryToLowerCase)) ||
+        (book.isbn && book.isbn.toLowerCase().includes(searchQueryToLowerCase)),
     );
     setFilteredBooks(filtered);
     console.log('setFilteredBooks filtered: ', filtered);
-  }, [searchQuery, allBooks]);  // Runs when these change
+  }, [searchQuery, allBooks]); // Runs when these change
 
   return (
-    <BooksContext.Provider value={{
-      filteredBooks,
-      searchQuery,
-      setSearchQuery,
-    }}>
+    <BooksContext.Provider
+      value={{
+        filteredBooks,
+        searchQuery,
+        setSearchQuery,
+      }}
+    >
       {children}
     </BooksContext.Provider>
   );
 };
-
-
-

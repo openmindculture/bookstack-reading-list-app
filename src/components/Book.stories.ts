@@ -62,7 +62,6 @@ export const PodcastArabic: Story = {
     title: 'الحلقة-١٨:-سارة-سويدان-وبرمجة-واجهة-صفحات-الويب',
     icon: 'podcast',
     language: 'ar-LB',
-
   },
 };
 
@@ -76,7 +75,8 @@ export const MinimalCoverless: Story = {
 export const MaximumTruncated: Story = {
   args: {
     id: '1234',
-    author: 'Hubert K. Blaine Wolfeschlegelsteinhausenbergerdorff von und zu Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch',
+    author:
+      'Hubert K. Blaine Wolfeschlegelsteinhausenbergerdorff von und zu Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch',
     title:
       'Things to do in Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch and Bad Gottleuba-Berggießhübel',
     description:
@@ -87,7 +87,8 @@ export const MaximumTruncated: Story = {
     language: 'de',
     coverClassName: 'bg-blue',
     coverUrl: 'nadia-makarevich-web-performance-fundamentals.png',
-    externalUrl: 'https://en.wikipedia.org/wiki/Hubert_Blaine_Wolfeschlegelsteinhausenbergerdorff_Sr.',
+    externalUrl:
+      'https://en.wikipedia.org/wiki/Hubert_Blaine_Wolfeschlegelsteinhausenbergerdorff_Sr.',
     showOnHomepage: true,
   },
 };

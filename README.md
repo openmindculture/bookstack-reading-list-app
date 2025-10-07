@@ -55,6 +55,7 @@ This README file contains unfinished and incomplete notes that might be outdated
 - [x] clean up README
 
 Theme change
+
 - keep the new dx font, but only for the site title
 - remove the Adler fallback
 - use Atkinson everywhere else
@@ -63,38 +64,43 @@ Theme change
 ## Development and Deployment
 
 ### dev server
-  - `npm run dev`
-  - http://localhost:4321
+
+- `npm run dev`
+- http://localhost:4321
 
 ### build and preview
-  - `npm run build`
-  - `npm run preview`
+
+- `npm run build`
+- `npm run preview`
 
 ### dploy to production
-  - `git commit`
-  - test in `develop` branch
-  - merge into main branch triggers production deploy to Netlify
-  - no other pushes or merges should trigger any Netlify action
+
+- `git commit`
+- test in `develop` branch
+- merge into main branch triggers production deploy to Netlify
+- no other pushes or merges should trigger any Netlify action
 
 ### storybook
+
 - `npm run storybook`
 - http://localhost:6006/
 
 ## Requirements and Acceptance Criteria
 
 ### Non-Functional Requirements:
-  - Write clean code pragmagtically.
-  - Follow coding standards and recommendations.
-    - Use Storybook.
-    - Use Astro where it makes sense.
-    - Use React where it doesn't deteriorate performance.
-    - Use TypeScript wherever appropriate.
-  - All tests must pass.
-    - Use ESLint.
-    - Use Storybook.
-    - Use Vitest.
-    - Use Playwright.
-    - Increase test coverage.
+
+- Write clean code pragmagtically.
+- Follow coding standards and recommendations.
+  - Use Storybook.
+  - Use Astro where it makes sense.
+  - Use React where it doesn't deteriorate performance.
+  - Use TypeScript wherever appropriate.
+- All tests must pass.
+  - Use ESLint.
+  - Use Storybook.
+  - Use Vitest.
+  - Use Playwright.
+  - Increase test coverage.
 
 ### Description
 
@@ -115,7 +121,7 @@ We can omit `.jsx` and `.tsx` file suffixes when importing React into Astro or o
 <script type="module">
   // can't import "@utils/refineMasonryLayout" here, only in front matter
   // but then we need a component to use it as client module?
-  import "../utils/refineMasonryLayout.ts";
+  import '../utils/refineMasonryLayout.ts';
 </script>
 
 <!-- root-relative /src path makes Astro pass it to Vite bundler -->
@@ -263,19 +269,15 @@ Within an Astro island, wrap all related React components inside the provider at
 
 ```tsx
 function MyProvider({ children }: { children: ReactNode }) {
-  const value = ''; /* your typed value */;
-  return (
-    <MyContext.Provider value={value}>
-      {children}
-    </MyContext.Provider>
-  );
+  const value = ''; /* your typed value */
+  return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
 }
 
 // usage:
 <MyProvider>
   <ComponentA />
   <ComponentB />
-</MyProvider>
+</MyProvider>;
 ```
 
 ![islands-architecture.png](doc/islands-architecture.png)
@@ -313,12 +315,13 @@ Replacing lifecyle methods, `useEffect` is a React hook to use "effects", also k
 
 ```js
 const myPrefix = getMyPrefix();
-for (let i=0; i<10; i++) {
+for (let i = 0; i < 10; i++) {
   console.log(myPrefix, i);
 }
 ```
 
 What's the point of an abstract memoization system beyond the simple example above? useMemo prevents unnecessary work by caching results between renders, while `getMyPrefix()` would be called too often, for example when a component renders because
+
 - only unrelated state changed (like a loading spinner),
 - its parent re-rendered for unrelated reasons,
 - the component re-rendered due to context updates.
@@ -331,9 +334,9 @@ function UserDashboard({ users, searchTerm, isMenuOpen }) {
   // ^ without useMemo, this would run too often!
 
   // only run when users or searchTerm changed:
-  const memoizedUsers = useMemo(() =>
-    users.filter(u => u.name.includes(searchTerm)),
-    [users, searchTerm]
+  const memoizedUsers = useMemo(
+    () => users.filter((u) => u.name.includes(searchTerm)),
+    [users, searchTerm],
   );
 
   return (
@@ -356,7 +359,7 @@ Persisting mutable values across renders - storing values that don't trigger re-
 
 ## React Router for not-so-single page applications
 
-React Router remains the most popular and widely-used routing library for React applications. The routing-specific hooks in React Router are things like useParams, useLocation, useSearchParams, and  useNavigate() (replacing useHistory())
+React Router remains the most popular and widely-used routing library for React applications. The routing-specific hooks in React Router are things like useParams, useLocation, useSearchParams, and useNavigate() (replacing useHistory())
 
 ### useNavigate
 
@@ -432,26 +435,26 @@ How can we restrict interactivity to the smallest possible entities to profit fr
 
 To ensure a component can be rendered statically, all interactive code must either be defined on a child compoents' level, or as global app functionality to prevent code duplication and make the components easier to read and maintain.
 
-<Layout>                 # Astro (static, filled with dynamic data in build-time)
-  <Navigation />         # React (static)
-  <ReadingList />        # React (interactive, synchronize with local storage and/or API)
-  <Search>               # React (interactive)
-    <SearchInput />      # React (interactive)
-    <Grid>               # React (interactive)
-      <Card>             # React (interactive)
-        <ToggleButton /> # React (interactive)
-      </Card>
-    </Grid>
-  </Search>
-  <Grid>                 # React (static in initial view with partial content)
-    <Card>               # React (static in initial view)
-      <ToggleButton />   # React (interactive)
-    </Card>
-  </Grid>
+<Layout> # Astro (static, filled with dynamic data in build-time)
+<Navigation /> # React (static)
+<ReadingList /> # React (interactive, synchronize with local storage and/or API)
+<Search> # React (interactive)
+<SearchInput /> # React (interactive)
+<Grid> # React (interactive)
+<Card> # React (interactive)
+<ToggleButton /> # React (interactive)
+</Card>
+</Grid>
+</Search>
+<Grid> # React (static in initial view with partial content)
+<Card> # React (static in initial view)
+<ToggleButton /> # React (interactive)
+</Card>
+</Grid>
 </Layout>
 
-<JsonWrapper>            # initial Grid content rendered to JSON as a "mock API" for React search
-  <JsonGrid />           # dto. (static)
+<JsonWrapper> # initial Grid content rendered to JSON as a "mock API" for React search
+<JsonGrid /> # dto. (static)
 </JsonWrapper>
 
 This is essential for understanding the power of an Islands Architecture: how to make specific React elements to interact with their grandparents and global state elements? To put it another way, to stick with the image of the island landscape, how to establish ferryboat routes between interactive islands without disturbing the static ones that we could imagine as no-go-zones, possibly inhabited by cute, endangered, animals.
@@ -459,7 +462,6 @@ This is essential for understanding the power of an Islands Architecture: how to
 That's not even an Astro-specific problem, but a common challenge of classic React applications: How to avoid property drill down by using global state and a global data store? The idea of context is exactly that - for you to be able to share updateable state to the descendants without having to pass it from component to component.
 
 ![sketch of an islands landscape to illustrate the above component structure](doc/img/islands-architecture.png)
-
 
 #### How to read from Astro content collection files?
 
@@ -500,7 +502,7 @@ Summary and follow-up discussion: [Integrating Astro 5, Storybook 9, Vite 7, and
 
 We need to import our `global.css` explicitly in our Storybook preview configuration. And we need to fix/workaround the path definitions in `tailwind.config.js` to make it work with Storybook.
 
-And we need `@types/node` as a  `devDependency` and we should import `path` (not `join`) and call `path.join` to prevent a fatal TypeScript error due to an ambiguous `path = path | PlatformPath`.
+And we need `@types/node` as a `devDependency` and we should import `path` (not `join`) and call `path.join` to prevent a fatal TypeScript error due to an ambiguous `path = path | PlatformPath`.
 
 #### Type PlatformPath has no call signatures 🤷
 
@@ -560,7 +562,8 @@ in our ESLint configuration.
 Why doesn't anyone write unit tests? One of the core issues is that tests typically run in CI in a node.js environment, rather than the code’s actual target environment, the browser. Vitest's browser mode, although currently under development, and APIs may change in the future, runs your tests in a real browser (Chromium, via **Playwright**, in the default configuration). The alternative is a simulated browser environment, like JSDom or HappyDom, which can have differences in behavior compared to a real browser. This allows to run your tests in the browser natively, providing access to browser globals like window and document, and use Playwright for cross-browser testing.
 
 Sources:
--  https://storybook.js.org/docs/writing-tests/integrations/vitest-addon#why-do-we-recommend-browser-mode
+
+- https://storybook.js.org/docs/writing-tests/integrations/vitest-addon#why-do-we-recommend-browser-mode
 - https://www.defined.net/blog/modern-frontend-testing/
 
 ## Background: Motivation and History
@@ -579,6 +582,7 @@ Goals and rules for human and virtual developers like AI agents and assistants. 
 ### Modularity and Extensibility
 
 Extensibility: the software architecture should follow a modular (or "atomic") approach enable the app to be extended easily without extensive refactoring by adding the following features:
+
 - optional additional detail view: Clicking or tapping on a card should switch the display to a zoomed-in view that focuses the selected content, which should preferably be achieved using only CSS and no React, TypeScript, or JavaScript, and which might use optional animation effects when switching between views. Zoomed detail view states might use their own distinctive URLs or anchor links that, when requested, should result in the app starting with the respective view.
 - optional additional permalink feature: dynamic results might use distinct URLs or anchor links. If such a link is used to access the website, it must show the matching content, in which case the static initial view might be skipped.
 - optional additional reading list feature: users can bookmark or unbookmark items and make the app show a list of their bookmarked items. This should be implemented as a client-side feature without user accounts, logins, or authentication, preferably using local storage in the browser.
@@ -644,9 +648,10 @@ Developers, bots, and AI agents or assistants should refer to the requirements s
 
 In Astro, prefer native HTML elements like <head> over overengineered custom elements like <Head> unless they are necessary. Generate working code using the latest stable npm package dependencies and install all dependencies that are needed. Don't generate faulty code that you are able to fix, generate error-free code in the first place! Don't change code based on assumptions, especially if the code is currently correct, don't try to fix it.
 
-In TypeScript, do not use the 'any' type. Do not use the non-null assertion operator (`!`). Do not cast to unknown (e.g. `as unknown as T`).  It is critically important that you adhere to the above rules.
+In TypeScript, do not use the 'any' type. Do not use the non-null assertion operator (`!`). Do not cast to unknown (e.g. `as unknown as T`). It is critically important that you adhere to the above rules.
 
 <a id="software-architecture-research-and-decisions"></a>
+
 ## Software Architecture Research and Decisions
 
 ### Common Modules for Astro, React, and Storybook
@@ -708,6 +713,7 @@ This project defines code style and syntax rules, although some specific configu
 - [vitest.config.ts](vitest.config.ts)
 
 For full IDE coding support,
+
 - install Astro and MDX IDE plugins/extension or use the `@mdx-js/language-server` npm module;
 - install `eslint-plugin-astro` and `eslint-plugin-mdx`;
 - configure TypeScript support to prevent expecting TS syntax in JS files in IDE settings if necessary.
@@ -715,12 +721,12 @@ For full IDE coding support,
 If an IDE like JetBrains WebStorm applies TypeScript syntax checking or inspections to JavaScript (`.js`) files, this behavior might be controlled by WebStorm's language service settings, but `tsconfig.json` is the correct place for TypeScript-related settings. Any IDE-specific inspection scopes and ingore patterns should be removed as they are neither necessary nor gauaranteed to work.
 
 - disable TypeScript inspections on JavaScript files:
-  - in WebStorm go to Preferences/Settings →  Appearance & Behavior → Scopes and reate a custom scope that excludes all `.js` files.
-  - in WebStorm: go to Preferences/Settings →  Editor → Inspections to apply this scope to the TypeScript inspections setting the severity for that scope to "No highlighting".
+  - in WebStorm go to Preferences/Settings → Appearance & Behavior → Scopes and reate a custom scope that excludes all `.js` files.
+  - in WebStorm: go to Preferences/Settings → Editor → Inspections to apply this scope to the TypeScript inspections setting the severity for that scope to "No highlighting".
   - make sure your custom scope with the "No highlighting" severity is at the top of the scope list. The IDE processes scopes from top to bottom, and the first matching scope's rules are applied.
 
 - configure `allowJs` in `tsconfig.json`:
-You can control whether TypeScript treats JS files within your project by the top-level `allowJs` configuration option. Counterintuitively, setting `"allowJs": false` in your `tsconfig.json` does not disallow using any `.js` files in our project, it only disallows (or at least promieses to reduce) TypeScript processing and checking on `.js` files.
+  You can control whether TypeScript treats JS files within your project by the top-level `allowJs` configuration option. Counterintuitively, setting `"allowJs": false` in your `tsconfig.json` does not disallow using any `.js` files in our project, it only disallows (or at least promieses to reduce) TypeScript processing and checking on `.js` files.
 
 - exclude certain files or folders from TypeScript service in `tsconfig.json`: use the "exclude" array to tell TypeScript to ignore files/folders (like build outputs or config files you don’t want checked). This prevents those files from being parsed.
 
@@ -784,7 +790,7 @@ Also consider https://hextotailwind.com/ to find approximate matches of Tailwind
 
 #### Typography
 
-Leading, in typography, is pronounced “ledding” and refers to the space between lines of text. Tailwind's `text`-prefixed properties set typography and foreground colors. Tailwind's `text-xl` is only `1.25rem`, not really "extra-large". Tailwind has defaults of `text-6xl` and  `text-7xl`, but no `6.5 / 4rem` in between.
+Leading, in typography, is pronounced “ledding” and refers to the space between lines of text. Tailwind's `text`-prefixed properties set typography and foreground colors. Tailwind's `text-xl` is only `1.25rem`, not really "extra-large". Tailwind has defaults of `text-6xl` and `text-7xl`, but no `6.5 / 4rem` in between.
 
 - `leading-none = line-height: 1`
 - `leading-<number>
@@ -818,11 +824,12 @@ In Tailwind CSS v4 (alpha/beta, not recommended for astro yet) we would define c
 
 We should use Tailwind's at-rule `@apply` to style globals and often-used style combinations to keep our HTML markup clean and maintainable.
 
-So, instead of `<h1 class="font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont">' we could use `<h1 class="custom-heading-h1">` or even just `<h1>` with global CSS like below.
+So, instead of `<h1 class="font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont">' we could use `<h1 class="custom-heading-h1">`or even just`<h1>` with global CSS like below.
 
 ```css
-h1, .custom-heading-h1 {
-  @apply font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont;
+h1,
+.custom-heading-h1 {
+  @apply color-blue-400 text-customfont m-0 mt-4 break-words font-bold leading-none;
 }
 ```
 
@@ -942,4 +949,3 @@ https://tailwindcss.com/docs/font-family
 https://docs.astro.build/en/reference/configuration-reference/
 
 https://docs.astro.build/en/guides/typescript/
-

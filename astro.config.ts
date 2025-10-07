@@ -28,5 +28,5 @@ export default defineConfig({
   redirects: {
     '/app': '/',
     '/index-english': '/about/',
-  }
+  },
 });

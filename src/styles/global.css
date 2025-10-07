@@ -44,11 +44,18 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
-    @apply font-normal not-italic text-base text-lg font-atkinson m-0 p-0;
+  html,
+  body {
+    @apply m-0 p-0 font-atkinson text-base text-lg font-normal not-italic;
   }
-  h1, h2, h3, h4, h5, h6, .tile-title {
-    @apply font-bold font-dx-kord break-words m-0 pt-4 leading-none text-blue-violet;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .tile-title {
+    @apply m-0 break-words pt-4 font-dx-kord font-bold leading-none text-blue-violet;
   }
 
   h1 {
@@ -73,7 +80,7 @@
   }
 
   .custom-grid-container {
-    @apply container xl:clear-both mx-auto pl-4 pr-12;
+    @apply container mx-auto pl-4 pr-12 xl:clear-both;
   }
   /* TODO fix mobile behavior */
   .custom-grid-has-row-behavior .custom-shifted {
@@ -85,23 +92,17 @@
     margin-bottom: 0;
   }
   .custom-hex-tile {
-    @apply w-[19rem] max-w-full h-96 flex flex-col justify-center items-center font-atkinson;
-    clip-path: polygon(
-      50% 0%,
-      100% 25%,
-      100% 75%,
-      50% 100%,
-      0% 75%,
-      0% 25%);
+    @apply flex h-96 w-[19rem] max-w-full flex-col items-center justify-center font-atkinson;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
   .custom-hex-tile-inner {
-    @apply w-80 max-w-full h-96 m-0 bg-blue-sky p-1 text-center;
+    @apply m-0 h-96 w-80 max-w-full bg-blue-sky p-1 text-center;
   }
   .custom-hex-tiles-wrapper {
     @apply flex flex-nowrap space-x-1 font-dx-kord text-blue-violet;
   }
   .custom-icons-wrapper {
-    @apply flex flex-nowrap space-x-1 mt-1;
+    @apply mt-1 flex flex-nowrap space-x-1;
   }
   .custom-icons-wrapper img,
   .custom-icons-wrapper svg {
@@ -109,9 +110,9 @@
     width: auto;
   }
   .custom-hex-tile h3 {
-    @apply font-dx-kord text-2xl max-w-full text-ellipsis line-clamp-3;
+    @apply line-clamp-3 max-w-full text-ellipsis font-dx-kord text-2xl;
   }
   .custom-hex-tile .author {
-    @apply max-w-full text-ellipsis line-clamp-3;
+    @apply line-clamp-3 max-w-full text-ellipsis;
   }
 }

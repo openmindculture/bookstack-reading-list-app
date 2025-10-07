@@ -24,7 +24,8 @@ export const Primary: Story = {
       },
       {
         id: '2',
-        author: 'Hubert K. Blaine Wolfeschlegelsteinhausenbergerdorff von und zu Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch',
+        author:
+          'Hubert K. Blaine Wolfeschlegelsteinhausenbergerdorff von und zu Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch',
         title:
           'Things to do in Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch and Bad Gottleuba-Berggießhübel',
         description:
@@ -35,7 +36,8 @@ export const Primary: Story = {
         language: 'de',
         coverClassName: 'bg-blue',
         coverUrl: 'nadia-makarevich-web-performance-fundamentals.png',
-        externalUrl: 'https://en.wikipedia.org/wiki/Hubert_Blaine_Wolfeschlegelsteinhausenbergerdorff_Sr.',
+        externalUrl:
+          'https://en.wikipedia.org/wiki/Hubert_Blaine_Wolfeschlegelsteinhausenbergerdorff_Sr.',
         showOnHomepage: true,
       },
     ],

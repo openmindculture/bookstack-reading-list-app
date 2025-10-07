@@ -5,7 +5,7 @@ import { z } from 'zod';
 type Book = z.infer<typeof bookSchema>;
 
 //
-export async function fetchBooks (): Promise<Book[]> {
+export async function fetchBooks(): Promise<Book[]> {
   try {
     // relative fetch URL only works in client-side code,
     // not in an Astro build-time server environment!
@@ -25,5 +25,4 @@ export async function fetchBooks (): Promise<Book[]> {
     console.error('Failed to fetch books:', error);
     throw error; // Re-throw to let caller handle it
   }
-};
-
+}

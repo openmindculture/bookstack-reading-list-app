@@ -10,25 +10,28 @@ const Book = (props: BookProps) => {
       <div className={'custom-hex-tile bg-blue-violet p-0.5'}>
         <div className={'custom-hex-tile custom-hex-tile-inner'}>
           <strong className='tile-title'>{props.title}</strong>
-          <p className="author">Author: {props.author}</p>
+          <p className='author'>Author: {props.author}</p>
           {!!props.pubYear && (
             <p>
               {props.pubYear}{' '}
               {!!props.updatedYear && <span>updated: {props.updatedYear}</span>}
             </p>
           )}
-          <div className="custom-icons-wrapper">
+          <div className='custom-icons-wrapper'>
             {!!props.icon && (
-              <div className="custom-icon">
-                <img src={`../images/icons/${props.icon}.svg`} alt={`${props.icon} icon`} />
+              <div className='custom-icon'>
+                <img
+                  src={`../images/icons/${props.icon}.svg`}
+                  alt={`${props.icon} icon`}
+                />
               </div>
             )}
             {!!props.language && (
-              <div className="custom-icon">
+              <div className='custom-icon'>
                 <img
                   src={`../images/languages/${props.language}.svg`}
                   alt={`language: ${props.language}`}
-                  width="120"
+                  width='120'
                 />
               </div>
             )}
@@ -43,13 +46,13 @@ const Book = (props: BookProps) => {
       >
         {!!props.coverUrl && (
           <img
-            className="w-3xs max-w-full object-cover transition-transform hover:scale-110"
+            className='w-3xs max-w-full object-cover transition-transform hover:scale-110'
             src={`../images/books/${props.coverUrl}`}
             alt={`Cover of ${props.title}`}
           />
         )}
         <ToggleButton
-          className="absolute right-[calc(50%-12px)] top-3 z-10"
+          className='absolute right-[calc(50%-12px)] top-3 z-10'
           forTargetId={props.id}
           initiallySelected={false}
           /* selected = isFavorite state, not of the card, but of the toggle */

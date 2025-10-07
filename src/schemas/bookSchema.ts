@@ -10,7 +10,21 @@ export const bookSchema = z.object({
   description: z.string().optional(),
   coverUrl: z.string().optional(),
   /* Tailwind detection vs. additional safelisting? */
-  coverClassName: z.enum(['bg-blue','bg-blue-slate','bg-blue-950', 'bg-gray-800', 'bg-rose-500', 'bg-stone-800','bg-slate-900','bg-fuchsia-900','bg-red-100','bg-yellow-800','']).optional(),
+  coverClassName: z
+    .enum([
+      'bg-blue',
+      'bg-blue-slate',
+      'bg-blue-950',
+      'bg-gray-800',
+      'bg-rose-500',
+      'bg-stone-800',
+      'bg-slate-900',
+      'bg-fuchsia-900',
+      'bg-red-100',
+      'bg-yellow-800',
+      '',
+    ])
+    .optional(),
   externalUrl: z.string().optional(),
   icon: z.enum(['book', 'blogpost', 'podcast']).default('book').optional(),
   isbn: z.string().optional(),

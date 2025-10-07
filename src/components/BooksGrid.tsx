@@ -3,7 +3,10 @@ import Book from './Book.tsx';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useBooksContext } from './BooksContext.tsx';
 // import refineMasonryLayout from '@utils/refineMasonryLayout';
-import refineMasonryLayout, { initMasonryLayouts, removeMasonryEventListeners } from 'hexagonal-masonry-placement';
+import refineMasonryLayout, {
+  initMasonryLayouts,
+  removeMasonryEventListeners,
+} from 'hexagonal-masonry-placement';
 
 import { z } from 'zod';
 
@@ -21,7 +24,7 @@ const BooksGrid = ({ gridId }: BooksGridProps) => {
     return () => {
       removeMasonryEventListeners();
     };
-  })
+  });
   const ulRef = useRef<HTMLUListElement>(null);
   useLayoutEffect(() => {
     if (ulRef.current) {
@@ -30,13 +33,13 @@ const BooksGrid = ({ gridId }: BooksGridProps) => {
     }
   }, [filteredBooks]);
   return (
-    <div className="custom-grid-container">
+    <div className='custom-grid-container'>
       <ul
-        className="relative flex flex-wrap gap-0 custom-grid-has-row-behavior"
+        className='custom-grid-has-row-behavior relative flex flex-wrap gap-0'
         id={gridId}
       >
         {filteredBooks.map((book: BookProps) => (
-          <li key={book.id} className="pb-1">
+          <li key={book.id} className='pb-1'>
             <Book
               id={book.id}
               title={book.title}

@@ -1,18 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Grid from '@components/BooksGridInitial.astro';
-import SearchableBooks from '@components/SearchableBooks.tsx';
-import SeoDescriptions from '@components/SeoDescriptions.astro';
+import Layout from "../layouts/Layout.astro";
+import Grid from "@components/BooksGridInitial.astro";
+import SearchableBooks from "@components/SearchableBooks.tsx";
+import SeoDescriptions from "@components/SeoDescriptions.astro";
 
-const year = new Date().getFullYear()
+const year = new Date().getFullYear();
 ---
 
-<Layout title="Dev-UX-Lesezeichen" headline="Dev-UX-Lesezeichen" lang="en" metadescription="Bookmarks for Webdesign, UX and Web Development">
+<Layout
+  title='Dev-UX-Lesezeichen'
+  headline='Dev-UX-Lesezeichen'
+  lang='en'
+  metadescription='Bookmarks for Webdesign, UX and Web Development'
+>
   <SeoDescriptions />
   <SearchableBooks client:load />
   <Grid />
   <p>
-    <a href="/ueber/#impressum" title="Impressum (imprint)">Impressum</a>
-    &copy; {year} <a href="https://www.ingo-steinke.de/" title="Ingo Steinke, Creative Web Developer: portfolio website">Ingo Steinke</a>
+    <a href='/ueber/#impressum' title='Impressum (imprint)'>Impressum</a>
+    &copy; {year}
+    <a
+      href='https://www.ingo-steinke.de/'
+      title='Ingo Steinke, Creative Web Developer: portfolio website'
+      >Ingo Steinke</a
+    >
   </p>
 </Layout>
