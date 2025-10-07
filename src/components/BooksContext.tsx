@@ -44,13 +44,10 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
       try {
         const data = await fetchBooks();
         setAllBooks(data);
-        console.log('after setAllBooks data:', data);
       } catch (err) {
         console.error(
           err instanceof Error ? err.message : 'Failed to load books',
         );
-      } finally {
-        console.log('finished loading all books');
       }
     }
 
@@ -64,7 +61,6 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
     // TODO filter books matching more fields
     if (!searchQuery) {
       setFilteredBooks([]);
-      console.log('empty search');
       return;
     }
     const searchQueryToLowerCase = searchQuery.toLowerCase();
@@ -77,7 +73,6 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
         (book.isbn && book.isbn.toLowerCase().includes(searchQueryToLowerCase)),
     );
     setFilteredBooks(filtered);
-    console.log('setFilteredBooks filtered: ', filtered);
   }, [searchQuery, allBooks]); // Runs when these change
 
   return (

@@ -19,8 +19,7 @@ export const FilledForm: Story = {
   },
   play: async ({ canvasElement }) => {
     const searchInput = canvasElement.querySelector('input[type=text]');
-
-    // Add your interactions here
+    // TODO Add your interactions here
     // await userEvent.type(searchInput, 'example@email.com');
   },
 };

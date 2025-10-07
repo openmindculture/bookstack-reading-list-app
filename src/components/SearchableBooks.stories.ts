@@ -5,6 +5,8 @@ const meta = {
   component: SearchableBooks,
 } satisfies Meta<typeof SearchableBooks>;
 
+// TODO mock API request
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;

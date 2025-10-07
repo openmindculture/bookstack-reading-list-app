@@ -2,11 +2,11 @@ import { bookSchema } from '@schemas/bookSchema';
 import Book from './Book.tsx';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useBooksContext } from './BooksContext.tsx';
-// import refineMasonryLayout from '@utils/refineMasonryLayout';
 import refineMasonryLayout, {
   initMasonryLayouts,
   removeMasonryEventListeners,
 } from 'hexagonal-masonry-placement';
+import setHasResultsFlag from "@lib/setHasResultsFlag.ts";
 
 import { z } from 'zod';
 
@@ -27,9 +27,15 @@ const BooksGrid = ({ gridId }: BooksGridProps) => {
   });
   const ulRef = useRef<HTMLUListElement>(null);
   useLayoutEffect(() => {
+    console.log('filtered books:', filteredBooks);
+    if (!filteredBooks || !filteredBooks.length) {
+      setHasResultsFlag(false);
+      return;
+    }
+    setHasResultsFlag(true);
     if (ulRef.current) {
-      // can we rely on a global window.refineMasonryLayout?
       refineMasonryLayout(ulRef.current.id);
+      // TODO fix layout
     }
   }, [filteredBooks]);
   return (
@@ -37,6 +43,7 @@ const BooksGrid = ({ gridId }: BooksGridProps) => {
       <ul
         className='custom-grid-has-row-behavior relative flex flex-wrap gap-0'
         id={gridId}
+        ref={ulRef}
       >
         {filteredBooks.map((book: BookProps) => (
           <li key={book.id} className='pb-1'>
