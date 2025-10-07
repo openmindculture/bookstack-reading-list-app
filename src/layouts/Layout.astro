@@ -42,21 +42,21 @@ const NavigationCollection = [
 <!doctype html>
 <html lang={lang}>
   <head>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width' />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    <meta name='description' content='{metadescription}' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name="description" content="{metadescription}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- don't use script tags here -->
   </head>
-  <body class='min-h-screen bg-blue-azure'>
+  <body class="min-h-screen bg-blue-azure pl-1 pr-1">
     <header
-      class='m-0 ml-auto mr-auto flex max-w-screen-2xl place-content-between pl-4 pr-12'
+      class="m-0 ml-auto mr-auto flex max-w-screen-2xl place-content-between pl-4 pr-12"
     >
-      <h1 class='float-left mr-1 lg:mr-4'>{headline}</h1>
+      <h1 class="float-left mr-1 lg:mr-4">{headline}</h1>
       <Navigation NavigationCollection={NavigationCollection} />
     </header>
-    <main class='ml-auto mr-auto max-w-screen-2xl'>
+    <main class="ml-auto mr-auto max-w-screen-2xl">
       <!-- Use <slot /> when working with Astro Layouts or Astro Components. It's specific to Astro's way of passing child content from a parent component or page. -->
       <slot />
       <!-- Renders child content passed from the parent -->

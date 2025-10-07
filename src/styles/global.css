@@ -48,6 +48,7 @@
   body {
     @apply m-0 p-0 font-atkinson text-base text-lg font-normal not-italic;
   }
+
   h1,
   h2,
   h3,
@@ -65,9 +66,11 @@
   h2 {
     @apply text-5xl lg:text-7xl;
   }
+
   .tile-title {
     @apply text-3xl;
   }
+
   .visually-hidden,
   .initially-hidden {
     display: none;
@@ -82,36 +85,45 @@
   .custom-grid-container {
     @apply container mx-auto pl-4 pr-12 xl:clear-both;
   }
+
   /* TODO fix mobile behavior */
   .custom-grid-has-row-behavior .custom-shifted {
     margin-left: 9.5rem;
     margin-right: -9.5rem;
   }
+
   .custom-grid-has-row-behavior .row:not(.row-1) {
     margin-top: -6rem;
     margin-bottom: 0;
   }
+
   .custom-hex-tile {
     @apply flex h-96 w-[19rem] max-w-full flex-col items-center justify-center font-atkinson;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
+
   .custom-hex-tile-inner {
     @apply m-0 h-96 w-80 max-w-full bg-blue-sky p-1 text-center;
   }
+
   .custom-hex-tiles-wrapper {
     @apply flex flex-nowrap space-x-1 font-dx-kord text-blue-violet;
   }
+
   .custom-icons-wrapper {
     @apply mt-1 flex flex-nowrap space-x-1;
   }
+
   .custom-icons-wrapper img,
   .custom-icons-wrapper svg {
     height: 23px;
     width: auto;
   }
+
   .custom-hex-tile h3 {
     @apply line-clamp-3 max-w-full text-ellipsis font-dx-kord text-2xl;
   }
+
   .custom-hex-tile .author {
     @apply line-clamp-3 max-w-full text-ellipsis;
   }
