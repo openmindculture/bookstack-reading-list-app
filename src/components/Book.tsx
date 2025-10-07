@@ -9,8 +9,8 @@ const Book = (props: BookProps) => {
     <article className="custom-hex-tiles-wrapper {{isFavorite ? 'isFavorite' : '' }}">
       <div className={'custom-hex-tile bg-blue-violet p-0.5'}>
         <div className={'custom-hex-tile custom-hex-tile-inner'}>
-          <h3>{props.title}</h3>
-          <p className='author'>Author: {props.author}</p>
+          <strong className='tile-title'>{props.title}</strong>
+          <p className="author">Author: {props.author}</p>
           {!!props.pubYear && (
             <p>
               {props.pubYear}{' '}
@@ -20,7 +20,7 @@ const Book = (props: BookProps) => {
           <div className="custom-icons-wrapper">
             {!!props.icon && (
               <div className="custom-icon">
-                <img src={`../images/icons/${props.icon}.svg`} />
+                <img src={`../images/icons/${props.icon}.svg`} alt={`${props.icon} icon`} />
               </div>
             )}
             {!!props.language && (

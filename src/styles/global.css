@@ -47,7 +47,7 @@
   html, body {
     @apply font-normal not-italic text-base text-lg font-atkinson m-0 p-0;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, .tile-title {
     @apply font-bold font-dx-kord break-words m-0 pt-4 leading-none text-blue-violet;
   }
 
@@ -58,7 +58,11 @@
   h2 {
     @apply text-5xl lg:text-7xl;
   }
-  .custom-seo-descriptions {
+  .tile-title {
+    @apply text-3xl;
+  }
+  .visually-hidden,
+  .initially-hidden {
     display: none;
   }
 }

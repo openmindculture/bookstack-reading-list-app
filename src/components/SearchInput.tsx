@@ -5,6 +5,7 @@ function SearchInput(): JSX.Element {
   const { searchQuery, setSearchQuery } = useBooksContext();
   return (
     <label className="input input-bordered clear-both ml-auto flex max-w-[calc(100%-1rem)] items-center gap-2 lg:mr-2 lg:mt-2 lg:max-w-lg xl:clear-none 2xl:-mt-[4.75rem] 2xl:mb-8">
+      <span className='visually-hidden'>Search</span>
       <input
         type="text"
         className="grow"
