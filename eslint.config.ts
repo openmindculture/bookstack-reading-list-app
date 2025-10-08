@@ -22,7 +22,6 @@ export default tseslint.config(
       parser: tseslint.parser,
       parserOptions: {},
     },
-    rules: {
-    },
+    rules: {},
   },
 );

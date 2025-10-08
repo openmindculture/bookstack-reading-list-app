@@ -1,20 +1,12 @@
 {
-  "plugins": [
-    "prettier-plugin-astro",
-    "prettier-plugin-tailwindcss"
-  ],
-  "singleQuote": true,
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  "jsxSingleQuote": true,
   "overrides": [
     {
       "files": "*.astro",
       "options": {
-        "parser": "astro"
-      }
-    },
-    {
-      "files": "*.ts",
-      "options": {
-        "singleQuote": true
+        "parser": "astro",
+        "jsxSingleQuote": false
       }
     }
   ]
