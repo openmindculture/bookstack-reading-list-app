@@ -1,56 +1,67 @@
 ---
-import '../styles/global.css';
-import Navigation from '../components/Navigation';
+import "../styles/global.css";
+import Navigation from "../components/Navigation";
 export interface LayoutProps {
   title: string;
+  headline: string;
+  lang: string;
+  metadescription: string;
   // children: JSX.Element | JSX.Element[];
   // children: ReactNode // more flexible for mixed content
 }
 
-const { title } = Astro.props as LayoutProps;
+const { title, headline, lang, metadescription } = Astro.props as LayoutProps;
 // TODO should we generate the navigation collection from our files?
 // TODO or move to a more obvious include file
 //      to improve maintainability and separation of concerns
 const NavigationCollection = [
   {
-    caption: 'Home',
-    url: '/',
+    caption: "App",
+    description: "open the web app",
+    hreflang: "en",
+    url: "/",
   },
   {
-    caption: 'English',
-    url: '/index-english/',
+    caption: "about",
+    description: "English",
+    hreflang: "en",
+    url: "/about/",
   },
   {
-    caption: 'App',
-    url: '/app/',
+    caption: "über",
+    description: "Deutsch",
+    hreflang: "de",
+    url: "/ueber/",
   },
 ];
 // import path from 'node:path';
 // import { z, defineCollection } from 'astro:content';
 // const glob = import.meta.glob('../pages/**'); /* vite */
 ---
+
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    <meta name="description" content="Eine moderne Lesezeichen-App für Webdesign, UX und Webentwicklung">
+    <meta name="description" content={metadescription} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- don't use script tags here -->
   </head>
-  <body class="bg-blue-azure min-h-screen">
-    <head>
+  <body class="min-h-screen bg-blue-azure pl-1 pr-1">
+    <header
+      class="m-0 ml-auto mr-auto flex max-w-screen-2xl place-content-between pl-4 pr-12"
+    >
+      <h1 class="float-left mr-1 lg:mr-4">{headline}</h1>
       <Navigation NavigationCollection={NavigationCollection} />
-    </head>
-    <main class="bg-blue-sky rounded m-4 p-0 pt-4 pb-8">
-      <div class="container mx-auto pl-4 pr-12">
-        <!-- TODO which paddings and spacings class names -->
-        <!-- Use <slot /> when working with Astro Layouts or Astro Components. It's specific to Astro's way of passing child content from a parent component or page. -->
-        <slot />
-        <!-- Renders child content passed from the parent -->
-        <!-- Use {Astro.props.children} in framework components (e.g., React, Svelte, Vue) within Astro projects. These frameworks expect children to render nested content, which is different from <slot />. -->
-        <!-- {Astro.props.children} -->
-      </div>
+    </header>
+    <main class="ml-auto mr-auto max-w-screen-2xl">
+      <!-- Use <slot /> when working with Astro Layouts or Astro Components. It's specific to Astro's way of passing child content from a parent component or page. -->
+      <slot />
+      <!-- Renders child content passed from the parent -->
+      <!-- Use {Astro.props.children} in framework components (e.g., React, Svelte, Vue) within Astro projects. These frameworks expect children to render nested content, which is different from <slot />. -->
+      <!-- {Astro.props.children} -->
     </main>
   </body>
 </html>

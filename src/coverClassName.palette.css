@@ -1,40 +1,40 @@
 .custom-cover-class-names {
   --white: #ffffff;
-  --yellow-50: #FEFCE8; /* Atomic Brad Frost */
-  --orange-50: #FFF7ED; /*  Joana Cerejo 2026 approx, Inclusive design too */
+  --yellow-50: #fefce8; /* Atomic Brad Frost */
+  --orange-50: #fff7ed; /*  Joana Cerejo 2026 approx, Inclusive design too */
   --orange-beige-original: #f5f2ea; /*  Joana Cerejo 2026 orig */
-  --amber-100: #FEF3C7; /* Ali Spittel wish */
-    --yellow-hello: #e5f204; /* Hello Hannah Original */
-    --yellow-300: #FDE047; /* Hello Hannah Tailwind Approximation ?! */
-  --yellow-music: #FDE047; /* trend color */
-  --yellow-400: #FACC15; /* Tailwind approx, and trend-like */
+  --amber-100: #fef3c7; /* Ali Spittel wish */
+  --yellow-hello: #e5f204; /* Hello Hannah Original */
+  --yellow-300: #fde047; /* Hello Hannah Tailwind Approximation ?! */
+  --yellow-music: #fde047; /* trend color */
+  --yellow-400: #facc15; /* Tailwind approx, and trend-like */
   --yellow-smashing: #ffcf01; /* Adam Silver Form Design Patterns */
-  --amber-400: #FBBF24; /* like web trends predictions */
-  --yellow-800: #854D0E; /* brown like behind Thinkbait */
-  --red-100: #FEE2E2;  /* Ali Spittel wish */
-  --red-600: #DC2626; /* Thinkbait like */
-  --rose-500: #F43F5E; /* Alla Design Systems Approximation */
+  --amber-400: #fbbf24; /* like web trends predictions */
+  --yellow-800: #854d0e; /* brown like behind Thinkbait */
+  --red-100: #fee2e2; /* Ali Spittel wish */
+  --red-600: #dc2626; /* Thinkbait like */
+  --rose-500: #f43f5e; /* Alla Design Systems Approximation */
   --rose-smashing: #e64152; /* Alla Design Systems Original */
-  --pink-500: #EC4899; /* Wagner Responsible JS A Book Apart */
-  --purple-400: #C084FC; /* Rachel Nabors */
+  --pink-500: #ec4899; /* Wagner Responsible JS A Book Apart */
+  --purple-400: #c084fc; /* Rachel Nabors */
   --purple-nabors: #bf94e4; /* Rachel Nabors */
-  --fuchsia-900: #701A75; /* Code Vorurteil Tailwind Approximation */
+  --fuchsia-900: #701a75; /* Code Vorurteil Tailwind Approximation */
   --fuchsia-slate: #54386b; /* Code Vorurteil Original */
   --fuchsia-andrew: #584fa8; /* Rachel Andrew unapproximatable */
-  --blue-500: #3B82F6; /* Code Vorurteil blue wall background */
-  --blue-600: #2563EB; /* Ahmad Shadeed */
+  --blue-500: #3b82f6; /* Code Vorurteil blue wall background */
+  --blue-600: #2563eb; /* Ahmad Shadeed */
   --blue-950: #172554; /* Una approx #1e244d */
-  --indigo-600: #4F46E5; /* like Walter */
+  --indigo-600: #4f46e5; /* like Walter */
   --slate-keith: #5f7994; /* Jeremy Keith Original */
-  --slate-500: #64748B; /* Jeremy Keith Approx */
-  --slate-sara-unapproximatable: #64748B; /* Sara Drasner book */
+  --slate-500: #64748b; /* Jeremy Keith Approx */
+  --slate-sara-unapproximatable: #64748b; /* Sara Drasner book */
   --slate-600: #475569; /* like future dusk */
   --slate-future-dusk: #4d5078; /* 2025 web trend */
-  --teal-500: #14B8A6; /* Hello Hannah Tailwind Approx, 2025 trend */
-  --emerald-950: #022C22; /* Stimac approx */
+  --teal-500: #14b8a6; /* Hello Hannah Tailwind Approx, 2025 trend */
+  --emerald-950: #022c22; /* Stimac approx */
   --stone-800: #292524; /* Martin Fowler approximation in Tailwind */
-  --slate-900: #0F172A; /* Sara Vieira Opinionated React */
+  --slate-900: #0f172a; /* Sara Vieira Opinionated React */
   --slate-vieira: #101123; /* Sara Vieira Opinionated React */
-  --zinc-950: #09090B; /* blackish background like Joy Buolamwini */
-  --zinc-900: #18181B; /* blackish background Marina Budarina, Eckles */
+  --zinc-950: #09090b; /* blackish background like Joy Buolamwini */
+  --zinc-900: #18181b; /* blackish background Marina Budarina, Eckles */
 }

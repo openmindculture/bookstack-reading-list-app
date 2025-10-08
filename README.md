@@ -41,20 +41,21 @@ This README file contains unfinished and incomplete notes that might be outdated
 - [x] Astro + Vite + Tailwind setup
 - [x] Storybook setup
 - [x] global style apply to Storybook
-- [ ] style class names to components: Detecting classes in source files?, see https://tailwindcss.com/docs/detecting-classes-in-source-files
+- [x] style class names to components: Detecting classes in source files?, see https://tailwindcss.com/docs/detecting-classes-in-source-files
 - [x] second page (ongoing, branch: feature/content-demo)
 - [x] content collection
 - [x] to page with cards
-- [ ] to JSON like API output
+- [x] to JSON like API output
 - [x] Storybook testing
 - [ ] Vitest testing
 - [ ] Storybook+Vitest testing
 - [ ] Playwright end-to-end integration testing
-- [ ] deploy milestone (page 2)
+- [x] deploy milestone (page 2)
 - [x] update blog post draft: even less details
 - [x] clean up README
 
 Theme change
+
 - keep the new dx font, but only for the site title
 - remove the Adler fallback
 - use Atkinson everywhere else
@@ -63,38 +64,43 @@ Theme change
 ## Development and Deployment
 
 ### dev server
-  - `npm run dev`
-  - http://localhost:4321
+
+- `npm run dev`
+- http://localhost:4321
 
 ### build and preview
-  - `npm run build`
-  - `npm run preview`
+
+- `npm run build`
+- `npm run preview`
 
 ### dploy to production
-  - `git commit`
-  - test in `develop` branch
-  - merge into main branch triggers production deploy to Netlify
-  - no other pushes or merges should trigger any Netlify action
+
+- `git commit`
+- test in `develop` branch
+- merge into main branch triggers production deploy to Netlify
+- no other pushes or merges should trigger any Netlify action
 
 ### storybook
+
 - `npm run storybook`
 - http://localhost:6006/
 
 ## Requirements and Acceptance Criteria
 
 ### Non-Functional Requirements:
-  - Write clean code.
-  - Follow coding standards and recommendations.
-    - Use Storybook.
-    - Use Astro.
-    - Use React.
-    - Use TypeScript.
-  - All tests must pass.
-    - Use ESLint.
-    - Use Storybook.
-    - Use Vitest.
-    - Use Playwright.
-    - Increase test coverage.
+
+- Write clean code pragmagtically.
+- Follow coding standards and recommendations.
+  - Use Storybook.
+  - Use Astro where it makes sense.
+  - Use React where it doesn't deteriorate performance.
+  - Use TypeScript wherever appropriate.
+- All tests must pass.
+  - Use ESLint.
+  - Use Storybook.
+  - Use Vitest.
+  - Use Playwright.
+  - Increase test coverage.
 
 ### Description
 
@@ -102,81 +108,26 @@ Bookstack, also known as Dev-UX-Bookmarks or Dev-UX-Lesezeichen in German, is me
 
 An optional site footer contains external links, legal notes, and additional descriptive text to help search engines and human users to better understand and find the site and its content.
 
-### Modularity and Extensibility
-
-Extensibility: the software architecture should follow a modular (or "atomic") approach enable the app to be extended easily without extensive refactoring by adding the following features:
-- optional additional detail view: Clicking or tapping on a card should switch the display to a zoomed-in view that focuses the selected content, which should preferably be achieved using only CSS and no React, TypeScript, or JavaScript, and which might use optional animation effects when switching between views. Zoomed detail view states might use their own distinctive URLs or anchor links that, when requested, should result in the app starting with the respective view.
-- optional additional permalink feature: dynamic results might use distinct URLs or anchor links. If such a link is used to access the website, it must show the matching content, in which case the static initial view might be skipped.
-- optional additional reading list feature: users can bookmark or unbookmark items and make the app show a list of their bookmarked items. This should be implemented as a client-side feature without user accounts, logins, or authentication, preferably using local storage in the browser.
-- optional additional suggestion or edit feature: users can suggest or add additional books to be added in the database. This might be implemented as part of the application or it might be an external process like opening a pull request or merge request in the project's Git repository.
-- The web app should be designed in a way that it is easy to localize. This does not necessarily imply that there are no fixed strings or text blocks in a nonlocalized version.
-
-#### Accessibility, Usability, Workflow Guidelines
-
-The web app must be accessible, responsive, robust, maintainable, eco-friendly and load quickly.
-
-- Accessibility: the web app must be accessible and responsive
-  - the frontend must comply to WCAG 2.1 AAA
-  - the frontend should comply to future WCAG versions
-  - the frontend must pass automated audits like axe, wave, and the Lighthouse/PageSpeed Accessibility section
-  - all links must be focusable and reachable using keyboard navigation
-  - all text must be selectable and readable
-  - animation effects must only be active unless the user prefers reduced motion
-  - every image must have a meaningful alt attribute
-  - content must be printable
-- Robust: the app and its development process should adhere to the principles of
-  - progressive enhancement
-  - graceful degradation
-  - robustness, i.e. if a partial function breaks or is unavailable, other parts of the application must not be affected. Initial content must be available without JavaScript.
-- Maintainability
-  - code should be modular and easy to read
-  - code style must follow rules and recommendations defined by linter configuration
-  - code style should follow official recommendations and best practices
-  - code must be linted using eslint
-  - code must always be syntactically correct
-  - all tests must run successfully
-  - npm run build must succeed
-  - merge conflicts must be resolved
-  - generated code must be reviewed by a human before commit and deployment
-  - variables, functions, and files should use meaningful, self-explanatory names
-  - JavaScript logic must be written in TypeScript.
-  - Using the `any` type must be avoided.
-  - Application logic code should be tested or be testable.
-  - Test should strive for 100% code coverage.
-  - Frontend must be tested using semantic and visual regression tests.
-  - Frontend accessibility, animations, and hover states should be tested.
-- Loading speed, eco-friendliness, web performance: the application should react quickly,
-  - Lighthouse or PageSpeed audits should achieve an overall performance score above 80/100
-  - WebsiteCarbon and Ecograder audits should prove above-average test results.
-  - The initial page weight must not exceed 1 MB.
-  - The web app must be fully interactive within 2 seconds after it finished loading.
-- Robustness
-  - follow the robustness principle,
-  - prefer progressive enhancement.
-
-Development should either be platform-agnostic or designed to work on Linux and MacOS. For example, we use `node:path` (not string concatenation) when specifying paths to files.
-
-The app can be deployed "in the cloud" (e.g. on Netlify web services).
-
-### Branches, Merging and Deployment Rules
-
-The main branch, `main` is the protected branch for production-ready code. The latest commit in the main branch should be automatically deployed to the production website by an online service like Netlify, unless the automated tests have failed. Code must always be working, tested, and follow all guidelines before getting merged into the main branch. Every successful release should correspond to a git tag.
-
-The development branch, `develop` is the current development state that should be stable enough to use it on localhost and fork new feature branches. Stable enough means that although some tests or requirements may fail, there must be a working website in the local browser after running `npm run dev`.
-
-New features should be developed in a modular way using feature branches in a process similar, but not necessarily identical, to git flow, preferably using atomic commits and trunk-based development against the `develop` branch as the "trunk" of the development process. Feature branches must never be merged into the main branch directly.
-
-Developers, bots, and AI agents or assistants should refer to the requirements stated in this document, in optional GitHub issues. Generally, developers and assistants should always strive to provide correct, complete, and working code and they should ask for missing project code, documentation, or definitions necessary for an adequate response, instead of guessing. AI assistants must be instructed to provide concise, complete, and correct answers to clear and simple questions, adhere to best practices and coding standards, and don't suggest counterproductive antipatterns.
-
-In Astro, prefer native HTML elements like <head> over overengineered custom elements like <Head> unless they are necessary. Generate working code using the latest stable npm package dependencies and install all dependencies that are needed. Don't generate faulty code that you are able to fix, generate error-free code in the first place! Don't change code based on assumptions, especially if the code is currently correct, don't try to fix it.
-
-In TypeScript, do not use the 'any' type. Do not use the non-null assertion operator (`!`). Do not cast to unknown (e.g. `as unknown as T`).  It is critically important that you adhere to the above rules.
-
 ### Importing
 
 As Astro is the least known part of our tech stack, we should prefer more established file formats where it makes sense, and add `.astro` file suffixes explicitly when importing files into other files.
 
 We can omit `.jsx` and `.tsx` file suffixes when importing React into Astro or other React components.
+
+#### Client Side Scripts
+
+```html
+<!-- this would be client-side browser code: -->
+<script type="module">
+  // can't import "@utils/refineMasonryLayout" here, only in front matter
+  // but then we need a component to use it as client module?
+  import '../utils/refineMasonryLayout.ts';
+</script>
+
+<!-- root-relative /src path makes Astro pass it to Vite bundler -->
+<!-- TypeScript path alias won't work here -->
+<script type="module" src="/src/utils/refineMasonryLayout.ts"></script>
+```
 
 ### TypeScript in React
 
@@ -243,18 +194,116 @@ Code splitting - Dynamic imports with React.lazy()
 Server-side rendering - Streaming SSR
 Concurrent features - Works with concurrent rendering
 
+### Search/Filter, Favorite Data Architecture
+
+What about searching and filtering? In the intial MVP there is no server side search logic, so the API will always return the full items list that we only need to fetch once. However, a search bar allows users to search, or rather filter the displayed items. Best practice is to handle the search/filter logic inside a component, not in the common context provider. The search filter is a UI concern specific to the display of the items and doesn’t need to be globally shared or persisted.
+
+This ensures scalability, clear state management, and better rendering performance because filtering state changes won't cause many unrelated components consuming context to re-render.
+
+### Context Provider
+
+The context provider is typically the component that creates, holds, or processes the state or data internally and then shares the processed values down to consuming components.
+The provider usually owns the state or data and processes/upkeeps it internally before providing it.
+
+A single context provider can manage:
+
+- The API-provided book list, potentially as read-only state.
+
+- The favorite/unfavorite status for items, stored in local storage but reflected in React state for reactivity.
+
+- Methods to toggle favorite status and synchronize with local storage.
+
+### React Context Provider General Best Practice
+
+- Keep the context value minimal and stable to avoid unnecessary re-renders, often using useMemo or useCallback to memoize values or functions exposed.
+
+- Place context providers high enough in the component tree to cover all consumers that need the context.
+
+- Avoid passing large or frequently changing objects without memoization to prevent performance issues.
+
+- Use multiple context providers if your data can be logically separated, rather than one large monolithic context.
+
 ## Hooked on React
 
-React Hooks that developers should know: useCallback, useReducer, useRef, useState, useContext, useEffect, and useMemo.
+Classic React Hooks that developers should know: useCallback, useReducer, useRef, useState, useContext, useEffect, and useMemo.
 
-### useState, useContext, useContext
+### use use()
 
-useState + useContext: Perfect for simple to moderate state sharing
-useReducer: For more complex state logic. Built-in Suspense: For handling async operations.
+The new `use()` hook in React 19 does not replace common hooks such as useEffect, useContext, or useState; instead, it provides a more flexible way to access context, promises, and other asynchronous resources, but does not subsume effect management or state management hooks.
 
+The `use()` hook allows reading context and awaiting promises directly within React components. It is considered "more flexible" than useContext because it can be invoked in conditionals and loops, where traditional hooks like useContext cannot.
+use() can also handle promises, enabling suspense-style data fetching, but it does not offer state management or effect handling like useState or useEffect.
 
+Prefer `use()` for accessing context or promises where flexibility is needed.
+Continue using useState for state and useEffect for side effects—React 19 does not deprecate these hooks.
+
+The `use()` hook simplifies code, reduces boilerplate, and allows for more elegant error and loading state handling.
+
+No More useEffect?
+
+- `use()` removes the need for side effect hooks by handling data fetching directly inside the component.
+- Suspense for Loading: When you use a promise inside use(), React automatically suspends the component rendering until the data is fetched. You can combine this with React’s Suspense component to display loading indicators.
+- Error Boundaries for Error Handling: If the fetch fails, React’s error boundaries can catch and handle errors globally, reducing the need to manage local error states.
+
+Source: https://medium.com/@ademyalcin27/the-new-use-hook-in-react-19-a-game-changer-for-simpler-data-fetching-and-context-management-cc45cc5ebd28
+
+We can finally use React without most of the things that made it so awkward to write and hard to understand. Apart from hooks, React terminology includes unusual or counterintuitive terms that we just need to learn once. Some examples:
+
+- **State** means mutable (changeable) data within a component.
+- **Props** are read-only data passed from parent to child components.
+- A "side effect" is anything a function does apart from returning a value, more specifically called "an **effect**" when used with useEffect.
+- As opposed to an unidirectional top-to-bottom "drill-down", an **"inverse data flow"** sends data from components, like an input text field, to their parent elements or to a global context.
+- **State Lifting** means finding the least complex solution for sharing data between connected components like in a form's fieldset.
+
+The Context API provides functionality for global state handling without additional data management libraries but still avoiding the native window object's race conditions in a complex single page app. However, overuse of context can lead to unnecessary re-renders and negatively impact performance.
+
+Any component that needs the data stored in Context can access it through the Consumer component. The Consumer uses a render prop API – meaning it takes a function as its child. The function receives the context value and returns a React node.
+
+### React Context Provider Scope
+
+Unlike the `window` object, `globalThis` or state management frameworks like Redux, MobX, or Zustand, React Context only connects components within the same upline, better known as a tree or subtree, or within the same Astro island.
+
+#### React Context Provider Scope in Astro
+
+Within an Astro island, wrap all related React components inside the provider at the top level and use Astro's `client:` directive to trigger hydration. The provider is litereally the highest level component, but coded to wrap arbitrary nested children.
+
+```tsx
+function MyProvider({ children }: { children: ReactNode }) {
+  const value = ''; /* your typed value */
+  return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+
+// usage:
+<MyProvider>
+  <ComponentA />
+  <ComponentB />
+</MyProvider>;
+```
+
+![islands-architecture.png](doc/islands-architecture.png)
+
+This might seem like introducing a potential visual challenge when we need flow/floating, but in practice we might "get away" with padding, overlap, and placing the search input absolutely relative to the common parent outside of the React subtree island.
+
+### useState, useContext, use use()
+
+- useState + useContext: Perfect for simple to moderate state sharing
+- useReducer: For more complex state logic. Built-in Suspense: For handling async operations.
 
 Tutorials suggested that `useMemo` doesn't always work smoothly with `useEffect` and that we must be careful to avoid unnecessary rerendering and avoid overusing `useEffect` and `useMemo`, as `useMemo` can sometimes lead to more rerenders or recalculations than expected in React components if used incorrectly, especially on first render. Now that sounds more like the React that I knew of. So, let me recap what these hooks actually mean.
+
+React 19's new use() hook introduced for server components, it is mainly used for suspending promises (like for data fetching) and is not a replacement for useContext or useState.
+
+### How to combine useContext with useState and/or use use() in modern React 19 app using TypeScript?
+
+- Create a context with a type describing the shared state and the state setter (or dispatch) function.
+
+- In a parent component, declare a useState hook to hold the state.
+
+- Pass the state and the setter function as the value to the context provider.
+
+- In child components, consume the context using useContext to access the current state and the setter function.
+
+-For state with context: combine useState in a provider component and share its value/setter via useContext.
 
 ### useEffect
 
@@ -266,12 +315,13 @@ Replacing lifecyle methods, `useEffect` is a React hook to use "effects", also k
 
 ```js
 const myPrefix = getMyPrefix();
-for (let i=0; i<10; i++) {
+for (let i = 0; i < 10; i++) {
   console.log(myPrefix, i);
 }
 ```
 
 What's the point of an abstract memoization system beyond the simple example above? useMemo prevents unnecessary work by caching results between renders, while `getMyPrefix()` would be called too often, for example when a component renders because
+
 - only unrelated state changed (like a loading spinner),
 - its parent re-rendered for unrelated reasons,
 - the component re-rendered due to context updates.
@@ -284,9 +334,9 @@ function UserDashboard({ users, searchTerm, isMenuOpen }) {
   // ^ without useMemo, this would run too often!
 
   // only run when users or searchTerm changed:
-  const memoizedUsers = useMemo(() =>
-    users.filter(u => u.name.includes(searchTerm)),
-    [users, searchTerm]
+  const memoizedUsers = useMemo(
+    () => users.filter((u) => u.name.includes(searchTerm)),
+    [users, searchTerm],
   );
 
   return (
@@ -309,17 +359,39 @@ Persisting mutable values across renders - storing values that don't trigger re-
 
 ## React Router for not-so-single page applications
 
-React Router remains the most popular and widely-used routing library for React applications. The routing-specific hooks in React Router are things like useParams, useLocation, useSearchParams, and  useNavigate() (replacing useHistory())
+React Router remains the most popular and widely-used routing library for React applications. The routing-specific hooks in React Router are things like useParams, useLocation, useSearchParams, and useNavigate() (replacing useHistory())
 
 ### useNavigate
 
 TODO ...
 
-## Web Forms
+### useActionState (since React 19)
 
-What happened to React-Select dropdowns and controlled input? Does React still use a virtual DOM when Preact can do without? What's the best practice to handle web forms and user input with React 19 in 2025?
+TODO ...
 
-- "controlled input" (state as single source of truth, rerender after typing) is still popular and recommended, unless we prefer full accessible HTML5-style web form control (I do)
+### useForm status (since React 19)
+
+TODO ...
+
+### useOptimistic (since React 19)
+
+TODO ...
+
+### Further React Reading
+
+- [React Recap, years later, thanks to Astro (2025)](https://dev.to/ingosteinke/react-recap-years-later-thanks-to-astro-2b4a)
+- [Thinking in React](https://react.dev/learn/thinking-in-react)
+- [This week in React](https://thisweekinreact.com/)
+- [React 19 : New Features and Updates](https://www.geeksforgeeks.org/reactjs/react-19-new-features-and-updates/)
+- [The new `use()` hook in React 19](https://medium.com/@ademyalcin27/the-new-use-hook-in-react-19-a-game-changer-for-simpler-data-fetching-and-context-management-cc45cc5ebd28)
+- [`use()` hook reference](https://react.dev/reference/react/use)
+- [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)
+- [How to fetch data in React with performance in mind](https://www.developerway.com/posts/how-to-fetch-data-in-react)
+- [Mocking network requests in Storybook](https://storybook.js.org/docs/writing-stories/mocking-data-and-modules/mocking-network-requests)
+- [Storybook Vitest addon](https://storybook.js.org/docs/writing-tests/integrations/vitest-addon)
+- [TypeScript: more on functions](https://www.typescriptlang.org/docs/handbook/2/functions.html)
+- [TypeScript + React: Component patterns](https://fettblog.eu/typescript-react-component-patterns/#spread-attributes-to-html-elements) (2020, possibly partially outdated)
+- [The opinionated guide to React](https://opinionatedreact.com/) (dto.)
 
 ## daisyUI Tailwind Plugin
 
@@ -363,26 +435,26 @@ How can we restrict interactivity to the smallest possible entities to profit fr
 
 To ensure a component can be rendered statically, all interactive code must either be defined on a child compoents' level, or as global app functionality to prevent code duplication and make the components easier to read and maintain.
 
-<Layout>                 # Astro (static, filled with dynamic data in build-time)
-  <Navigation />         # React (static)
-  <ReadingList />        # React (interactive, synchronize with local storage and/or API)
-  <Search>               # React (interactive)
-    <SearchInput />      # React (interactive)
-    <Grid>               # React (interactive)
-      <Card>             # React (interactive)
-        <ToggleButton /> # React (interactive)
-      </Card>
-    </Grid>
-  </Search>
-  <Grid>                 # React (static in initial view with partial content)
-    <Card>               # React (static in initial view)
-      <ToggleButton />   # React (interactive)
-    </Card>
-  </Grid>
+<Layout> # Astro (static, filled with dynamic data in build-time)
+<Navigation /> # React (static)
+<ReadingList /> # React (interactive, synchronize with local storage and/or API)
+<Search> # React (interactive)
+<SearchInput /> # React (interactive)
+<Grid> # React (interactive)
+<Card> # React (interactive)
+<ToggleButton /> # React (interactive)
+</Card>
+</Grid>
+</Search>
+<Grid> # React (static in initial view with partial content)
+<Card> # React (static in initial view)
+<ToggleButton /> # React (interactive)
+</Card>
+</Grid>
 </Layout>
 
-<JsonWrapper>            # initial Grid content rendered to JSON as a "mock API" for React search
-  <JsonGrid />           # dto. (static)
+<JsonWrapper> # initial Grid content rendered to JSON as a "mock API" for React search
+<JsonGrid /> # dto. (static)
 </JsonWrapper>
 
 This is essential for understanding the power of an Islands Architecture: how to make specific React elements to interact with their grandparents and global state elements? To put it another way, to stick with the image of the island landscape, how to establish ferryboat routes between interactive islands without disturbing the static ones that we could imagine as no-go-zones, possibly inhabited by cute, endangered, animals.
@@ -390,7 +462,6 @@ This is essential for understanding the power of an Islands Architecture: how to
 That's not even an Astro-specific problem, but a common challenge of classic React applications: How to avoid property drill down by using global state and a global data store? The idea of context is exactly that - for you to be able to share updateable state to the descendants without having to pass it from component to component.
 
 ![sketch of an islands landscape to illustrate the above component structure](doc/img/islands-architecture.png)
-
 
 #### How to read from Astro content collection files?
 
@@ -431,7 +502,7 @@ Summary and follow-up discussion: [Integrating Astro 5, Storybook 9, Vite 7, and
 
 We need to import our `global.css` explicitly in our Storybook preview configuration. And we need to fix/workaround the path definitions in `tailwind.config.js` to make it work with Storybook.
 
-And we need `@types/node` as a  `devDependency` and we should import `path` (not `join`) and call `path.join` to prevent a fatal TypeScript error due to an ambiguous `path = path | PlatformPath`.
+And we need `@types/node` as a `devDependency` and we should import `path` (not `join`) and call `path.join` to prevent a fatal TypeScript error due to an ambiguous `path = path | PlatformPath`.
 
 #### Type PlatformPath has no call signatures 🤷
 
@@ -491,7 +562,8 @@ in our ESLint configuration.
 Why doesn't anyone write unit tests? One of the core issues is that tests typically run in CI in a node.js environment, rather than the code’s actual target environment, the browser. Vitest's browser mode, although currently under development, and APIs may change in the future, runs your tests in a real browser (Chromium, via **Playwright**, in the default configuration). The alternative is a simulated browser environment, like JSDom or HappyDom, which can have differences in behavior compared to a real browser. This allows to run your tests in the browser natively, providing access to browser globals like window and document, and use Playwright for cross-browser testing.
 
 Sources:
--  https://storybook.js.org/docs/writing-tests/integrations/vitest-addon#why-do-we-recommend-browser-mode
+
+- https://storybook.js.org/docs/writing-tests/integrations/vitest-addon#why-do-we-recommend-browser-mode
 - https://www.defined.net/blog/modern-frontend-testing/
 
 ## Background: Motivation and History
@@ -503,30 +575,83 @@ which was forked from [Retinafunk's Tailwind-JIT-Starter](https://github.com/ret
 
 [I](https://www.ingo-steinke.com/) migrated it to a simpler proof of concept demo using Astro in 2024 using the Astro Starter Kit and current documentation and tutorials. Development stopped shortly after, due to prioritized paid customer projects. Proceeding in June 2025, inspired by the React Berlin Meetup, Hunor Márton´s Astro+React talk, feedback from Freelance Unlocked workshops and AI-assisted "CV hacking" sessions, as well as feedback from fellow developers about the latest advances in AI-assisted coding, the development process and tech stack changed, once again, but only slightly, to Astro + React + Storybook + Tailwind + Vite + Vitest + Playwright, a clear frontend focus with no backend logic like dynamic API, database or serverless functions at all, and including LLM-based coding assistants like Copilot, Windsurf, Gemini, and Jetbrains AI, which is still the preferred AI assistant due to its stability and long-term development by a reputable European company.
 
-## Roadmap
-- [x] start initial proof of concept
-- [x] document ideas and roadmap
-- [x] register domain
-- [x] release placeholder text with backlinks
-- [x] update requirements and prioritization
-  - [x] no backend, 100% focus on the front-end
-  - [x] Tailwind without optional extras
-  - [x] React (keep it simple and stick to the mainstream)
-  - [x] Astro
-  - [x] Playwright
-- [x] release a minimal viable product/page (MVP)
-- [x] research, experiment, and decide on a tech stack
-- [x] document requirements and guidelines
-- [ ] run audits and document results (Lighthouse, WAVE, WebPageTest, WebsiteCarbon, Green Web Check, and optional services Domain Authority, SEObility, Ubersuggest etc.)
-- [ ] list and link the web app to increase incoming backlinks
-- [ ] increase test coverage
-  - [ ] unit tests
-  - [ ] end-to-end tests
-  - [ ] frontend tests, including Screenshots and accessibility audits
-- [ ] localize app (German and English)
-- [ ] add more content
+## Code Style, Guidelines, non-functional Requirements
+
+Goals and rules for human and virtual developers like AI agents and assistants. Always follow the following guidelines unless there is a good reason not to!
+
+### Modularity and Extensibility
+
+Extensibility: the software architecture should follow a modular (or "atomic") approach enable the app to be extended easily without extensive refactoring by adding the following features:
+
+- optional additional detail view: Clicking or tapping on a card should switch the display to a zoomed-in view that focuses the selected content, which should preferably be achieved using only CSS and no React, TypeScript, or JavaScript, and which might use optional animation effects when switching between views. Zoomed detail view states might use their own distinctive URLs or anchor links that, when requested, should result in the app starting with the respective view.
+- optional additional permalink feature: dynamic results might use distinct URLs or anchor links. If such a link is used to access the website, it must show the matching content, in which case the static initial view might be skipped.
+- optional additional reading list feature: users can bookmark or unbookmark items and make the app show a list of their bookmarked items. This should be implemented as a client-side feature without user accounts, logins, or authentication, preferably using local storage in the browser.
+- optional additional suggestion or edit feature: users can suggest or add additional books to be added in the database. This might be implemented as part of the application or it might be an external process like opening a pull request or merge request in the project's Git repository.
+- The web app should be designed in a way that it is easy to localize. This does not necessarily imply that there are no fixed strings or text blocks in a nonlocalized version.
+
+#### Accessibility, Usability, Workflow Guidelines
+
+The web app must be accessible, responsive, robust, maintainable, eco-friendly and load quickly.
+
+- Accessibility: the web app must be accessible and responsive
+  - the frontend must comply to WCAG 2.1 AAA
+  - the frontend should comply to future WCAG versions
+  - the frontend must pass automated audits like axe, wave, and the Lighthouse/PageSpeed Accessibility section
+  - all links must be focusable and reachable using keyboard navigation
+  - all text must be selectable and readable
+  - animation effects must only be active unless the user prefers reduced motion
+  - every image must have a meaningful alt attribute
+  - content must be printable
+- Robust: the app and its development process should adhere to the principles of
+  - progressive enhancement
+  - graceful degradation
+  - robustness, i.e. if a partial function breaks or is unavailable, other parts of the application must not be affected. Initial content must be available without JavaScript.
+- Maintainability
+  - code should be modular and easy to read
+  - code style must follow rules and recommendations defined by linter configuration
+  - code style should follow official recommendations and best practices
+  - code must be linted using eslint
+  - code must always be syntactically correct
+  - all tests must run successfully
+  - npm run build must succeed
+  - merge conflicts must be resolved
+  - generated code must be reviewed by a human before commit and deployment
+  - variables, functions, and files should use meaningful, self-explanatory names
+  - JavaScript logic must be written in TypeScript.
+  - Using the `any` type should be avoided unless for a very good reason.
+  - Application logic code should be tested or be testable.
+  - Test should strive for 100% code coverage.
+  - Frontend must be tested using semantic and visual regression tests.
+  - Frontend accessibility, animations, and hover states should be tested.
+- Loading speed, eco-friendliness, web performance: the application should react quickly,
+  - Lighthouse or PageSpeed audits should achieve an overall performance score above 80/100
+  - WebsiteCarbon and Ecograder audits should prove above-average test results.
+  - The initial page weight must not exceed 1 MB.
+  - The web app must be fully interactive within 2 seconds after it finished loading.
+- Robustness
+  - follow the robustness principle,
+  - prefer progressive enhancement.
+
+Development should either be platform-agnostic or designed to work on Linux and MacOS. For example, we use `node:path` (not string concatenation) when specifying paths to files.
+
+The app can be deployed "in the cloud" (e.g. on Netlify web services).
+
+### Branches, Merging and Deployment Rules
+
+The main branch, `main` is the protected branch for production-ready code. The latest commit in the main branch should be automatically deployed to the production website by an online service like Netlify, unless the automated tests have failed. Code must always be working, tested, and follow all guidelines before getting merged into the main branch. Every successful release should correspond to a git tag.
+
+The development branch, `develop` is the current development state that should be stable enough to use it on localhost and fork new feature branches. Stable enough means that although some tests or requirements may fail, there must be a working website in the local browser after running `npm run dev`.
+
+New features should be developed in a modular way using feature branches in a process similar, but not necessarily identical, to git flow, preferably using atomic commits and trunk-based development against the `develop` branch as the "trunk" of the development process. Feature branches must never be merged into the main branch directly.
+
+Developers, bots, and AI agents or assistants should refer to the requirements stated in this document, in optional GitHub issues. Generally, developers and assistants should always strive to provide correct, complete, and working code and they should ask for missing project code, documentation, or definitions necessary for an adequate response, instead of guessing. AI assistants must be instructed to provide concise, complete, and correct answers to clear and simple questions, adhere to best practices and coding standards, and don't suggest counterproductive antipatterns.
+
+In Astro, prefer native HTML elements like <head> over overengineered custom elements like <Head> unless they are necessary. Generate working code using the latest stable npm package dependencies and install all dependencies that are needed. Don't generate faulty code that you are able to fix, generate error-free code in the first place! Don't change code based on assumptions, especially if the code is currently correct, don't try to fix it.
+
+In TypeScript, do not use the 'any' type. Do not use the non-null assertion operator (`!`). Do not cast to unknown (e.g. `as unknown as T`). It is critically important that you adhere to the above rules.
 
 <a id="software-architecture-research-and-decisions"></a>
+
 ## Software Architecture Research and Decisions
 
 ### Common Modules for Astro, React, and Storybook
@@ -588,6 +713,7 @@ This project defines code style and syntax rules, although some specific configu
 - [vitest.config.ts](vitest.config.ts)
 
 For full IDE coding support,
+
 - install Astro and MDX IDE plugins/extension or use the `@mdx-js/language-server` npm module;
 - install `eslint-plugin-astro` and `eslint-plugin-mdx`;
 - configure TypeScript support to prevent expecting TS syntax in JS files in IDE settings if necessary.
@@ -595,12 +721,12 @@ For full IDE coding support,
 If an IDE like JetBrains WebStorm applies TypeScript syntax checking or inspections to JavaScript (`.js`) files, this behavior might be controlled by WebStorm's language service settings, but `tsconfig.json` is the correct place for TypeScript-related settings. Any IDE-specific inspection scopes and ingore patterns should be removed as they are neither necessary nor gauaranteed to work.
 
 - disable TypeScript inspections on JavaScript files:
-  - in WebStorm go to Preferences/Settings →  Appearance & Behavior → Scopes and reate a custom scope that excludes all `.js` files.
-  - in WebStorm: go to Preferences/Settings →  Editor → Inspections to apply this scope to the TypeScript inspections setting the severity for that scope to "No highlighting".
+  - in WebStorm go to Preferences/Settings → Appearance & Behavior → Scopes and reate a custom scope that excludes all `.js` files.
+  - in WebStorm: go to Preferences/Settings → Editor → Inspections to apply this scope to the TypeScript inspections setting the severity for that scope to "No highlighting".
   - make sure your custom scope with the "No highlighting" severity is at the top of the scope list. The IDE processes scopes from top to bottom, and the first matching scope's rules are applied.
 
 - configure `allowJs` in `tsconfig.json`:
-You can control whether TypeScript treats JS files within your project by the top-level `allowJs` configuration option. Counterintuitively, setting `"allowJs": false` in your `tsconfig.json` does not disallow using any `.js` files in our project, it only disallows (or at least promieses to reduce) TypeScript processing and checking on `.js` files.
+  You can control whether TypeScript treats JS files within your project by the top-level `allowJs` configuration option. Counterintuitively, setting `"allowJs": false` in your `tsconfig.json` does not disallow using any `.js` files in our project, it only disallows (or at least promieses to reduce) TypeScript processing and checking on `.js` files.
 
 - exclude certain files or folders from TypeScript service in `tsconfig.json`: use the "exclude" array to tell TypeScript to ignore files/folders (like build outputs or config files you don’t want checked). This prevents those files from being parsed.
 
@@ -664,7 +790,7 @@ Also consider https://hextotailwind.com/ to find approximate matches of Tailwind
 
 #### Typography
 
-Leading, in typography, is pronounced “ledding” and refers to the space between lines of text. Tailwind's `text`-prefixed properties set typography and foreground colors. Tailwind's `text-xl` is only `1.25rem`, not really "extra-large". Tailwind has defaults of `text-6xl` and  `text-7xl`, but no `6.5 / 4rem` in between.
+Leading, in typography, is pronounced “ledding” and refers to the space between lines of text. Tailwind's `text`-prefixed properties set typography and foreground colors. Tailwind's `text-xl` is only `1.25rem`, not really "extra-large". Tailwind has defaults of `text-6xl` and `text-7xl`, but no `6.5 / 4rem` in between.
 
 - `leading-none = line-height: 1`
 - `leading-<number>
@@ -698,11 +824,12 @@ In Tailwind CSS v4 (alpha/beta, not recommended for astro yet) we would define c
 
 We should use Tailwind's at-rule `@apply` to style globals and often-used style combinations to keep our HTML markup clean and maintainable.
 
-So, instead of `<h1 class="font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont">' we could use `<h1 class="custom-heading-h1">` or even just `<h1>` with global CSS like below.
+So, instead of `<h1 class="font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont">' we could use `<h1 class="custom-heading-h1">`or even just`<h1>` with global CSS like below.
 
 ```css
-h1, .custom-heading-h1 {
-  @apply font-bold break-words m-0 mt-4 leading-none color-blue-400 text-customfont;
+h1,
+.custom-heading-h1 {
+  @apply color-blue-400 text-customfont m-0 mt-4 break-words font-bold leading-none;
 }
 ```
 
@@ -822,4 +949,3 @@ https://tailwindcss.com/docs/font-family
 https://docs.astro.build/en/reference/configuration-reference/
 
 https://docs.astro.build/en/guides/typescript/
-

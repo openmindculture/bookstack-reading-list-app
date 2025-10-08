@@ -1,17 +1,16 @@
 import path from 'node:path';
 import type { Config } from 'tailwindcss';
-import daisyui from 'daisyui'
+import daisyui from 'daisyui';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
     path.join(__dirname, './src/**/*.{astro,html,jsx,tsx}'),
+    path.join(__dirname, './src/**/*.stories.ts'),
     path.join(__dirname, './src/**/*.css'),
     path.join(__dirname, './public/**/*.html'),
   ],
-  safelist: [
-    'max-w-36',
-  ],
+  safelist: ['max-w-36'],
   theme: {
     extend: {
       fontFamily: {
@@ -26,7 +25,7 @@ const config: Config = {
         current: 'currentColor',
         white: '#ffffff',
         blue: {
-          'slate': '#6181bd',
+          slate: '#6181bd',
           /* TODO remove unused: */
           sky: '#e3f3ff',
           azure: '#9dc0fa',
@@ -38,9 +37,9 @@ const config: Config = {
           DEFAULT: '#0000ff',
         },
         orange: {
-          'daisy': '#feb94f',
+          daisy: '#feb94f',
         },
-        'tahiti': {
+        tahiti: {
           light: '#cffafe',
           200: '#a5f3fc',
           DEFAULT: '#06b6d4',
