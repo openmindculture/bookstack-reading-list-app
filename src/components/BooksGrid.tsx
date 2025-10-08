@@ -1,6 +1,6 @@
 import { bookSchema } from '@schemas/bookSchema';
 import Book from './Book.tsx';
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useBooksContext } from './BooksContext.tsx';
 import refineMasonryLayout, {
   initMasonryLayouts,
@@ -26,8 +26,7 @@ const BooksGrid = ({ gridId }: BooksGridProps) => {
     };
   });
   const ulRef = useRef<HTMLUListElement>(null);
-  useLayoutEffect(() => {
-    console.log('filtered books:', filteredBooks);
+  useEffect(() => {
     if (!filteredBooks || !filteredBooks.length) {
       setHasResultsFlag(false);
       return;
@@ -35,7 +34,6 @@ const BooksGrid = ({ gridId }: BooksGridProps) => {
     setHasResultsFlag(true);
     if (ulRef.current) {
       refineMasonryLayout(ulRef.current.id);
-      // TODO fix layout
     }
   }, [filteredBooks]);
   return (

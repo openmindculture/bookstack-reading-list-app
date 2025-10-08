@@ -37,6 +37,19 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
   const [allBooks, setAllBooks] = useState<BookProps[]>([]);
   const [filteredBooks, setFilteredBooks] = useState<BookProps[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState<string>('');
+
+  useEffect(() => {
+    // Set a timeout to update debounced value after 500ms
+    const debounceHandler = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 500);
+
+    // Cleanup the timeout if `query` changes before 500ms
+    return () => {
+      clearTimeout(debounceHandler);
+    };
+  }, [searchQuery]);
 
   // Load data once on mount
   useEffect(() => {
@@ -54,16 +67,13 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
     void loadBooks();
   }, []);
 
-  // 2. useEffect reacts when searchQuery changes (after setSearchQuery is called)
   useEffect(() => {
-    // TODO debounce handler
     // TODO fetch from API again when we have a backend that can handle search
-    // TODO filter books matching more fields
-    if (!searchQuery) {
+    if (!debouncedSearchQuery) {
       setFilteredBooks([]);
       return;
     }
-    const searchQueryToLowerCase = searchQuery.toLowerCase();
+    const searchQueryToLowerCase = debouncedSearchQuery.toLowerCase();
     const filtered = allBooks.filter(
       (book) =>
         book.title.toLowerCase().includes(searchQueryToLowerCase) ||
@@ -73,7 +83,7 @@ export const BooksContextProvider = ({ children }: BooksProviderProps) => {
         (book.isbn && book.isbn.toLowerCase().includes(searchQueryToLowerCase)),
     );
     setFilteredBooks(filtered);
-  }, [searchQuery, allBooks]); // Runs when these change
+  }, [debouncedSearchQuery, allBooks]); // Runs when these change
 
   return (
     <BooksContext.Provider
