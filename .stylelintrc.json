@@ -7,6 +7,7 @@
     "color-hex-length": null,
     "declaration-empty-line-before": null,
     "function-url-quotes": "always",
+    "media-feature-range-notation": null,
     "rule-empty-line-before": null
   }
 }
