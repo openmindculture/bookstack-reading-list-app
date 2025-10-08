@@ -41,16 +41,16 @@ This README file contains unfinished and incomplete notes that might be outdated
 - [x] Astro + Vite + Tailwind setup
 - [x] Storybook setup
 - [x] global style apply to Storybook
-- [ ] style class names to components: Detecting classes in source files?, see https://tailwindcss.com/docs/detecting-classes-in-source-files
+- [x] style class names to components: Detecting classes in source files?, see https://tailwindcss.com/docs/detecting-classes-in-source-files
 - [x] second page (ongoing, branch: feature/content-demo)
 - [x] content collection
 - [x] to page with cards
-- [ ] to JSON like API output
+- [x] to JSON like API output
 - [x] Storybook testing
 - [ ] Vitest testing
 - [ ] Storybook+Vitest testing
 - [ ] Playwright end-to-end integration testing
-- [ ] deploy milestone (page 2)
+- [x] deploy milestone (page 2)
 - [x] update blog post draft: even less details
 - [x] clean up README
 
