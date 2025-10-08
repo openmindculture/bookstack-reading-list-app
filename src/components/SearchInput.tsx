@@ -9,7 +9,7 @@ function SearchInput(): JSX.Element {
       <input
         type='text'
         className='grow'
-        placeholder='Search author, title, description, ISBN, year'
+        placeholder='Search author, title, tags, ISBN'
         id='global-search-input'
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}

@@ -46,7 +46,7 @@
 @layer base {
   html,
   body {
-    @apply m-0 p-0 font-atkinson text-base text-lg font-normal not-italic;
+    @apply m-0 p-0 font-atkinson text-base md:text-lg leading-5 md:leading-7 font-normal not-italic;
   }
 
   h1,
@@ -68,7 +68,8 @@
   }
 
   .tile-title {
-    @apply text-3xl;
+    @apply text-lg md:text-3xl line-clamp-3 md:line-clamp-6;
+    line-height: 1.1;
   }
 
   .visually-hidden,
@@ -84,12 +85,24 @@
 
   .custom-grid-container {
     @apply container mx-auto pl-4 pr-12 xl:clear-both;
+    margin-left: -1rem;
   }
 
-  /* TODO fix mobile behavior */
   .custom-grid-has-row-behavior .custom-shifted {
     margin-left: 9.5rem;
     margin-right: -9.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .custom-grid-has-row-behavior .custom-shifted {
+      margin-left: 4rem;
+      margin-right: -4rem;
+      margin-top: -2.5rem !important;
+      margin-bottom: 3.5rem !important;
+    }
+    .custom-grid-container {
+      margin-top: 0.25rem;
+    }
   }
 
   .custom-grid-has-row-behavior .row:not(.row-1) {
@@ -98,12 +111,12 @@
   }
 
   .custom-hex-tile {
-    @apply flex h-96 w-[19rem] max-w-full flex-col items-center justify-center font-atkinson;
+    @apply flex h-40 md:h-96 w-32 md:w-[19rem] max-w-full flex-col items-center justify-center font-atkinson;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 
   .custom-hex-tile-inner {
-    @apply m-0 h-96 w-80 max-w-full bg-blue-sky p-1 text-center;
+    @apply m-0 h-40 md:h-96 w-32 md:w-80 max-w-full bg-blue-sky p-1 text-center;
   }
 
   .custom-hex-tiles-wrapper {
