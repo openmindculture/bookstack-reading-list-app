@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://dev-ux-lesezeichen.de/*"
+  to = "https://devux.ingo-steinke.de/:splat"
+  status = 301
+  force = true
