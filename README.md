@@ -2,11 +2,11 @@
 
 ## Status and Demo
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1b0c9e7c-03c3-4c70-b6bf-cb8d0da569e8/deploy-status)](https://app.netlify.com/sites/uxdevlesezeichen/deploys) ![Dependabot Compatibility Status](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=astro&package-manager=npm_and_yarn&previous-version=5.12.1&new-version=5.12.8)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1b0c9e7c-03c3-4c70-b6bf-cb8d0da569e8/deploy-status)](https://app.netlify.com/projects/uxdevlesezeichen/deploys)
 
 https://uxdevlesezeichen.netlify.app/ ✅✅
 
-https://dev-ux-lesezeichen.de/ ✅✅
+https://devux.ingo-steinke.de/ ✅✅
 
 ### Tech Stack:
 
